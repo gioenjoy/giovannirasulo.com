@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dal Controllo alla Fiducia - Lavagna Workshop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* ── Colori sito v4 ── */
+    --ink:          #1A2535;
+    --ink-soft:     #2E3F55;
+    --muted:        #5C7A99;
+    --faint:        #8FAAC0;
+    --cream:        #EAF0F7;
+    --cream-2:      #DCE9F5;
+    --white:        #FFFFFF;
+    --line:         rgba(26,37,53,.09);
+    --card-bg:      rgba(255,255,255,.9);
+
+    --accent:       #3B6EA5;
+    --accent-mid:   #6E94C3;
+    --accent-light: #A8BCE0;
+
+    --lav:          #D4DCF5;
+    --lav-deep:     #A8BCE0;
+    --sage:         #C8DFF0;
+    --sage-deep:    #8FBCD8;
+    --peach:        #D7E8F7;
+    --peach-deep:   #A5C4E0;
+    --honey:        #C2D8F0;
+
+    /* Dark bg (sezione contatti / header sito) */
+    --dark:         #0F2840;
+    --dark-2:       #1A3A5C;
+    --dark-3:       #1E3D5C;
+
+    /* Feedback colori (checklist) */
+    --green:        #1A7A5A;
+    --green-bg:     #E8F5F0;
+    --red-accent:   #B83B3B;
+    --red-bg:       #F5E8E8;
+
+    /* Typography */
+    --sans:  'DM Sans', system-ui, sans-serif;
+    --head:  'Plus Jakarta Sans', system-ui, sans-serif;
+
+    --radius:    16px;
+    --radius-sm: 8px;
+    --radius-xs: 6px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ───────────────────────────────────────────────────────────── */
+  .header {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+    color: var(--white);
+    padding: 3rem 2.5rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(110,148,195,.25), transparent 70%);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 38%;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,110,165,.2), transparent 70%);
+    pointer-events: none;
+  }
+  .header-inner {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .header-tag {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 1px;
+    background: var(--accent-light);
+  }
+  .header h1 {
+    font-family: var(--head);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .header h1 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent-light);
+  }
+  .header-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,.5);
+    font-weight: 300;
+    max-width: 560px;
+    margin-top: 6px;
+    line-height: 1.6;
+  }
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .author-av {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid rgba(255,255,255,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--head);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 14px; font-weight: 500; color: var(--white); }
+  .author-role { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 1px; }
+
+  /* ── NAV ──────────────────────────────────────────────────────────────── */
+  .nav-wrap {
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,37,53,.06);
+  }
+  .nav {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 1.5rem;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    background: none;
+    border: none;
+    border-bottom: 2.5px solid transparent;
+    padding: 16px 18px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .nav-btn .nav-num {
+    font-size: 10px;
+    font-weight: 500;
+    background: var(--cream-2);
+    color: var(--faint);
+    border-radius: 10px;
+    padding: 1px 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-btn:hover { color: var(--ink); }
+  .nav-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+  .nav-btn.active .nav-num {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  /* ── MAIN ─────────────────────────────────────────────────────────────── */
+  .main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .section { display: none; animation: fadeIn 0.25s ease; }
+  .section.visible { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-header h2 {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .section-header h2 em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .section-header p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 640px;
+    line-height: 1.65;
+  }
+
+  .chapter-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: rgba(255,255,255,.7);
+    border-radius: var(--radius-xs);
+    padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+
+  /* ── TRASFORMAZIONI ───────────────────────────────────────────────────── */
+  .trasf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .trasf-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .trasf-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .trasf-card:hover { box-shadow: 0 8px 28px rgba(26,37,53,.08); transform: translateY(-2px); }
+  .trasf-card.wide { grid-column: span 2; }
+  .trasf-card.wide::before {
+    background: linear-gradient(90deg, var(--lav-deep), var(--accent-mid));
+  }
+
+  .trasf-num {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 42px;
+    color: var(--cream-2);
+    position: absolute;
+    top: 10px; right: 16px;
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.04em;
+  }
+  .trasf-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 12px;
+    margin-top: 4px;
+  }
+  .trasf-from {
+    font-size: 14px;
+    color: var(--faint);
+    text-decoration: line-through;
+    text-decoration-color: rgba(92,122,153,.4);
+    margin-bottom: 4px;
+  }
+  .trasf-arrow {
+    font-size: 18px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .trasf-to {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .trasf-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    border-top: 1px solid var(--line);
+    padding-top: 10px;
+  }
+
+  /* ── PILASTRI ─────────────────────────────────────────────────────────── */
+  .pilastri-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .pilastro {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .pilastro:hover { box-shadow: 0 8px 28px rgba(26,37,53,.08); transform: translateY(-2px); }
+  .pilastro-stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+  .s1 { background: linear-gradient(90deg, var(--lav-deep), var(--lav)); }
+  .s2 { background: linear-gradient(90deg, var(--sage-deep), var(--sage)); }
+  .s3 { background: linear-gradient(90deg, var(--peach-deep), var(--peach)); }
+  .s4 { background: linear-gradient(90deg, var(--accent), var(--accent-mid)); }
+
+  .pilastro-n {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 8px;
+    margin-top: 12px;
+  }
+  .pilastro-title {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .pilastro-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .pilastro-icon {
+    font-size: 26px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  /* ── CASO MARIA ───────────────────────────────────────────────────────── */
+  .maria-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .maria-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px;
+    border: 1px solid var(--line);
+  }
+  .maria-box.problem { border-left: 4px solid var(--red-accent); }
+  .maria-box.solution { border-left: 4px solid var(--green); }
+  .maria-box-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    margin-bottom: 12px;
+  }
+  .maria-quote {
+    font-family: var(--head);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 2px solid var(--accent-light);
+  }
+  .maria-body { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  .results-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .result-card {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+    border-radius: var(--radius);
+    padding: 26px 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(110,148,195,.2), transparent 70%);
+  }
+  .result-num {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 3rem;
+    letter-spacing: -0.03em;
+    color: var(--accent-light);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .result-label { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.45; position: relative; }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .phase-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    border: 1px solid var(--line);
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .phase-card:hover { box-shadow: 0 4px 18px rgba(26,37,53,.07); transform: translateY(-2px); }
+  .phase-n {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.04em;
+    color: var(--cream-2);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .phase-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .phase-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  /* ── RESISTENZE ───────────────────────────────────────────────────────── */
+  .resist-grid { display: grid; gap: 14px; }
+  .resist-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .resist-card:hover { box-shadow: 0 8px 28px rgba(26,37,53,.08); transform: translateY(-2px); }
+
+  .resist-tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .tag-amber { background: var(--honey); color: var(--ink-soft); }
+  .tag-coral { background: var(--peach); color: var(--ink-soft); }
+  .tag-purple { background: var(--lav); color: var(--ink-soft); }
+
+  .resist-name {
+    font-family: var(--head);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .resist-row {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .resist-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .resist-row-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .resist-row-text { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ── CHECKLIST ────────────────────────────────────────────────────────── */
+  .progress-wrap {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .progress-title { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .progress-count { font-size: 13px; color: var(--muted); }
+  .progress-track {
+    height: 6px;
+    background: var(--cream-2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+    border-radius: 6px;
+    transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    width: 0%;
+  }
+
+  .checklist { display: grid; gap: 10px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, border-color 0.2s, background 0.2s;
+    user-select: none;
+  }
+  .check-item:hover { box-shadow: 0 2px 14px rgba(26,37,53,.07); border-color: var(--accent-light); }
+  .check-item.done {
+    background: var(--green-bg);
+    border-color: rgba(26,122,90,.25);
+  }
+  .check-box {
+    width: 22px; height: 22px;
+    border-radius: var(--radius-xs);
+    border: 1.5px solid var(--line);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: background 0.2s, border-color 0.2s;
+    background: var(--cream);
+  }
+  .check-item.done .check-box {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .check-tick {
+    width: 12px; height: 12px;
+    stroke: white;
+    stroke-width: 2.5;
+    fill: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .check-item.done .check-tick { opacity: 1; }
+  .check-body { flex: 1; }
+  .check-text {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.5;
+    transition: color 0.2s;
+  }
+  .check-item.done .check-text {
+    color: var(--muted);
+    text-decoration: line-through;
+    text-decoration-color: rgba(26,122,90,.35);
+  }
+  .check-chapter { font-size: 12px; color: var(--faint); margin-top: 3px; }
+
+  .complete-msg {
+    display: none;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-2) 100%);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 28px;
+    text-align: center;
+    margin-top: 20px;
+    font-family: var(--head);
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    position: relative;
+    overflow: hidden;
+  }
+  .complete-msg::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(110,148,195,.2), transparent 70%);
+  }
+  .complete-msg.visible { display: block; animation: fadeIn 0.4s ease; }
+
+  /* ── FOOTER ───────────────────────────────────────────────────────────── */
+  .footer {
+    background: var(--dark);
+    color: rgba(255,255,255,.4);
+    text-align: center;
+    font-size: 12px;
+    padding: 22px 20px;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .footer strong { color: rgba(255,255,255,.7); }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .header { padding: 2rem 1.25rem 2rem; }
+    .trasf-grid, .pilastri-grid, .maria-timeline, .results-row { grid-template-columns: 1fr; }
+    .trasf-card.wide { grid-column: span 1; }
+    .phases-grid { grid-template-columns: 1fr 1fr; }
+    .resist-card { grid-template-columns: 1fr; gap: 12px; }
+    .nav-btn { padding: 14px 12px; font-size: 12px; }
+  }
+
+  @media print {
+    .nav-wrap { position: static; }
+    .section { display: block !important; page-break-before: always; }
+    .section:first-of-type { page-break-before: avoid; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-tag">Workshop — Lavagna interattiva</div>
+    <h1>Dal Controllo<br>alla <em>Fiducia</em></h1>
+    <div class="header-sub">Il metodo pratico per lavorare in smart working, guidare team performanti e vivere meglio</div>
+    <div class="header-meta">
+      <div class="author-av">GR</div>
+      <div>
+        <div class="author-name">Giovanni Rasulo</div>
+        <div class="author-role">Digital Strategist · Smart Worker dal 2014 · Youcanprint, 2025</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav-wrap">
+  <div class="nav">
+    <button class="nav-btn active" onclick="show('trasf', this)">
+      5 Trasformazioni <span class="nav-num">01</span>
+    </button>
+    <button class="nav-btn" onclick="show('pilastri', this)">
+      4 Pilastri <span class="nav-num">02</span>
+    </button>
+    <button class="nav-btn" onclick="show('maria', this)">
+      Caso Maria <span class="nav-num">03</span>
+    </button>
+    <button class="nav-btn" onclick="show('resist', this)">
+      Le Resistenze <span class="nav-num">04</span>
+    </button>
+    <button class="nav-btn" onclick="show('check', this)">
+      Checklist <span class="nav-num">05</span>
+    </button>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- SEZIONE 1: TRASFORMAZIONI -->
+  <section id="trasf" class="section visible">
+    <div class="section-header">
+      <div class="chapter-badge">Capitolo 1.3</div>
+      <h2>Le 5 trasformazioni mentali</h2>
+      <p>Il percorso che ogni professionista affronta nella transizione allo smart working. Dal cambiamento più profondo — la fiducia — a quello più operativo: la flessibilità strutturata.</p>
+    </div>
+    <div class="trasf-grid">
+      <div class="trasf-card">
+        <div class="trasf-num">01</div>
+        <div class="trasf-label">Prima trasformazione</div>
+        <div class="trasf-from">Controllo</div>
+        <span class="trasf-arrow">↓</span>
+        <div class="trasf-to">Fiducia</div>
+        <div class="trasf-desc">In se stessi, nel team e nel processo. La presenza fisica smette di essere la misura del valore professionale.</div>
+      </div>
+      <div class="trasf-card">
+        <div class="trasf-num">02</div>
+        <div class="trasf-label">Seconda trasformazione</div>
+        <div class="trasf-from">Orario</div>
+        <span class="trasf-arrow">↓</span>
+        <div class="trasf-to">Produttività</div>
+        <div class="trasf-desc">Si misura l'output, non le ore. Ognuno lavora nei propri momenti di picco energetico durante la giornata.</div>
+      </div>
+      <div class="trasf-card">
+        <div class="trasf-num">03</div>
+        <div class="trasf-label">Terza trasformazione</div>
+        <div class="trasf-from">Presenza</div>
+        <span class="trasf-arrow">↓</span>
+        <div class="trasf-to">Risultati</div>
+        <div class="trasf-desc">Il valore si dimostra con i deliverable concreti. La visibilità strategica sostituisce la presenza fisica quotidiana.</div>
+      </div>
+      <div class="trasf-card">
+        <div class="trasf-num">04</div>
+        <div class="trasf-label">Quarta trasformazione</div>
+        <div class="trasf-from">Isolamento</div>
+        <span class="trasf-arrow">↓</span>
+        <div class="trasf-to">Connessione virtuale</div>
+        <div class="trasf-desc">Empatia digitale, socializzazione informale online, senso di appartenenza che non dipende dalla stessa stanza.</div>
+      </div>
+      <div class="trasf-card wide">
+        <div class="trasf-num">05</div>
+        <div class="trasf-label">Quinta trasformazione</div>
+        <div class="trasf-from">Routine imposta dall'esterno</div>
+        <span class="trasf-arrow">↓</span>
+        <div class="trasf-to">Flessibilità strutturata</div>
+        <div class="trasf-desc">Non libertà totale, ma autonomia con metodo. Rituali di inizio e fine giornata, confini chiari tra lavoro e vita personale, adattabilità consapevole.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 2: PILASTRI -->
+  <section id="pilastri" class="section">
+    <div class="section-header">
+      <div class="chapter-badge">Struttura del metodo</div>
+      <h2>I 4 pilastri dello smart working</h2>
+      <p>La struttura portante. Ogni pilastro risponde a una domanda precisa: su cosa si regge un modello di lavoro remoto che funziona davvero e non si sgretola alla prima pressione.</p>
+    </div>
+    <div class="pilastri-grid">
+      <div class="pilastro">
+        <div class="pilastro-stripe s1"></div>
+        <div class="pilastro-n">Pilastro 1</div>
+        <div class="pilastro-title">Autonomia e responsabilità</div>
+        <div class="pilastro-desc">Un nuovo patto tra professionista e organizzazione. Libertà in cambio di accountability sui risultati. Chi lavora da remoto ha più autonomia — e più responsabilità diretta su ciò che consegna.</div>
+      </div>
+      <div class="pilastro">
+        <div class="pilastro-stripe s2"></div>
+        <div class="pilastro-n">Pilastro 2</div>
+        <div class="pilastro-title">Flessibilità consapevole</div>
+        <div class="pilastro-desc">Non libertà fine a se stessa. La flessibilità è uno strumento: si usa per ottimizzare produttività e benessere insieme, non per evitare la struttura. Senza metodo diventa caos.</div>
+      </div>
+      <div class="pilastro">
+        <div class="pilastro-stripe s3"></div>
+        <div class="pilastro-n">Pilastro 3</div>
+        <div class="pilastro-title">Tecnologia abilitante</div>
+        <div class="pilastro-desc">Gli strumenti digitali sono infrastruttura, non accessori. Video, chat, gestione progetti, documentazione condivisa: senza tecnologia adeguata lo smart working non regge, indipendentemente dalla volontà.</div>
+      </div>
+      <div class="pilastro">
+        <div class="pilastro-stripe s4"></div>
+        <div class="pilastro-n">Pilastro 4</div>
+        <div class="pilastro-title">Cultura dei risultati</div>
+        <div class="pilastro-desc">Si misura l'impatto del lavoro, non le ore di presenza. La cultura del deliverable sostituisce quella del badge. Un'organizzazione che non sa misurare i risultati non può fare smart working vero.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 3: CASO MARIA -->
+  <section id="maria" class="section">
+    <div class="section-header">
+      <div class="chapter-badge">Capitolo 1.3.2 — caso studio</div>
+      <h2>Il caso Maria</h2>
+      <p>Manager con 15 anni di esperienza in consulenza. La storia che spiega meglio di ogni teoria cosa significa davvero passare dal controllo alla fiducia — e cosa succede quando ci riesci.</p>
+    </div>
+    <div class="maria-timeline">
+      <div class="maria-box problem">
+        <div class="maria-box-label">Il problema di partenza</div>
+        <div class="maria-quote">"Come posso guidare il mio team senza vederli ogni giorno? Come saprò se stanno davvero lavorando?"</div>
+        <div class="maria-body">Maria replica l'ufficio in digitale: riunioni quotidiane obbligatorie, richieste continue di report sullo stato di avanzamento, videochiamate a sorpresa. Il risultato è un team stressato, una produttività in calo e lei stessa sempre più esausta.</div>
+      </div>
+      <div class="maria-box solution">
+        <div class="maria-box-label">La svolta</div>
+        <div class="maria-quote">"Stai cercando di controllare il processo o di ottenere risultati?"</div>
+        <div class="maria-body">La domanda ricevuta in una sessione di coaching cambia tutto. Maria smette di monitorare le attività ora per ora e inizia a definire output chiari con scadenze precise. Riduce le riunioni, sostituendole con documentazione condivisa. Introduce check-in settimanali individuali focalizzati sul supporto, non sul controllo.</div>
+      </div>
+    </div>
+    <div class="results-row">
+      <div class="result-card">
+        <span class="result-num">+27%</span>
+        <div class="result-label">produttività del team<br>in 6 mesi</div>
+      </div>
+      <div class="result-card">
+        <span class="result-num" style="color:#9FE1CB;">0</span>
+        <div class="result-label">turnover nel periodo —<br>il team non ha perso nessuno</div>
+      </div>
+    </div>
+    <div class="section-header" style="border-bottom: none; padding-bottom: 0; margin-bottom: 1rem;">
+      <h2 style="font-size: 1.35rem;">Le 4 fasi della trasformazione</h2>
+    </div>
+    <div class="phases-grid">
+      <div class="phase-card">
+        <span class="phase-n">1</span>
+        <div class="phase-name">Resistenza</div>
+        <div class="phase-desc">Scetticismo. Si replicano le vecchie dinamiche di controllo in formato digitale.</div>
+      </div>
+      <div class="phase-card">
+        <span class="phase-n">2</span>
+        <div class="phase-name">Adattamento</div>
+        <div class="phase-desc">Si riconoscono i limiti e si adottano nuovi strumenti, mantenendo qualche ancora al vecchio sistema.</div>
+      </div>
+      <div class="phase-card">
+        <span class="phase-n">3</span>
+        <div class="phase-name">Integrazione</div>
+        <div class="phase-desc">Le nuove pratiche vengono interiorizzate e personalizzate. Nasce un sistema ibrido che funziona.</div>
+      </div>
+      <div class="phase-card">
+        <span class="phase-n">4</span>
+        <div class="phase-name">Evoluzione</div>
+        <div class="phase-desc">Lo smart worker diventa proattivo: ottimizza il metodo e lo condivide con il team.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 4: RESISTENZE -->
+  <section id="resist" class="section">
+    <div class="section-header">
+      <div class="chapter-badge">Capitolo 1.3.2</div>
+      <h2>Le 3 resistenze tipiche</h2>
+      <p>Le resistenze interne più comuni nella transizione allo smart working. Non sono segnali di debolezza: sono reazioni normali in un cambiamento reale. La differenza è avere un metodo per affrontarle.</p>
+    </div>
+    <div class="resist-grid">
+      <div class="resist-card">
+        <div class="resist-left">
+          <div class="resist-tag tag-amber">Paura</div>
+          <div class="resist-name">Isola&shy;mento</div>
+        </div>
+        <div class="resist-right">
+          <div class="resist-row">
+            <div class="resist-row-label">Sintomo</div>
+            <div class="resist-row-text">Sensazione di disconnessione dal team. Si smette di sentirsi parte di qualcosa.</div>
+          </div>
+          <div class="resist-row">
+            <div class="resist-row-label">Strategia</div>
+            <div class="resist-row-text">Routine di check-in regolari e momenti di socializzazione virtuale. Si inizia con brevi interazioni quotidiane e si costruisce gradualmente la connessione.</div>
+          </div>
+        </div>
+      </div>
+      <div class="resist-card">
+        <div class="resist-left">
+          <div class="resist-tag tag-coral">Ansia</div>
+          <div class="resist-name">Da produt&shy;tività</div>
+        </div>
+        <div class="resist-right">
+          <div class="resist-row">
+            <div class="resist-row-label">Sintomo</div>
+            <div class="resist-row-text">Preoccupazione costante di non riuscire a mantenere la concentrazione senza la struttura dell'ufficio.</div>
+          </div>
+          <div class="resist-row">
+            <div class="resist-row-label">Strategia</div>
+            <div class="resist-row-text">Sistema personale di tracciamento dei risultati. Obiettivi giornalieri piccoli e misurabili, poi crescere gradualmente nella complessità.</div>
+          </div>
+        </div>
+      </div>
+      <div class="resist-card">
+        <div class="resist-left">
+          <div class="resist-tag tag-purple">Confini</div>
+          <div class="resist-name">Difficoltà nei limiti</div>
+        </div>
+        <div class="resist-right">
+          <div class="resist-row">
+            <div class="resist-row-label">Sintomo</div>
+            <div class="resist-row-text">Tendenza al sovralavoro (non si stacca mai) o alla procrastinazione (si rimanda sempre).</div>
+          </div>
+          <div class="resist-row">
+            <div class="resist-row-label">Strategia</div>
+            <div class="resist-row-text">Routine chiare e spazi dedicati. Rituali di inizio e fine giornata che segnalano al cervello quando il lavoro comincia e quando finisce.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEZIONE 5: CHECKLIST -->
+  <section id="check" class="section">
+    <div class="section-header">
+      <div class="chapter-badge">Capitolo 1.5.1</div>
+      <h2>Checklist della nuova mentalità</h2>
+      <p>Spunta ogni punto per misurare dove sei nel percorso di trasformazione. Non è un test — è un punto di partenza per capire su cosa lavorare per primo.</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-header">
+        <div class="progress-title">Avanzamento</div>
+        <div class="progress-count" id="prog-count">0 di 6 punti completati</div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="prog-fill"></div>
+      </div>
+    </div>
+    <div class="checklist">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">Ho accettato che la produttività non dipende dalla location in cui lavoro</div>
+          <div class="check-chapter">Trasformazione 1 — dal controllo alla fiducia</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">Sono pronto a essere valutato sui risultati che consegno, non sulle ore che passo connesso</div>
+          <div class="check-chapter">Trasformazione 2 — dall'orario alla produttività</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">So come rendere visibile il mio contributo senza dover essere visto fisicamente in ufficio</div>
+          <div class="check-chapter">Trasformazione 3 — dalla presenza ai risultati</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">Ho un piano per mantenere connessioni significative con il mio team anche a distanza</div>
+          <div class="check-chapter">Trasformazione 4 — dall'isolamento alla connessione</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">Ho stabilito confini chiari tra il tempo di lavoro e il tempo personale — e li rispetto</div>
+          <div class="check-chapter">Trasformazione 5 — dalla routine alla flessibilità strutturata</div>
+        </div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">
+          <svg class="check-tick" viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+        </div>
+        <div class="check-body">
+          <div class="check-text">Conosco i miei momenti di picco energetico nella giornata e organizzo il lavoro di conseguenza</div>
+          <div class="check-chapter">Pilastro 2 — flessibilità consapevole</div>
+        </div>
+      </div>
+    </div>
+    <div class="complete-msg" id="complete-msg">
+      Hai completato la checklist. Sei pronto per lo smart working. ✦
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <strong>Dal Controllo alla Fiducia</strong> · Giovanni Rasulo · Youcanprint, 2025 · ISBN 979-12-24019-59-6
+</footer>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('visible');
+    btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.nav-wrap').offsetTop - 1, behavior: 'smooth' });
+  }
+
+  function toggleCheck(el) {
+    el.classList.toggle('done');
+    const total = document.querySelectorAll('.check-item').length;
+    const done  = document.querySelectorAll('.check-item.done').length;
+    document.getElementById('prog-fill').style.width = (done / total * 100) + '%';
+    document.getElementById('prog-count').textContent = done + ' di ' + total + ' punti completati';
+    const msg = document.getElementById('complete-msg');
+    if (done === total) msg.classList.add('visible');
+    else msg.classList.remove('visible');
+  }
+</script>
+</body>
+</html>
