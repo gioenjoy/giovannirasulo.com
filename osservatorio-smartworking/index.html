@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Osservatorio Smart Working — cosa consiglia l'AI sul lavoro da remoto | Rasulo</title>
+<meta name="description" content="L'Osservatorio Smart Working di Giovanni Rasulo: quali aziende, strumenti e luoghi consiglia l'AI per il lavoro da remoto. Cosa sa a memoria e cosa cita cercando sul web, dati alla mano.">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="L'Osservatorio Smart Working — cosa consiglia l'AI sul lavoro da remoto">
+<meta property="og:description" content="Ricerca dopo ricerca, misuriamo cosa consiglia l'AI nel mondo del lavoro da remoto. Dati alla mano.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.giovannirasulo.com/osservatorio-smartworking/">
+<link rel="canonical" href="https://www.giovannirasulo.com/osservatorio-smartworking/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#EAF0F7; --cream-2:#DCE9F5;
+  --lavender:#D4DCF5; --lavender-deep:#A8BCE0;
+  --peach:#D7E8F7; --peach-deep:#A5C4E0;
+  --sage:#C8DFF0; --sage-deep:#8FBCD8;
+  --rose:#C8D9EC; --honey:#C2D8F0; --sky-mid:#B8D4EB;
+  --ink:#1A2535; --ink-soft:#2E3F55; --muted:#5C7A99;
+  --bg:#EAF0F7; --bg-2:#DCE9F5; --card:rgba(255,255,255,.82); --card-2:#F1F6FB;
+  --line:rgba(26,37,53,.09); --line-2:rgba(26,37,53,.06);
+  --accent:#3B6EA5; --accent-mid:#6E94C3; --accent-deep:#1a3a6a; --accent-warm:#5B7FA0;
+  --gold:#C79A2E; --pos:#128216;
+  --navy-grad:linear-gradient(135deg,#0F2840 0%,#1A3A5C 100%);
+  --hero-grad:linear-gradient(125deg,var(--lavender) 0%,var(--peach) 55%,var(--honey) 100%);
+  --shadow:0 14px 36px rgba(26,37,53,.08);
+  --radius:22px; --maxw:1000px;
+}
+html[data-theme="dark"]{
+  --ink:#E8EFF7; --ink-soft:#C3D2E4; --muted:#8AA6C4;
+  --bg:#0B1622; --bg-2:#0F1E2E; --card:#132435; --card-2:#0F1E2E;
+  --line:rgba(232,239,247,.12); --line-2:rgba(232,239,247,.07);
+  --accent:#6E94C3; --accent-mid:#8FB2D8; --accent-deep:#9FC0E4;
+  --gold:#E0B84E; --pos:#4FC463;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);
+  color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 84% 6%, rgba(110,148,195,.22), transparent 52%),
+    radial-gradient(circle at 8% 26%, rgba(168,188,224,.20), transparent 48%),
+    radial-gradient(circle at 62% 96%, rgba(194,216,240,.22), transparent 52%);}
+h1,h2,h3{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+header.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
+.topbar{display:flex;align-items:center;gap:14px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Plus Jakarta Sans';color:var(--ink)}
+.logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+.logo small{display:block;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.top-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
+  padding:7px 14px;font:inherit;font-size:.82rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent-mid);text-decoration:none}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-deep));color:#fff;border:0}
+.iconbtn{width:36px;height:36px;padding:0;justify-content:center;border-radius:10px}
+.pill{font-size:.72rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--ink-soft);background:var(--card)}
+.pill.accent{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:transparent;color:var(--accent-deep)}
+
+/* hero */
+.hero{padding:58px 0 30px}
+.hero .kick{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+h1{font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.02;font-weight:800;margin:.1em 0 .3em}
+.lede{font-size:clamp(1.05rem,2.3vw,1.3rem);color:var(--ink-soft);max-width:60ch}
+.hstats{display:flex;gap:26px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.hstat b{display:block;font-family:'Plus Jakarta Sans';font-size:1.35rem;font-weight:700}
+.hstat span{font-size:.8rem;color:var(--muted)}
+
+/* category */
+.cat{padding:26px 0}
+.cat-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.cat-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin:0}
+.cat-head .count{font-size:.8rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+
+.rcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .18s,border-color .18s}
+.rcard.live:hover{transform:translateY(-3px);border-color:var(--accent-mid)}
+.rcard .rtop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent-deep);border-radius:6px;padding:3px 8px}
+.tag.new{background:color-mix(in srgb,var(--gold) 22%,transparent);color:#8a6a12}
+html[data-theme="dark"] .tag.new{color:var(--gold)}
+.date{font-size:.74rem;color:var(--muted)}
+.rcard h3{font-size:1.22rem;margin:0;line-height:1.25}
+.rcard .desc{font-size:.92rem;color:var(--muted);margin:0}
+
+.podium3{border:1px solid var(--line-2);border-radius:12px;background:var(--card-2);padding:12px 14px}
+.podium3 .lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:8px}
+.podium3 ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.podium3 li{display:flex;align-items:center;gap:10px;font-size:.95rem}
+.podium3 .rk{width:20px;height:20px;flex:none;border-radius:6px;display:grid;place-items:center;
+  font-family:'Plus Jakarta Sans';font-weight:800;font-size:.72rem;background:var(--line-2);color:var(--ink-soft)}
+.podium3 li:first-child .rk{background:color-mix(in srgb,var(--gold) 30%,var(--card));color:#7a5c10}
+html[data-theme="dark"] .podium3 li:first-child .rk{color:var(--gold)}
+.podium3 .nm{font-weight:600}
+
+.rcard .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.open{font-weight:700;font-family:'Plus Jakarta Sans';font-size:.92rem;color:var(--accent)}
+
+.rcard.soon{opacity:.9;background:var(--card-2);border-style:dashed}
+.rcard.soon h3{color:var(--ink-soft)}
+.soonbadge{font-size:.72rem;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+
+/* CTA */
+.cta{background:var(--navy-grad);color:#fff;border-radius:28px;padding:34px;margin:34px 0}
+.cta h2{color:#fff;max-width:22ch;font-size:clamp(1.4rem,3.2vw,2rem)}
+.cta p{opacity:.95;max-width:62ch}
+.cta a.btn.primary{background:#fff;color:var(--accent-deep)}
+.cta .contact{margin-top:14px;font-size:.86rem;opacity:.92}
+
+footer{border-top:1px solid var(--line);margin-top:24px;padding:26px 0 60px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap topbar">
+    <a class="logo" href="/osservatorio-smartworking/" style="text-decoration:none"><span class="mark">GR</span><span>Giovanni Rasulo<small>Osservatorio Smart Working</small></span></a>
+    <div class="top-actions">
+      <a class="btn" href="/smart-working.html">Il metodo</a>
+      <button class="btn iconbtn" id="themeBtn" title="Tema chiaro/scuro" aria-label="Cambia tema">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero"><div class="wrap">
+  <div class="kick"><span class="pill accent">Osservatorio Smart Working · Italia</span></div>
+  <h1>L'Osservatorio</h1>
+  <p class="lede">Cosa consiglia l'AI nel mondo del lavoro da remoto — cosa «sa» a memoria e cosa cita quando cerca sul web. Ricerca dopo ricerca, tema dopo tema, con i dati alla mano.</p>
+  <div class="hstats">
+    <div class="hstat"><b>1</b><span>report pubblicato</span></div>
+    <div class="hstat"><b>Claude Opus 4.8</b><span>modello misurato · IT</span></div>
+    <div class="hstat"><b>Luglio 2026</b><span>ultimo aggiornamento</span></div>
+  </div>
+</div></section>
+
+<!-- CATEGORY: LAVORO DA REMOTO -->
+<section class="cat"><div class="wrap">
+  <div class="cat-head"><h2>Lavoro da remoto</h2><span class="count">1 report · altri in arrivo</span></div>
+  <div class="cards">
+
+    <!-- LIVE REPORT -->
+    <a class="rcard live" href="/osservatorio-smartworking/aziende-topten">
+      <div class="rtop"><span class="tag">Aziende</span><span class="date">Luglio 2026</span></div>
+      <h3>Aziende remote &amp; ibride — quali consiglia l'AI</h3>
+      <p class="desc">La TOP 10 delle aziende che l'AI associa al lavoro da remoto in Italia: full remote e ibrido, italiane e straniere. Memoria del modello vs citazioni live.</p>
+      <div class="podium3">
+        <div class="lab">In vetta per l'AI</div>
+        <ol>
+          <li><span class="rk">1</span><span class="nm">Automattic</span></li>
+          <li><span class="rk">2</span><span class="nm">GitLab</span></li>
+          <li><span class="rk">3</span><span class="nm">Contentsquare</span></li>
+        </ol>
+      </div>
+      <div class="foot"><span class="open">Apri il report →</span></div>
+    </a>
+
+    <!-- COMING SOON -->
+    <div class="rcard soon">
+      <div class="rtop"><span class="tag new">In arrivo</span></div>
+      <h3>Città italiane per lavorare da remoto — quali consiglia l'AI</h3>
+      <p class="desc">Dove l'AI manda chi cerca una base per il lavoro da remoto in Italia: costo della vita, connessione, community.</p>
+      <div class="foot"><span class="soonbadge">Prossimamente</span></div>
+    </div>
+
+    <div class="rcard soon">
+      <div class="rtop"><span class="tag new">In arrivo</span></div>
+      <h3>Aziende italiane top 10 che hanno aperto posizioni full remote nell'ultimo anno</h3>
+      <p class="desc">Le realtà italiane che nell'ultimo anno hanno davvero aperto nuove posizioni full remote: chi sta investendo sul lavoro da remoto, non a parole.</p>
+      <div class="foot"><span class="soonbadge">Prossimamente</span></div>
+    </div>
+
+    <div class="rcard soon">
+      <div class="rtop"><span class="tag new">In arrivo</span></div>
+      <h3>Professioni più remotizzabili — cosa dice l'AI</h3>
+      <p class="desc">Quali lavori l'AI considera davvero adatti al full remote, e quali restano legati alla presenza.</p>
+      <div class="foot"><span class="soonbadge">Prossimamente</span></div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section><div class="wrap">
+  <div class="cta">
+    <span class="eyebrow" style="color:rgba(255,255,255,.85)">Smart working · come ottenerlo o trovarlo</span>
+    <h2>Dai numeri all'azione: lavora da remoto davvero</h2>
+    <p>L'Osservatorio misura dove l'AI trova il lavoro da remoto. Il passo dopo è tuo: ottenere lo smart working dove sei, o candidarti dove il remoto è già la norma. È esattamente il metodo che insegno.</p>
+    <p style="margin-top:16px"><a class="btn primary" href="/smart-working.html">Scopri il metodo →</a></p>
+    <div class="contact">Giovanni Rasulo · giovannirasulo.com · marketing@giovannirasulo.com</div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  Osservatorio Smart Working · Italia · a cura di Giovanni Rasulo, Digital Strategist. Pratica smart working dal 2014, autore di «Dal Controllo alla Fiducia».
+  I report misurano cosa un modello AI consiglia in una specifica finestra temporale e non costituiscono un giudizio sulle realtà citate.
+</div></footer>
+
+<script>
+const tbtn=document.getElementById('themeBtn');
+function setTheme(t){document.documentElement.setAttribute('data-theme',t);
+  tbtn.textContent=t==='dark'?'☀':'☾';localStorage.setItem('osw-theme',t);}
+tbtn.onclick=()=>setTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');
+setTheme(localStorage.getItem('osw-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+</script>
+</body>
+</html>
