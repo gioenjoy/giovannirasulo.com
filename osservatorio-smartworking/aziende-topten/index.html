@@ -16,14 +16,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0F2840; --ink-soft:#2E3F55; --muted:#5C7A99;
-  --bg:#EAF0F7; --bg-2:#DCE9F5; --card:#ffffff; --card-2:#F4F8FC;
-  --line:rgba(15,40,64,.10); --line-2:rgba(15,40,64,.06);
-  --accent:#3B6EA5; --accent-mid:#6E94C3; --accent-deep:#1a3a6a;
+  --cream:#EAF0F7; --cream-2:#DCE9F5;
+  --lavender:#D4DCF5; --lavender-deep:#A8BCE0;
+  --peach:#D7E8F7; --peach-deep:#A5C4E0;
+  --sage:#C8DFF0; --sage-deep:#8FBCD8;
+  --rose:#C8D9EC; --honey:#C2D8F0; --sky-mid:#B8D4EB;
+  --ink:#1A2535; --ink-soft:#2E3F55; --muted:#5C7A99;
+  --bg:#EAF0F7; --bg-2:#DCE9F5; --card:rgba(255,255,255,.82); --card-2:#F1F6FB;
+  --line:rgba(26,37,53,.09); --line-2:rgba(26,37,53,.06);
+  --accent:#3B6EA5; --accent-mid:#6E94C3; --accent-deep:#1a3a6a; --accent-warm:#5B7FA0;
   --gold:#C79A2E; --pos:#128216; --neg:#B23B3B;
   --mem:#3B6EA5; --live:#C79A2E;
-  --shadow:0 1px 2px rgba(15,40,64,.05),0 10px 30px rgba(15,40,64,.06);
-  --radius:18px; --maxw:960px;
+  --navy-grad:linear-gradient(135deg,#0F2840 0%,#1A3A5C 100%);
+  --hero-grad:linear-gradient(125deg,var(--lavender) 0%,var(--peach) 55%,var(--honey) 100%);
+  --shadow:0 14px 36px rgba(26,37,53,.08);
+  --radius:22px; --maxw:960px;
 }
 html[data-theme="dark"]{
   --ink:#E8EFF7; --ink-soft:#C3D2E4; --muted:#8AA6C4;
@@ -37,13 +44,16 @@ html[data-theme="dark"]{
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;background:
-    radial-gradient(1200px 600px at 80% -10%, var(--bg-2), transparent 60%),
-    var(--bg);
+  margin:0;background:var(--bg);
   color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;
   font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;
   transition:background .3s,color .3s;
 }
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(circle at 84% 6%, rgba(110,148,195,.22), transparent 52%),
+    radial-gradient(circle at 8% 26%, rgba(168,188,224,.20), transparent 48%),
+    radial-gradient(circle at 62% 96%, rgba(194,216,240,.22), transparent 52%);}
 h1,h2,h3,.brandfont{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.02em}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
@@ -94,7 +104,7 @@ h3{font-size:1.06rem;font-weight:700;margin:0 0 .3em}
 @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
 
 /* verdict */
-.verdict{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;border:0}
+.verdict{background:var(--navy-grad);color:#fff;border:0}
 .verdict .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0}
 @media(max-width:720px){.verdict .vgrid{grid-template-columns:1fr}}
 .vcard{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:14px 16px}
@@ -182,7 +192,7 @@ html[data-theme="dark"] .lab.live-only{color:#E0B84E}
 .sumcard p{margin:0;font-size:.92rem;color:var(--ink-soft)}
 
 /* CTA */
-.cta{background:linear-gradient(135deg,var(--accent-deep),var(--accent));color:#fff;border-radius:24px;padding:34px;margin:20px 0}
+.cta{background:var(--navy-grad);color:#fff;border-radius:28px;padding:34px;margin:20px 0}
 .cta h2{color:#fff;max-width:20ch}
 .cta .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
 @media(max-width:620px){.cta .steps{grid-template-columns:1fr}}
@@ -209,7 +219,7 @@ svg{max-width:100%;height:auto}
 <body>
 <header class="top">
   <div class="wrap topbar">
-    <div class="logo"><span class="mark">GR</span><span>Giovanni Rasulo<small>Osservatorio Smart Working</small></span></div>
+    <a class="logo" href="/osservatorio-smartworking/" style="text-decoration:none"><span class="mark">GR</span><span>Giovanni Rasulo<small>Osservatorio Smart Working</small></span></a>
     <div class="top-actions">
       <span class="pill accent" style="align-self:center">Edizione · luglio 2026</span>
       <button class="btn iconbtn" id="themeBtn" title="Tema chiaro/scuro" aria-label="Cambia tema">☾</button>
@@ -277,7 +287,7 @@ svg{max-width:100%;height:auto}
   <div class="card"><div id="map"></div>
     <div class="legend">
       <span><span class="dot mem"></span>memoria-dominante</span>
-      <span><span class="dot live"></span>live-dominante (GEO)</span>
+      <span><span class="dot live"></span>live-dominante</span>
       <span><span class="dot" style="background:var(--pos)"></span>consolidato</span>
       <span><span class="dot" style="background:var(--muted)"></span>nicchia</span>
     </div>
@@ -501,21 +511,18 @@ function drawMap(){
   const y=v=>H-pad-(v/100)*(H-pad*1.6);
   const acc=cssv('--accent'),gold=cssv('--gold'),mut=cssv('--muted'),line=cssv('--line'),ink=cssv('--muted');
   let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mappa memoria per live">`;
-  // quadrant guides
   s+=`<line x1="${x(50)}" y1="${pad-10}" x2="${x(50)}" y2="${H-pad}" stroke="${line}" stroke-dasharray="4 5"/>`;
   s+=`<line x1="${pad}" y1="${y(50)}" x2="${W-pad*.4}" y2="${y(50)}" stroke="${line}" stroke-dasharray="4 5"/>`;
-  // axes labels
   s+=`<text x="${W-pad*.4}" y="${H-pad+22}" text-anchor="end" font-size="12" fill="${mut}">live →</text>`;
   s+=`<text x="${pad-8}" y="${pad-2}" font-size="12" fill="${mut}">↑ memoria</text>`;
   s+=`<text x="${x(75)}" y="${y(97)}" font-size="11" fill="${mut}" opacity=".8">consolidato</text>`;
-  s+=`<text x="${x(75)}" y="${y(6)}" font-size="11" fill="${mut}" opacity=".8">live-dominante (GEO)</text>`;
+  s+=`<text x="${x(75)}" y="${y(6)}" font-size="11" fill="${mut}" opacity=".8">live-dominante</text>`;
   C.forEach(c=>{
     const bal=(c.mem>50&&c.live>50);
     const col = c.n==="Automattic"?gold : bal?cssv('--pos') : c.mem>c.live?acc:cssv('--live');
     const rr=6+ (c.live+c.mem)/40;
     if(c.n==="Automattic") s+=`<circle cx="${x(c.live)}" cy="${y(c.mem)}" r="${rr+7}" fill="none" stroke="${gold}" stroke-width="2"/>`;
     s+=`<circle cx="${x(c.live)}" cy="${y(c.mem)}" r="${rr}" fill="${col}" fill-opacity=".82"/>`;
-    // labels for notable
     if(["Automattic","GitLab","Contentsquare","Enel","Coverflex","Toptal","Intesa Sanpaolo","Bending Spoons","Microsoft Italia","Vodafone Italia"].includes(c.n)){
       const dx=c.live>60?-8:9, anc=c.live>60?"end":"start";
       s+=`<text x="${x(c.live)+dx}" y="${y(c.mem)+4}" font-size="11.5" fill="${cssv('--ink')}" text-anchor="${anc}">${c.n}</text>`;
