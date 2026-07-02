@@ -61,7 +61,8 @@ header.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
 .topbar{display:flex;align-items:center;gap:14px;height:60px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-family:'Plus Jakarta Sans';color:var(--ink)}
 .logo .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent-deep));
-  color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;overflow:hidden}
+.logo .mark img{width:100%;height:100%;object-fit:cover;display:block}
 .logo small{display:block;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .top-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
 .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
@@ -128,11 +129,12 @@ html[data-theme="dark"] .podium3 li:first-child .rk{color:var(--gold)}
 
 footer{border-top:1px solid var(--line);margin-top:24px;padding:26px 0 60px;color:var(--muted);font-size:.85rem}
 </style>
+<link rel="icon" type="image/jpeg" href="__URI__">
 </head>
 <body>
 <header class="top">
   <div class="wrap topbar">
-    <a class="logo" href="/osservatorio-smartworking/" style="text-decoration:none"><span class="mark">GR</span><span>Giovanni Rasulo<small>Osservatorio Smart Working</small></span></a>
+    <a class="logo" href="/osservatorio-smartworking/" style="text-decoration:none"><span class="mark"><img src="__URI__" alt="Giovanni Rasulo"></span><span>Giovanni Rasulo<small>Osservatorio Smart Working</small></span></a>
     <div class="top-actions">
       <a class="btn" href="/smart-working.html">Il metodo</a>
       <button class="btn iconbtn" id="themeBtn" title="Tema chiaro/scuro" aria-label="Cambia tema">☾</button>
