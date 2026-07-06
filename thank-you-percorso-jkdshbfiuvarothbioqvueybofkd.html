@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- consenso cookie: blocca GA finché non accettato -->
+<script>if(localStorage.getItem('cookie-consent')!=='accepted'){window['ga-disable-G-1Q1LLRPZYP']=true;}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q1LLRPZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1Q1LLRPZYP');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accesso confermato - Giovanni Rasulo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A2535;
+  --ink-soft:#2E3F55;
+  --muted:#5C7A99;
+  --faint:#8FAAC0;
+  --cream:#EAF0F7;
+  --cream-2:#DCE9F5;
+  --white:#FFFFFF;
+  --line:rgba(26,37,53,.09);
+  --accent:#3B6EA5;
+  --accent-mid:#6E94C3;
+  --accent-light:#A8BCE0;
+  --dark:#0F2840;
+  --dark-2:#1A3A5C;
+  --green:#1A7A5A;
+  --green-bg:#E8F5F0;
+  --head:'Plus Jakarta Sans',system-ui,sans-serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  display:flex;
+  flex-direction:column;
+}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2rem;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{
+  font-family:var(--head);font-weight:700;font-size:1rem;
+  color:var(--ink);display:flex;align-items:center;gap:.5rem;
+}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+
+/* HERO CONFERMA */
+.confirm{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 100%);
+  padding:4rem 2rem 3.5rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.confirm::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(110,148,195,.18),transparent 70%);
+  pointer-events:none;
+}
+.confirm::after{
+  content:'';position:absolute;bottom:-60px;left:-40px;
+  width:240px;height:240px;border-radius:50%;
+  background:radial-gradient(circle,rgba(59,110,165,.15),transparent 70%);
+  pointer-events:none;
+}
+.confirm-inner{max-width:620px;margin:0 auto;position:relative;z-index:1;}
+.confirm-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:rgba(26,122,90,.2);
+  border:2px solid rgba(26,122,90,.4);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;
+}
+.confirm-icon svg{width:32px;height:32px;stroke:#4ADE80;stroke-width:2.2;fill:none;}
+.confirm h1{
+  font-family:var(--head);font-weight:700;
+  font-size:clamp(1.9rem,5vw,3rem);
+  line-height:1.1;letter-spacing:-.025em;
+  color:#fff;margin-bottom:.9rem;
+}
+.confirm h1 em{font-style:italic;color:var(--accent-light);}
+.confirm-sub{
+  font-size:1.05rem;line-height:1.7;
+  color:rgba(255,255,255,.65);
+  max-width:480px;margin:0 auto;
+}
+
+/* MAIN CONTENT */
+.main{flex:1;max-width:720px;margin:0 auto;padding:3rem 1.5rem 4rem;width:100%;}
+
+/* ACCESSO BOX */
+.access-box{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:2rem 2rem;margin-bottom:2rem;
+  position:relative;overflow:hidden;
+}
+.access-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--green),#4ADE80);
+  border-radius:4px 4px 0 0;
+}
+.access-tag{
+  font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green);margin-bottom:1rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.access-tag::before{content:'';display:inline-block;width:16px;height:1px;background:var(--green);}
+.access-title{
+  font-family:var(--head);font-weight:700;font-size:1.25rem;
+  color:var(--ink);margin-bottom:.5rem;line-height:1.25;
+}
+.access-desc{font-size:.92rem;line-height:1.68;color:var(--muted);margin-bottom:1.5rem;}
+
+.access-links{display:flex;flex-direction:column;gap:.75rem;}
+.access-link{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--cream);
+  border:1px solid var(--line);border-radius:12px;
+  padding:1rem 1.25rem;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.access-link:hover{
+  border-color:var(--accent-light);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(26,37,53,.07);
+}
+.access-link-icon{
+  width:42px;height:42px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;
+}
+.ic-pdf{background:rgba(220,60,60,.1);}
+.ic-video{background:rgba(59,110,165,.1);}
+.ic-zip{background:rgba(110,148,195,.12);}
+.ic-cal{background:rgba(26,122,90,.1);}
+.access-link-body{flex:1;}
+.access-link-title{font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:.15rem;}
+.access-link-meta{font-size:.78rem;color:var(--muted);}
+.access-link-arrow{
+  font-size:1.1rem;color:var(--accent);opacity:.7;
+  transition:transform .2s,opacity .2s;
+}
+.access-link:hover .access-link-arrow{transform:translateX(3px);opacity:1;}
+
+/* STEPS */
+.steps-box{
+  background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:2rem;margin-bottom:2rem;
+}
+.steps-title{
+  font-family:var(--head);font-weight:700;font-size:1.1rem;
+  color:var(--ink);margin-bottom:1.5rem;
+}
+.steps{display:flex;flex-direction:column;gap:1.1rem;}
+.step{display:flex;align-items:flex-start;gap:1rem;}
+.step-n{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  background:var(--cream-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:700;font-size:.8rem;color:var(--accent);
+  margin-top:.1rem;
+}
+.step-body{}
+.step-title{font-weight:600;font-size:.95rem;color:var(--ink);margin-bottom:.2rem;}
+.step-desc{font-size:.85rem;color:var(--muted);line-height:1.55;}
+
+/* AUTHOR */
+.author-box{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 100%);
+  border-radius:20px;padding:2rem;
+  display:flex;align-items:center;gap:1.5rem;
+  position:relative;overflow:hidden;
+  margin-bottom:2rem;
+}
+.author-box::before{
+  content:'';position:absolute;top:-40px;right:-40px;
+  width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(110,148,195,.2),transparent 70%);
+}
+.author-av{
+  width:56px;height:56px;border-radius:50%;flex-shrink:0;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:700;font-size:1.1rem;color:#fff;
+  border:3px solid rgba(255,255,255,.2);
+  position:relative;z-index:1;
+}
+.author-body{position:relative;z-index:1;}
+.author-name{font-family:var(--head);font-weight:700;font-size:1rem;color:#fff;margin-bottom:.25rem;}
+.author-note{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.55;}
+.author-note a{color:var(--accent-light);font-weight:500;}
+.author-note a:hover{color:#fff;}
+
+/* FOOTER */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.4);
+  text-align:center;padding:1.5rem;font-size:.8rem;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+footer a{color:rgba(255,255,255,.65);}
+footer a:hover{color:#fff;}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .nav{padding:.9rem 1.25rem;}
+  .confirm{padding:3rem 1.25rem 2.5rem;}
+  .main{padding:2rem 1.25rem 3rem;}
+  .access-box,.steps-box,.author-box{padding:1.5rem 1.25rem;}
+  .author-box{flex-direction:column;text-align:center;}
+  .author-av{margin:0 auto;}
+}
+</style>
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://www.giovannirasulo.com" class="nav-logo">
+    <span class="nav-dot"></span>Giovanni Rasulo
+  </a>
+</nav>
+
+<!-- CONFERMA -->
+<section class="confirm">
+  <div class="confirm-inner">
+    <div class="confirm-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1>Pagamento confermato.</h1>
+    <p class="confirm-sub">Hai fatto la scelta giusta. Sotto trovi tutto quello che ti serve per iniziare adesso.</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- ACCESSO AI MATERIALI -->
+  <div class="access-box">
+    <div class="access-tag">Accesso immediato</div>
+    <div class="access-title">Il tuo materiale ti aspetta qui sotto.</div>
+    <div class="access-desc">
+      Salva questa pagina nei segnalibri o metti da parte l'email di conferma che hai ricevuto. L'accesso non scade mai.
+    </div>
+
+    <div class="access-links">
+
+      <!-- =====================================================
+           LINK 1: PDF GUIDA PRINCIPALE
+           Sostituisci href="#" con il link Google Drive o Dropbox
+           al file PDF "Come ottenere lo smart working"
+           Esempio: https://drive.google.com/file/d/XXXXXX/view
+           ===================================================== -->
+      <a href="#" class="access-link" data-key="pdf" target="_blank" rel="noopener">
+        <div class="access-link-icon ic-pdf">📄</div>
+        <div class="access-link-body">
+          <div class="access-link-title">Guida PDF — Come ottenere lo smart working</div>
+          <div class="access-link-meta">30+ pagine · PDF · scarica o leggi online</div>
+        </div>
+        <div class="access-link-arrow">&#8594;</div>
+      </a>
+
+      <!-- =====================================================
+           LINK 2: TEMPLATE PACK (ZIP o Google Drive folder)
+           Sostituisci href="#" con il link alla cartella con:
+           - 3 email template
+           - checklist 20 punti
+           - template smart policy
+           - lista 50 aziende remote
+           ===================================================== -->
+      <a href="#" class="access-link" data-key="template" target="_blank" rel="noopener">
+        <div class="access-link-icon ic-zip">📁</div>
+        <div class="access-link-body">
+          <div class="access-link-title">Template Pack — Email, checklist, smart policy</div>
+          <div class="access-link-meta">Cartella Google Drive · 5 file pronti all'uso</div>
+        </div>
+        <div class="access-link-arrow">&#8594;</div>
+      </a>
+
+      <!-- =====================================================
+           LINK 3: VIDEO CORSO (solo per piano Percorso e VIP)
+           Sostituisci href="#" con il link Loom, Vimeo o
+           pagina privata con i video del corso (4 moduli)
+           Se usi un piano Starter, puoi nascondere questo link
+           aggiungendo style="display:none;" all'elemento <a>
+           ===================================================== -->
+      <a href="#" class="access-link" data-key="video" target="_blank" rel="noopener">
+        <div class="access-link-icon ic-video">🎬</div>
+        <div class="access-link-body">
+          <div class="access-link-title">Video Corso — 4 moduli (60 min)</div>
+          <div class="access-link-meta">Accesso video on-demand · guarda quando vuoi</div>
+        </div>
+        <div class="access-link-arrow">&#8594;</div>
+      </a>
+
+      <!-- =====================================================
+           LINK 4: PRENOTAZIONE 1:1 (solo piano VIP €197)
+           Sostituisci href="#" con il tuo link Calendly:
+           https://calendly.com/giovannirasulo/XXXXXX
+           Se usi Starter o Percorso, aggiungi style="display:none;"
+           ===================================================== -->
+      <a href="#" class="access-link" data-key="call" target="_blank" rel="noopener">
+        <div class="access-link-icon ic-cal">📅</div>
+        <div class="access-link-body">
+          <div class="access-link-title">Prenota la tua sessione 1:1 con Giovanni</div>
+          <div class="access-link-meta">30 minuti via Zoom · scegli data e ora</div>
+        </div>
+        <div class="access-link-arrow">&#8594;</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- PASSI SUCCESSIVI -->
+  <div class="steps-box">
+    <div class="steps-title">Da dove partire adesso</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <div class="step-title">Scarica la guida PDF e leggila tutta</div>
+          <div class="step-desc">Prima di aprire i template, leggi la guida dall'inizio. Ti serve il contesto per usare bene gli strumenti che trovi dopo.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <div class="step-title">Completa la checklist di autovalutazione</div>
+          <div class="step-desc">I 20 punti ti dicono esattamente su cosa lavorare prima. Non saltarla: ti evita di muoverti nella direzione sbagliata.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <div class="step-title">Personalizza la tua email e mandala entro 7 giorni</div>
+          <div class="step-desc">Scegli uno dei tre template (gentile, diretto o definitivo), adattalo alla tua situazione e programma il momento giusto per mandarlo. Non aspettare il momento perfetto.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-body">
+          <div class="step-title">Se hai preso il Percorso: guarda i video in ordine</div>
+          <div class="step-desc">Quattro moduli, sessanta minuti. Guardali tutti prima di muovere qualsiasi mossa. Il modulo 3 in particolare cambia l'approccio alla negoziazione.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTHOR NOTE -->
+  <div class="author-box">
+    <div class="author-av">GR</div>
+    <div class="author-body">
+      <div class="author-name">Una nota da Giovanni</div>
+      <div class="author-note">
+        Hai preso una decisione concreta, non ti sei limitato a "ci penso". Questo conta. Se hai domande mentre vai avanti, scrivimi su <a href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/" target="_blank" rel="noopener">LinkedIn</a> o a <a href="mailto:marketing@giovannirasulo.com">marketing@giovannirasulo.com</a>. Rispondo a tutti, di solito entro 24 ore.
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 <a href="https://www.giovannirasulo.com">Giovanni Rasulo</a> &middot;
+  <a href="https://www.giovannirasulo.com/smart-working.html">Torna alla pagina del corso</a> &middot;
+  Per assistenza: <a href="mailto:marketing@giovannirasulo.com">marketing@giovannirasulo.com</a> · P.IVA 04088780129
+</footer>
+
+<!-- Sblocco materiali: verifica pagamento su Stripe prima di mostrare i link -->
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.access-link'));
+  if(!links.length) return;
+  links.forEach(function(a){a.style.pointerEvents='none';a.style.opacity='.45';a.setAttribute('aria-disabled','true');});
+  var wrap=document.querySelector('.access-links');
+  var st=document.createElement('div');
+  st.id='access-status';
+  st.style.cssText='font-size:.9rem;font-weight:600;margin:0 0 14px;padding:11px 15px;border-radius:10px;background:#EAF0F7;color:#2E3F55';
+  st.textContent="Verifica del pagamento in corso…";
+  if(wrap && wrap.parentNode) wrap.parentNode.insertBefore(st, wrap);
+  function fail(msg){st.style.background='#FDECEC';st.style.color='#B23B3B';st.textContent=msg;}
+  var sid=new URLSearchParams(location.search).get('session_id');
+  if(!sid){ fail("Accesso non valido. Apri questa pagina dal link di conferma ricevuto dopo il pagamento."); return; }
+  fetch('/.netlify/functions/unlock?session_id='+encodeURIComponent(sid))
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(!d || !d.ok){ fail("Non abbiamo potuto verificare il pagamento. Se hai completato l'acquisto, scrivici a marketing@giovannirasulo.com."); return; }
+      var g=d.links||{};
+      links.forEach(function(a){
+        var k=a.getAttribute('data-key');
+        if(g[k]){ a.href=g[k]; a.style.pointerEvents=''; a.style.opacity=''; a.removeAttribute('aria-disabled'); }
+        else { a.style.display='none'; }
+      });
+      st.style.background='#E8F5F0';st.style.color='#1A7A5A';st.textContent="✓ Acquisto verificato — ecco i tuoi materiali.";
+      if(typeof gtag==='function' && localStorage.getItem('cookie-consent')==='accepted'){
+        gtag('event','purchase',{transaction_id:d.transaction_id,value:d.value,currency:d.currency,items:[{item_name:'Piano '+d.plan}]});
+      }
+    })
+    .catch(function(){ fail("Errore di verifica. Riprova tra poco o scrivici a marketing@giovannirasulo.com."); });
+})();
+</script>
+</body>
+</html>

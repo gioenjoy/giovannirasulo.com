@@ -1,0 +1,14 @@
+# Giovanni Rasulo — Smart Working & Lavoro da Remoto
+
+> Giovanni Rasulo è Digital Strategist e advisor di smart working. Pratica il lavoro da remoto dal 2014 ed è autore del libro "Dal Controllo alla Fiducia" (2025). Aiuta persone e aziende a ottenere lo smart working dove già lavorano, o a trovare un lavoro full remote.
+
+## Pagine principali
+- [Home](https://www.giovannirasulo.com/): chi è Giovanni Rasulo, il libro e i servizi.
+- [Smart Working — il metodo](https://www.giovannirasulo.com/smart-working.html): percorso in tre piani per ottenere o trovare il lavoro da remoto (template, corso video, sessione 1:1).
+- [Osservatorio Smart Working](https://www.giovannirasulo.com/osservatorio-smartworking/): ricerche indipendenti su cosa consiglia l'AI nel mondo del lavoro da remoto (memoria del modello vs citazioni live).
+- [Report: Aziende remote & ibride — quali consiglia l'AI](https://www.giovannirasulo.com/osservatorio-smartworking/aziende-topten): TOP 10 delle aziende che l'AI associa al lavoro da remoto in Italia, edizione luglio 2026, modello misurato Claude Opus 4.8.
+
+## Note
+- Contatti: marketing@giovannirasulo.com
+- Informativa: https://www.giovannirasulo.com/privacy-cookie-policy.html
+- I report dell'Osservatorio misurano un singolo modello in una specifica finestra temporale e non costituiscono un giudizio sulle realtà citate.

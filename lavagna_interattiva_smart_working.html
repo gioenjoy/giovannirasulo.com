@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- consenso cookie: blocca GA finché non accettato -->
+<script>if(localStorage.getItem('cookie-consent')!=='accepted'){window['ga-disable-G-1Q1LLRPZYP']=true;}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q1LLRPZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1Q1LLRPZYP');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dal Controllo alla Fiducia - Lavagna Workshop</title>
@@ -1021,7 +1032,7 @@
 </main>
 
 <footer class="footer">
-  <strong>Dal Controllo alla Fiducia</strong> · Giovanni Rasulo · Youcanprint, 2025 · ISBN 979-12-24019-59-6
+  <strong>Dal Controllo alla Fiducia</strong> · Giovanni Rasulo · Youcanprint, 2025 · ISBN 979-12-24019-59-6 · P.IVA 04088780129
 </footer>
 
 <script>
@@ -1044,5 +1055,34 @@
     else msg.classList.remove('visible');
   }
 </script>
+<!-- Cookie consent bar -->
+<div id="cookie-bar" role="dialog" aria-label="Consenso ai cookie" style="display:none">
+  <div class="cc-inner">
+    <p>I cookie esistono per migliorare l'esperienza di navigazione, proporre contenuti personalizzati e per scopo di analisi. Facendo clic su &quot;Accetta&quot;, si acconsente al loro utilizzo da parte mia. <a href="/privacy-cookie-policy.html">Cookie &amp; Privacy Policy</a></p>
+    <div class="cc-btns">
+      <a id="cc-reject" href="/" class="cc-btn cc-ghost">Rifiuta</a>
+      <button id="cc-accept" class="cc-btn cc-primary" type="button">Accetta</button>
+    </div>
+  </div>
+</div>
+<style>
+#cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(15,40,64,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:'DM Sans',system-ui,sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+#cookie-bar .cc-inner{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#cookie-bar p{margin:0;font-size:.9rem;line-height:1.45;flex:1;min-width:230px}
+#cookie-bar a{color:#fff;text-decoration:underline}
+#cookie-bar .cc-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#cookie-bar .cc-btn{border:0;border-radius:999px;padding:9px 22px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;line-height:1}
+#cookie-bar .cc-primary{background:#fff;color:#0F2840}
+#cookie-bar .cc-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+</style>
+<script>
+(function(){
+  var KEY='cookie-consent', bar=document.getElementById('cookie-bar');
+  if(!bar) return;
+  if(!localStorage.getItem(KEY)){bar.style.display='block';}
+  document.getElementById('cc-accept').addEventListener('click',function(){localStorage.setItem(KEY,'accepted');bar.style.display='none';location.reload();});
+})();
+</script>
+
 </body>
 </html>

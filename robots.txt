@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Pagine di conferma acquisto: escluse dall'indicizzazione
+Disallow: /thank-you-starter-jkdshbfiuvarothbioqvueybofkd.html
+Disallow: /thank-you-percorso-jkdshbfiuvarothbioqvueybofkd.html
+Disallow: /thank-you-percorso-diretto-jkdshbfiuvarothbioqvueybofkd.html
+
+Sitemap: https://www.giovannirasulo.com/sitemap.xml
