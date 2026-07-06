@@ -147,7 +147,29 @@
     transition:border-color .2s,background .2s,transform .2s;
     display:inline-flex;align-items:center;gap:.5rem;
   }
-  .btn-secondary:hover{border-color:var(--accent);background:#fff;transform:translateY(-2px);}
+  
+.cta-below-wrap{text-align:center;margin-top:1.75rem;}
+.cta-linkedin-btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:linear-gradient(135deg,#1A2F4A 0%,#1E3D5C 50%,#0F2840 100%);
+  color:#fff;
+  padding:.9rem 2.1rem;border-radius:100px;
+  font-family:var(--head);font-weight:600;font-size:.95rem;
+  text-decoration:none;border:1px solid rgba(110,148,195,.35);
+  transition:transform .2s,box-shadow .2s;
+}
+.cta-linkedin-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(15,40,64,.35);}
+.cta-sw-btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:linear-gradient(125deg,var(--lavender) 0%,var(--peach) 55%,var(--honey) 100%);
+  color:var(--ink);
+  padding:.9rem 2.1rem;border-radius:100px;
+  font-family:var(--head);font-weight:600;font-size:.95rem;
+  text-decoration:none;border:1px solid rgba(59,110,165,.2);
+  transition:transform .2s,box-shadow .2s;
+}
+.cta-sw-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,110,165,.25);}
+.btn-secondary:hover{border-color:var(--accent);background:#fff;transform:translateY(-2px);}
 
   /* AVATAR - foto */
   .hero-visual{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;}
@@ -864,7 +886,7 @@
   <ul class="nav-links">
     <li><a href="#experience">Esperienza</a></li>
     <li><a href="#linkedin-stats">LinkedIn</a></li>
-    <li><a href="#smartworking">Smart Working</a></li>
+    <li><a href="/smart-working.html">Smart Working</a></li>
     <li><a href="#book">Il libro</a></li>
     <li><a href="#skills">Competenze</a></li>
     <li><a href="#projects">Progetti</a></li>
@@ -1027,6 +1049,9 @@
         </div>
       </div>
     </div>
+    <div class="cta-below-wrap">
+      <a href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/" target="_blank" rel="noopener" class="cta-linkedin-btn">Visita il mio profilo Linkedin</a>
+    </div>
   </div>
 </section>
 
@@ -1068,6 +1093,9 @@
         <div class="sw-pillar-title">Produttivit&agrave; e risultati</div>
         <div class="sw-pillar-desc">OKR sostenibili, sistemi di accountability che non sembrano sorveglianza, performance review basate su valore generato invece che ore loggate.</div>
       </div>
+    </div>
+    <div class="cta-below-wrap">
+      <a href="/smart-working.html" class="cta-sw-btn">Tre modi per ottenere lo smart working</a>
     </div>
   </div>
 </section>
