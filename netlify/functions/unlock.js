@@ -1,10 +1,14 @@
 // Sblocco materiali del thank-you: verifica il pagamento su Stripe e restituisce
 // i link ai materiali SOLO se la sessione risulta pagata.
 //
+// Pricing attuale (2 piani, aggiornato 2026-07-08):
+//   Il Sistema           27€  -> pdf, emailtemplates, smartpolicy, checklist, companies, ebook
+//   Il Percorso+Supporto 147€ -> tutto sopra + bonus (Notion) + call (Google Calendar)
+//
 // Richiede su Netlify (Site settings > Environment variables):
 //   STRIPE_SECRET_KEY -> la tua chiave segreta Stripe (sk_live_...)
 //   LINK_PDF, LINK_EMAILTEMPLATES, LINK_SMARTPOLICY, LINK_CHECKLIST,
-//   LINK_COMPANIES, LINK_BONUS, LINK_VIDEO, LINK_CALL -> gli URL reali dei materiali
+//   LINK_COMPANIES, LINK_EBOOK, LINK_BONUS, LINK_CALL -> gli URL reali dei materiali
 //     (i valori qui sotto sono i default già impostati; puoi sovrascriverli
 //     con una env var dello stesso nome se un link cambia in futuro)
 //
@@ -44,14 +48,14 @@ exports.handler = async function (event) {
       smartpolicy: process.env.LINK_SMARTPOLICY || 'https://drive.google.com/file/d/1CXFEuEFP0YHnFiIYzDSKXaqfF0Mvj16I/view?usp=sharing',
       checklist: process.env.LINK_CHECKLIST || 'https://drive.google.com/file/d/1ltqPCugmfFrptfa79msVU_UhhBmrxaA8/view?usp=sharing',
       companies: process.env.LINK_COMPANIES || 'https://drive.google.com/file/d/1sff66CLcvWCDXW_CF26_a8C-LFgJ8_Fj/view?usp=sharing',
+      ebook: process.env.LINK_EBOOK || 'https://drive.google.com/file/d/1K1OwAzis_UeJTqCEjnm0BcVRkEVF7m0v/view?usp=sharing',
       bonus: process.env.LINK_BONUS || 'https://gem-bottom-fd8.notion.site/sistema-produttivita-dal-controllo-alla-fiducia',
-      video: process.env.LINK_VIDEO || 'REPLACE_VIDEO_URL',
       call: process.env.LINK_CALL || 'https://calendar.app.google/vPu1DdLUL8EsQyDb6',
     };
 
-    // Starter (47€): guida + i 4 strumenti pratici.
-    // Percorso (97€): + bonus Sistema di Produttività + video corso.
-    // VIP (197€): + prenotazione sessioni 1:1.
+    // Il Sistema (27€): guida + 4 strumenti pratici + eBook.
+    // Il Percorso + Supporto (147€): tutto sopra + bonus Notion + prenotazione sessioni 1:1.
+    // Soglia a metà tra i due prezzi (100€) per tollerare eventuali arrotondamenti Stripe.
     const amt = s.amount_total || 0; // in centesimi
     let plan, links;
     const starterLinks = {
@@ -60,13 +64,11 @@ exports.handler = async function (event) {
       smartpolicy: L.smartpolicy,
       checklist: L.checklist,
       companies: L.companies,
+      ebook: L.ebook,
     };
-    if (amt >= 19700) {
-      plan = 'vip';
-      links = { ...starterLinks, bonus: L.bonus, video: L.video, call: L.call };
-    } else if (amt >= 9700) {
-      plan = 'percorso';
-      links = { ...starterLinks, bonus: L.bonus, video: L.video };
+    if (amt >= 10000) {
+      plan = 'percorso_supporto';
+      links = { ...starterLinks, bonus: L.bonus, call: L.call };
     } else {
       plan = 'starter';
       links = { ...starterLinks };

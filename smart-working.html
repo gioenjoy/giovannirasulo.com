@@ -59,6 +59,8 @@ img{max-width:100%;display:block;}
   color:var(--ink);display:flex;align-items:center;gap:.5rem;
 }
 .nav-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.nav-chisono{font-size:.88rem;font-weight:500;color:var(--ink-soft);text-decoration:none;margin-left:auto;margin-right:1.5rem;}
+.nav-link{font-size:.88rem;font-weight:500;color:var(--ink-soft);text-decoration:none;margin-right:1.5rem;}
 .nav-cta{
   background:var(--accent);color:#fff;
   padding:.5rem 1.2rem;border-radius:100px;
@@ -208,11 +210,11 @@ img{max-width:100%;display:block;}
 
 /* PRICING */
 .pricing{background:var(--cream);padding:5rem 2rem;}
-.pricing-inner{max-width:1020px;margin:0 auto;}
+.pricing-inner{max-width:760px;margin:0 auto;}
 .pricing-header{text-align:center;margin-bottom:3rem;}
 .pricing-header .section-h2{margin:0 auto 1rem;text-align:left;max-width:none;text-align:center;}
 .pricing-sub{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto;}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;align-items:start;}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;align-items:start;}
 .plan{
   background:#fff;border:1.5px solid var(--line);border-radius:22px;
   padding:2rem 1.75rem;position:relative;overflow:hidden;
@@ -370,6 +372,8 @@ footer a{color:rgba(255,255,255,.7);}
 
 <nav class="nav">
   <a href="https://www.giovannirasulo.com" class="nav-logo"><span class="nav-dot"></span>Giovanni Rasulo</a>
+  <a href="https://www.giovannirasulo.com" class="nav-chisono">Chi sono</a>
+  <a href="https://www.giovannirasulo.com/osservatorio-smartworking/" class="nav-link">Osservatorio</a>
   <a href="#prezzi" class="nav-cta">Inizia ora</a>
 </nav>
 
@@ -380,7 +384,7 @@ footer a{color:rgba(255,255,255,.7);}
     <h1>Smettila di andare<br>in <em>ufficio ogni giorno.</em></h1>
     <p class="hero-sub">Il sistema pratico per ottenere il lavoro da remoto, negoziarlo con il tuo capo e costruire una carriera senza pendolarismo. Da chi lo pratica dal 2014.</p>
     <div class="hero-ctas">
-      <a href="#prezzi" class="btn-primary">Scopri i 3 formati &rarr;</a>
+      <a href="#prezzi" class="btn-primary">Scopri i 2 formati &rarr;</a>
       <a href="#chi-e-per" class="btn-ghost">Fa per me?</a>
     </div>
     <div class="hero-stats">
@@ -494,7 +498,7 @@ footer a{color:rgba(255,255,255,.7);}
   <div class="pricing-inner">
     <div class="pricing-header">
       <div class="section-tag" style="justify-content:center;">Scegli il formato</div>
-      <h2 class="section-h2">Tre modi per <em>ottenere lo smart working.</em></h2>
+      <h2 class="section-h2">Due modi per <em>ottenere lo smart working.</em></h2>
       <p class="pricing-sub">Parti dal formato adatto alla tua situazione. Puoi sempre salire di livello.</p>
     </div>
     <div class="pricing-grid">
@@ -504,7 +508,7 @@ footer a{color:rgba(255,255,255,.7);}
         <div class="plan-badge">Starter</div>
         <div class="plan-name">Il Sistema</div>
         <div class="plan-tagline">Template e strumenti pronti all'uso. Implementi da solo.</div>
-        <div class="plan-price">€47 <span style="font-size:.9rem;"></span></div>
+        <div class="plan-price">€27 <span style="font-size:.9rem;"></span></div>
         <div class="plan-once">pagamento unico · accesso immediato</div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
@@ -528,71 +532,27 @@ footer a{color:rgba(255,255,255,.7);}
             <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
             <span>Lista 50 aziende italiane con posizioni remote verificate</span>
           </li>
-        </ul>
-        <!-- =====================================================
-             PAGAMENTO STARTER €47
-             Sostituisci href="#" con il tuo link Stripe o PayPal:
-             STRIPE: https://buy.stripe.com/XXXXXX
-             PAYPAL: https://www.paypal.com/ncp/payment/XXXXXX
-             ===================================================== -->
-        <a href="https://buy.stripe.com/cNi8wQcoQ9gygtrb0Q2wU00" class="plan-cta">Acquista il Sistema &rarr;</a>
-      </div>
-
-      <!-- PIANO 2: CORSO (evidenziato) -->
-      <div class="plan plan-corso">
-        <div class="plan-badge best">Più scelto</div>
-        <div class="plan-name">Il Percorso</div>
-        <div class="plan-tagline">Il sistema + un corso video che ti guida passo dopo passo.</div>
-        <div class="plan-price">€97</div>
-        <div class="plan-once">pagamento unico · accesso immediato</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
           <li>
             <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span><strong>Tutto del piano Starter</strong></span>
-          </li>
-          <li>
-            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span>4 moduli video (60 min totali): dalla valutazione alla proposta al tuo capo</span>
-          </li>
-          <li>
-            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span>Modulo: come trovare lavoro full remote o ibrido con successo</span>
-          </li>
-          <li>
-            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span>Template OKR personali per misurare la tua produttività da remoto</span>
-          </li>
-          <li>
-            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span>Aggiornamenti futuri inclusi</span>
-          </li>
-          <li>
-            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span><strong>Bonus:</strong> Il Sistema di Produttività, il template Notion per organizzare obiettivi, priorità e confini quando lavori da remoto</span>
+            <span>eBook del libro <strong>"Dal Controllo alla Fiducia"</strong> (formato ePub)</span>
           </li>
         </ul>
-        <!-- =====================================================
-             PAGAMENTO PERCORSO €97
-             Sostituisci href="#" con il tuo link Stripe o PayPal:
-             STRIPE: https://buy.stripe.com/XXXXXX
-             PAYPAL: https://www.paypal.com/ncp/payment/XXXXXX
-             ===================================================== -->
-        <a href="https://buy.stripe.com/fZufZicoQ1O6gtrd8Y2wU01" class="plan-cta dark">Acquista il Percorso &rarr;</a>
+        <!-- PAGAMENTO STARTER €27 (Stripe) -->
+        <a href="https://buy.stripe.com/cNieVe3SkfEW7WV8SI2wU03" class="plan-cta">Acquista il Sistema &rarr;</a>
       </div>
 
-      <!-- PIANO 3: VIP -->
+      <!-- PIANO 2: PERCORSO + SUPPORTO -->
       <div class="plan plan-vip">
-        <div class="plan-badge">Con supporto diretto</div>
+        <div class="plan-badge best">Con supporto diretto</div>
         <div class="plan-name">Il Percorso + Supporto</div>
-        <div class="plan-tagline">Per chi vuole un piano personalizzato e una sessione 1:1 con Giovanni.</div>
-        <div class="plan-price">€197</div>
+        <div class="plan-tagline">Tutto Il Sistema, più due sessioni 1:1 con Giovanni per costruire il tuo piano su misura.</div>
+        <div class="plan-price">€147</div>
         <div class="plan-once">pagamento unico · posti limitati</div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
           <li>
             <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
-            <span><strong>Tutto del piano Percorso</strong></span>
+            <span><strong>Tutto del piano Il Sistema</strong></span>
           </li>
           <li>
             <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
@@ -610,18 +570,17 @@ footer a{color:rgba(255,255,255,.7);}
             <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
             <span>Follow-up email entro 10 giorni dalla sessione</span>
           </li>
+          <li>
+            <span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>
+            <span><strong>Bonus:</strong> Il Sistema di Produttività, il template Notion per organizzare obiettivi, priorità e confini quando lavori da remoto</span>
+          </li>
         </ul>
-        <div class="plan-guarantee">
-          <svg viewBox="0 0 16 16"><path d="M8 1l1.9 3.8 4.2.6-3 3 .7 4.2L8 10.4l-3.8 2.2.7-4.2-3-3 4.2-.6z"/></svg>
-          Garanzia rimborso 14 giorni
-        </div>
-        <br>
         <!-- =====================================================
-             PAGAMENTO VIP €197 - Sessioni 1:1
+             PAGAMENTO PERCORSO + SUPPORTO €147 - Sessioni 1:1
              Pagamento Stripe, prenotazione tramite Google Calendar:
              https://calendar.app.google/vPu1DdLUL8EsQyDb6
              ===================================================== -->
-        <a href="https://buy.stripe.com/6oUaEYbkM3Web97ed22wU02" class="plan-cta">Prenota la sessione &rarr;</a>
+        <a href="https://buy.stripe.com/fZu3cw60sboGfpn8SI2wU04" class="plan-cta dark">Prenota la sessione &rarr;</a>
       </div>
     </div>
     <p class="pricing-note">Hai domande prima di acquistare? Scrivimi su <a href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/" style="color:var(--accent);font-weight:500;">LinkedIn</a> o a <a href="mailto:marketing@giovannirasulo.com" style="color:var(--accent);font-weight:500;">marketing@giovannirasulo.com</a></p>
@@ -665,7 +624,7 @@ footer a{color:rgba(255,255,255,.7);}
           Non voglio negoziare: voglio trovare direttamente un lavoro remoto. Va bene lo stesso?
           <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
         </button>
-        <div class="faq-a">Assolutamente. Uno dei moduli del Percorso è dedicato interamente a come trovare posizioni full remote sul mercato italiano e internazionale, come posizionare il tuo profilo LinkedIn per essere trovato da chi assume a distanza, e come affrontare il colloquio per una posizione remota.</div>
+        <div class="faq-a">Assolutamente. Nel Sistema trovi la lista di 50 aziende italiane con posizioni remote verificate, un punto di partenza concreto se vuoi cercare direttamente un lavoro già full remote invece di negoziarlo con il tuo capo attuale.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -680,13 +639,6 @@ footer a{color:rgba(255,255,255,.7);}
           <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
         </button>
         <div class="faq-a">Ricevi immediatamente una email con il link per scaricare il materiale o accedere ai video. Per il piano con sessioni 1:1, ricevi un link Google Calendar per prenotare il tuo slot. L'accesso è permanente: puoi tornare quando vuoi.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Come funziona la garanzia rimborso del piano "Il Percorso + Supporto"?
-          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
-        </button>
-        <div class="faq-a">Se entro i giorni indicati non sei soddisfatto, scrivi a marketing@giovannirasulo.com e ricevi il rimborso dei 100 euro di differenza sul piano "Il Percorso" senza domande. Non chiedo motivi, non ti chiedo di dimostrare nulla.</div>
       </div>
     </div>
   </div>
