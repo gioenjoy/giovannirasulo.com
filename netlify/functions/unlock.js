@@ -43,7 +43,7 @@ exports.handler = async function (event) {
     }
 
     const L = {
-      pdf: process.env.LINK_PDF || 'REPLACE_PDF_URL',
+      pdf: process.env.LINK_PDF || 'https://drive.google.com/file/d/1QePvTfQ1VY77Fssq59nVOYnm3x2wfW1D/view?usp=sharing',
       emailtemplates: process.env.LINK_EMAILTEMPLATES || 'https://docs.google.com/document/d/14Qyelsn71yozRQvkSsPqcDoF0y-RU8_-vljT4Ix26do/edit?usp=sharing',
       smartpolicy: process.env.LINK_SMARTPOLICY || 'https://drive.google.com/file/d/1CXFEuEFP0YHnFiIYzDSKXaqfF0Mvj16I/view?usp=sharing',
       checklist: process.env.LINK_CHECKLIST || 'https://drive.google.com/file/d/1ltqPCugmfFrptfa79msVU_UhhBmrxaA8/view?usp=sharing',
