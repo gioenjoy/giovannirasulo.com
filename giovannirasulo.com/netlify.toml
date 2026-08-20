@@ -1,0 +1,9 @@
+# Configurazione Netlify
+# Sito statico servito dalla root del repo + funzioni serverless in netlify/functions
+
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
