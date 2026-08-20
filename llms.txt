@@ -9,6 +9,6 @@
 - [Report: Aziende remote & ibride — quali consiglia l'AI](https://www.giovannirasulo.com/osservatorio-smartworking/aziende-topten): TOP 10 delle aziende che l'AI associa al lavoro da remoto in Italia, edizione luglio 2026, modello misurato Claude Opus 4.8.
 
 ## Note
-- Contatti: marketing@giovannirasulo.com
+- Contatti: marketing@giovannirasulo.com - giovanni.rasulo@gmail.com
 - Informativa: https://www.giovannirasulo.com/privacy-cookie-policy.html
 - I report dell'Osservatorio misurano un singolo modello in una specifica finestra temporale e non costituiscono un giudizio sulle realtà citate.

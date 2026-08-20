@@ -5,5 +5,6 @@ Allow: /
 Disallow: /thank-you-starter-jkdshbfiuvarothbioqvueybofkd.html
 Disallow: /thank-you-percorso-jkdshbfiuvarothbioqvueybofkd.html
 Disallow: /thank-you-percorso-diretto-jkdshbfiuvarothbioqvueybofkd.html
+Disallow: /fantacalcio-skill-claude/grazie/
 
 Sitemap: https://www.giovannirasulo.com/sitemap.xml
