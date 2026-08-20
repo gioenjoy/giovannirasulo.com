@@ -150,14 +150,11 @@ footer a:hover{color:#fff;}
 
     <div class="access-links">
 
-      <!-- =====================================================
-           LINK 1: FILE .SKILL — IL PRODOTTO
-           Sostituisci href="#" con il link alla cartella/file su
-           Google Drive dove hai caricato il pacchetto di download
-           (file .skill + guida-fantacalcio-skill-claude.md)
-           Esempio: https://drive.google.com/file/d/XXXXXX/view
-           ===================================================== -->
-      <a href="https://drive.google.com/file/d/1EHsyhGEsHiahlUZJT_zMOaQ0jhsvugCC/view?usp=sharing" class="access-link" data-key="skill" target="_blank" rel="noopener">
+      <!-- LINK 1: FILE .SKILL — IL PRODOTTO
+           href impostato via JS SOLO dopo verifica del pagamento su Stripe
+           (vedi netlify/functions/unlock-fantaclaude.js). Non scrivere qui
+           il link reale: vive solo nella function, lato server. -->
+      <a href="#" class="access-link" data-key="skill" target="_blank" rel="noopener">
         <div class="access-link-icon ic-skill">🧩</div>
         <div class="access-link-body">
           <div class="access-link-title">Fantacalcio Asta Skill (file .skill)</div>
@@ -176,14 +173,10 @@ footer a:hover{color:#fff;}
         <div class="access-link-arrow">&#8594;</div>
       </a>
 
-      <!-- =====================================================
-           LINK 3 (opzionale): GUIDA IN MARKDOWN SCARICABILE
-           Sostituisci href="#" con il link Google Drive al file
-           "guida-fantacalcio-skill-claude.md" (stessa cartella del punto 1).
-           Il file sorgente è in:
-           ~/Desktop/fantacalcio-skill-claude-download-package/
-           ===================================================== -->
-      <a href="https://drive.google.com/file/d/1O5sv3mfULCKfKScG3RfbSR-qMsV18r0m/view?usp=sharing" class="access-link" data-key="guida-md" target="_blank" rel="noopener">
+      <!-- LINK 3: GUIDA IN MARKDOWN SCARICABILE
+           href impostato via JS SOLO dopo verifica del pagamento (vedi sopra).
+           File sorgente: ~/Desktop/fantacalcio-skill-claude-download-package/ -->
+      <a href="#" class="access-link" data-key="guidamd" target="_blank" rel="noopener">
         <div class="access-link-icon ic-guide">📄</div>
         <div class="access-link-body">
           <div class="access-link-title">Guida all'uso (file Markdown scaricabile)</div>
@@ -249,5 +242,38 @@ footer a:hover{color:#fff;}
   Per assistenza: <a href="mailto:marketing@giovannirasulo.com">marketing@giovannirasulo.com</a> &middot; P.IVA 04088780129
 </footer>
 
+<!-- Sblocco materiali: verifica pagamento su Stripe prima di mostrare i link -->
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.access-link[data-key="skill"], .access-link[data-key="guidamd"]'));
+  if(!links.length) return;
+  links.forEach(function(a){a.style.pointerEvents='none';a.style.opacity='.45';a.setAttribute('aria-disabled','true');});
+  var wrap=document.querySelector('.access-links');
+  var st=document.createElement('div');
+  st.id='access-status';
+  st.style.cssText='font-size:.9rem;font-weight:600;margin:0 0 14px;padding:11px 15px;border-radius:10px;background:#EAF0F7;color:#2E3F55';
+  st.textContent="Verifica del pagamento in corso…";
+  if(wrap && wrap.parentNode) wrap.parentNode.insertBefore(st, wrap);
+  function fail(msg){st.style.background='#FDECEC';st.style.color='#B23B3B';st.textContent=msg;}
+  var sid=new URLSearchParams(location.search).get('session_id');
+  if(!sid){ fail("Accesso non valido. Apri questa pagina dal link di conferma ricevuto dopo il pagamento."); return; }
+  fetch('/.netlify/functions/unlock-fantaclaude?session_id='+encodeURIComponent(sid))
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(!d || !d.ok){ fail("Non abbiamo potuto verificare il pagamento. Se hai completato l'acquisto, scrivici a marketing@giovannirasulo.com."); return; }
+      var g=d.links||{};
+      links.forEach(function(a){
+        var k=a.getAttribute('data-key');
+        if(g[k]){ a.href=g[k]; a.style.pointerEvents=''; a.style.opacity=''; a.removeAttribute('aria-disabled'); }
+        else { a.style.display='none'; }
+      });
+      st.style.background='#E8F5F0';st.style.color='#1A7A5A';st.textContent="✓ Acquisto verificato — ecco i tuoi materiali.";
+      if(typeof gtag==='function' && localStorage.getItem('cookie-consent')==='accepted'){
+        gtag('event','purchase',{transaction_id:d.transaction_id,value:d.value,currency:d.currency,items:[{item_name:'Fantacalcio Asta Skill'}]});
+      }
+    })
+    .catch(function(){ fail("Errore di verifica. Riprova tra poco o scrivici a marketing@giovannirasulo.com."); });
+})();
+</script>
 </body>
 </html>
