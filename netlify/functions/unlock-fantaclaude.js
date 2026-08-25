@@ -41,7 +41,7 @@ exports.handler = async function (event) {
     }
 
     const links = {
-      skill: process.env.LINK_FANTACLAUDE_SKILL || 'https://drive.google.com/file/d/1EHsyhGEsHiahlUZJT_zMOaQ0jhsvugCC/view?usp=sharing',
+      skill: process.env.LINK_FANTACLAUDE_SKILL || 'https://drive.google.com/file/d/1oc2Eb6bmz-YLFQvu-qVUsl2GqxDx_biS/view?usp=sharing',
       guidamd: process.env.LINK_FANTACLAUDE_GUIDA_MD || 'https://drive.google.com/file/d/1O5sv3mfULCKfKScG3RfbSR-qMsV18r0m/view?usp=sharing',
     };
 
