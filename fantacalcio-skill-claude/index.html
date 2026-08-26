@@ -27,7 +27,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fantacalcio Asta Skill per Claude | Acquista Ora</title>
-<meta name="description" content="La skill per Claude che calcola il vero valore dei giocatori, pesa il rischio infortuni e ti costruisce la rosa migliore per la tua asta di fantacalcio.">
+<meta name="description" content="La skill per Claude che calcola il vero valore dei giocatori, verifica infortuni e titolarità aggiornati a oggi e ti costruisce la rosa migliore per la tua asta di fantacalcio.">
 <link rel="canonical" href="https://www.giovannirasulo.com/fantacalcio-skill-claude/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -364,7 +364,15 @@ img{max-width:100%;display:block;}
   max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
   padding:0 1.5rem;font-size:.92rem;line-height:1.72;color:var(--muted);
 }
-.faq-item.open .faq-a{max-height:300px;padding-bottom:1.25rem;}
+.faq-item.open .faq-a{max-height:2600px;padding-bottom:1.25rem;}
+.faq-a p{margin-bottom:.8rem;}
+.faq-a p:last-child{margin-bottom:0;}
+.faq-prompt{
+  display:block;background:var(--dark);color:#EDEBE4;
+  border-radius:10px;padding:.8rem 1rem;margin:.45rem 0 .9rem;
+  font-size:.87rem;line-height:1.55;font-style:italic;
+  border-left:3px solid #E96944;
+}
 
 /* FOOTER CTA */
 .footer-cta{
@@ -427,7 +435,7 @@ footer a{color:rgba(255,255,255,.7);}
     {
       "@type": "Product",
       "name": "Fantacalcio Asta Skill per Claude",
-      "description": "Skill per Claude che calcola il valore reale dei giocatori di fantacalcio in fantavoti per credito speso, pesa l'affidabilità in presenze e ottimizza la rosa per aste a chiamata con budget, squadre e quote personalizzabili.",
+      "description": "Skill per Claude che calcola il valore reale dei giocatori di fantacalcio in fantavoti per credito speso, verifica sul web infortuni, squalifiche e titolarità aggiornati prima di ogni consiglio, pesa l'affidabilità in presenze e ottimizza la rosa per aste a chiamata con budget, squadre e quote personalizzabili. Include formazioni tipo, ballottaggi, rigoristi, griglia portieri e moduli Mantra.",
       "brand": { "@id": "https://www.giovannirasulo.com/#giovanni" },
       "offers": {
         "@type": "Offer",
@@ -459,6 +467,21 @@ footer a{color:rgba(255,255,255,.7);}
           "@type": "Question",
           "name": "Funziona anche per leghe diverse da 10 squadre e 400 crediti?",
           "acceptedAnswer": { "@type": "Answer", "text": "Sì. Budget, numero di squadre e quote per ruolo sono parametri liberi: basta dirli a Claude e l'analisi si adatta alla tua lega, qualunque sia il formato d'asta." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali sono i migliori prompt da usare in FantaClaude?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tre prompt coprono quasi tutti i casi di un'asta. 1) Il cacciatore di scommesse: chiedi di analizzare centrocampisti e attaccanti delle squadre di media-bassa classifica e identificare 5 giocatori con metriche avanzate elevate (xG/90, xA/90, tiri in porta, passaggi chiave) ma quotazione bassa, con la percentuale massima di budget da investirci. 2) Il gestore del budget: prima di aprire un reparto, chiedi di dividere i primi 15 attaccanti in tre fasce e calcolare il prezzo massimo in crediti da non superare per ciascuna, preservando una quota di budget per i centrocampisti da bonus. 3) L'analizzatore dei rapporti di forza: chiedi di analizzare ballottaggi e gerarchie su rigori, punizioni e corner, individuando le situazioni più ambigue e indicando chi conviene e chi è sopravvalutato. Altri prompt pronti all'uso sono nella guida all'uso." }
+        },
+        {
+          "@type": "Question",
+          "name": "I dati sono aggiornati o fermi a fine stagione?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Aggiornati. Ogni volta che si attiva, la skill controlla sul web a che giornata siamo, recupera le statistiche più recenti e verifica infortuni, squalifiche e titolarità dei giocatori che sta per consigliare, poi corregge le proprie stime dichiarando cosa ha cambiato rispetto allo storico. Se la ricerca web non è disponibile lo dichiara apertamente. Le 3 stagioni incluse restano la base statistica di profondità storica." }
+        },
+        {
+          "@type": "Question",
+          "name": "Funziona anche per il Mantra, o solo per il Classic?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Entrambi. Dentro la skill ci sono i moduli Mantra con i codici ruolo (Por, Dc, Ds/Dd, E, M, C, W, T, A, Pc), quindi può ragionare sugli slot del tuo modulo e non solo sul classico P/D/C/A. Insieme alle formazioni tipo e ai ballottaggi di ogni squadra di Serie A, serve a capire se un giocatore copre davvero il ruolo mancante." }
         }
       ]
     }
@@ -484,7 +507,7 @@ footer a{color:rgba(255,255,255,.7);}
     </div>
     <h1>FantaClaude</h1>
     <h2 class="hero-subtitle">Smetti di pagare l'hype. Paga la <em>resa.</em></h2>
-    <p class="hero-sub">La skill che trasforma Claude nel tuo assistente per l'asta del fantacalcio: calcola il vero valore di ogni giocatore, pesa il rischio infortuni/panchina e ti costruisce la rosa migliore per il tuo budget. In una chat, senza Excel.</p>
+    <p class="hero-sub">La skill che trasforma Claude nel tuo assistente per l'asta del fantacalcio: calcola il vero valore di ogni giocatore, controlla infortuni e titolarità aggiornati a oggi e ti costruisce la rosa migliore per il tuo budget. In una chat, senza Excel.</p>
     <div class="hero-ctas">
       <a href="#prezzo" class="btn-primary" data-buy-btn>Acquista la skill &rarr;</a>
       <a href="#demo" class="btn-ghost">Vedi un esempio reale</a>
@@ -495,16 +518,16 @@ footer a{color:rgba(255,255,255,.7);}
         <div class="hero-stat-label">Stagioni Serie A incluse</div>
       </div>
       <div>
+        <div class="hero-stat-num">Live</div>
+        <div class="hero-stat-label">Infortuni e titolarità verificati a ogni risposta</div>
+      </div>
+      <div>
         <div class="hero-stat-num">2</div>
         <div class="hero-stat-label">Prezzi per giocatore: equo e probabile</div>
       </div>
       <div>
         <div class="hero-stat-num">100%</div>
         <div class="hero-stat-label">Parametrica: qualsiasi lega ad asta</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">0</div>
-        <div class="hero-stat-label">Righe di codice da scrivere</div>
       </div>
     </div>
   </div>
@@ -528,13 +551,13 @@ footer a{color:rgba(255,255,255,.7);}
       </div>
       <div class="how-card">
         <div class="how-n">3</div>
-        <div class="how-title">Claude analizza i dati</div>
-        <div class="how-desc">3 stagioni di statistiche Serie A già incluse, prezzi delle aste passate, affidabilità in presenze: tutto calcolato al momento.</div>
+        <div class="how-title">Controlla com'è la situazione oggi</div>
+        <div class="how-desc">Prima di rispondere verifica a che giornata siamo, recupera le statistiche aggiornate e controlla infortuni, squalifiche e titolarità dei giocatori che sta per nominarti.</div>
       </div>
       <div class="how-card">
         <div class="how-n">4</div>
         <div class="how-title">Ricevi la risposta pronta</div>
-        <div class="how-desc">Prezzo equo, prezzo probabile, alternative più economiche. Porti la strategia in asta e offri sapendo quanto vale davvero ogni nome.</div>
+        <div class="how-desc">Prezzo equo, prezzo probabile, alternative più economiche — e la lista di cosa ha corretto rispetto ai dati storici. Porti la strategia in asta sapendo quanto vale davvero ogni nome.</div>
       </div>
     </div>
   </div>
@@ -544,7 +567,7 @@ footer a{color:rgba(255,255,255,.7);}
 <section class="features">
   <div class="features-inner">
     <div class="section-tag">Cosa fa per te</div>
-    <h2 class="section-h2">Cinque modi per non buttare <em>crediti in asta.</em></h2>
+    <h2 class="section-h2">Sette modi per non buttare <em>crediti in asta.</em></h2>
     <div class="feat-list">
       <div class="feat-row">
         <div class="feat-num">01</div>
@@ -556,29 +579,43 @@ footer a{color:rgba(255,255,255,.7);}
       <div class="feat-row">
         <div class="feat-num">02</div>
         <div>
+          <div class="feat-title">I numeri sono di oggi, non di fine maggio</div>
+          <div class="feat-desc">Prima di ogni consiglio controlla sul web a che giornata siamo, recupera le statistiche aggiornate e verifica infortuni, squalifiche e titolarità dei giocatori che sta per nominarti. Poi corregge le sue stime e ti dice <strong>esattamente cosa ha corretto</strong>. Se la ricerca web non è disponibile te lo dichiara, invece di farti passare per fresco un dato vecchio di mesi.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">03</div>
+        <div>
+          <div class="feat-title">Non si fa ingannare dalle prime giornate</div>
+          <div class="feat-desc">È qui che quasi tutti sbagliano: due partite buone non fanno un campione. Nelle prime ~10 giornate i dati nuovi vengono usati per i <strong>fatti</strong> — infortunato sì/no, titolare sì/no, rigorista sì/no, che contano subito — non per ricalcolare il valore di un giocatore ribaltando tre stagioni di storico. È il motivo per cui non finisci a ricomprare l'hype che volevi evitare.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">04</div>
+        <div>
           <div class="feat-title">Non paghi un titolare che sta 16 partite in panchina</div>
           <div class="feat-desc">Pesa l'affidabilità in presenze, non solo il voto. Un giocatore fortissimo che gioca 22 partite su 38 è un rischio, non un affare — e la skill ti propone da sola il vice più economico e affidabile per lo stesso ruolo.</div>
         </div>
       </div>
       <div class="feat-row">
-        <div class="feat-num">03</div>
+        <div class="feat-num">05</div>
         <div>
           <div class="feat-title">La rosa ottimizzata per il TUO budget</div>
           <div class="feat-desc">Costruisce la rosa completa dato il budget, il numero di squadre e le quote per ruolo che usi davvero — non solo il classico 10 squadre/400 crediti. Funziona per qualsiasi formato di lega ad asta.</div>
         </div>
       </div>
       <div class="feat-row">
-        <div class="feat-num">04</div>
+        <div class="feat-num">06</div>
         <div>
           <div class="feat-title">Sfrutta i bonus nascosti della tua lega</div>
           <div class="feat-desc">Riconosce regole particolari come il modificatore difesa (bonus se la media dei migliori difensori + portiere supera certe soglie) e ti dice quali squadre di Serie A hanno il blocco difensivo più solido per costruirci sopra una strategia.</div>
         </div>
       </div>
       <div class="feat-row">
-        <div class="feat-num">05</div>
+        <div class="feat-num">07</div>
         <div>
-          <div class="feat-title">Pronta all'uso, zero preparazione</div>
-          <div class="feat-desc">3 stagioni di statistiche Serie A già caricate dentro la skill. Non devi cercare, scaricare o importare nulla: chiedi e ricevi la risposta.</div>
+          <div class="feat-title">Formazioni, ballottaggi, rigoristi e griglia portieri già dentro</div>
+          <div class="feat-desc">Oltre a 3 stagioni di statistiche, la skill porta con sé le <strong>formazioni tipo</strong> di ogni squadra di Serie A con i ballottaggi (chi è davvero favorito), i <strong>rigoristi e i battitori di punizioni</strong>, la <strong>griglia portieri</strong> per scegliere la coppia in modo che almeno uno giochi in casa, e i <strong>moduli Mantra</strong> con i codici ruolo. Non devi cercare, scaricare o importare nulla.</div>
         </div>
       </div>
     </div>
@@ -645,10 +682,12 @@ footer a{color:rgba(255,255,255,.7);}
       <div class="plan-divider"></div>
       <ul class="plan-features">
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Prezzo equo e prezzo probabile per ogni giocatore</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span><strong>Verifica live</strong> di infortuni, squalifiche e titolarità prima di ogni consiglio</span></li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Affidabilità in presenze + vice automatico per i rischi</span></li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Ottimizzatore rosa completa su budget, squadre e quote a tua scelta</span></li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Riconoscimento bonus di lega (es. modificatore difesa)</span></li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>3 stagioni di statistiche Serie A già pronte, nessun caricamento richiesto</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Formazioni tipo, ballottaggi, rigoristi, griglia portieri e moduli Mantra inclusi</span></li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Guida all'uso con prompt pronti all'uso inclusa nel download</span></li>
       </ul>
       <!-- ===================================================
@@ -697,6 +736,36 @@ footer a{color:rgba(255,255,255,.7);}
           <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
         </button>
         <div class="faq-a">Sì. Budget, numero di squadre e quote per ruolo sono parametri liberi: basta dirli a Claude e l'analisi si adatta alla tua lega, qualunque sia il formato d'asta.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quali sono i migliori prompt da usare in FantaClaude?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>Tre prompt coprono quasi tutti i casi di un'asta. Copiali e adattali con i numeri della tua lega.</p>
+          <p><strong>1. Il cacciatore di scommesse</strong> — per trovare i low-cost ad alto rendimento con cui riempire gli slot secondari senza prosciugare il budget:</p>
+          <span class="faq-prompt">"Agisci come FantaClaude. Analizza centrocampisti e attaccanti delle squadre di media-bassa classifica e identifica 5 giocatori con metriche avanzate elevate (xG/90, xA/90, tiri in porta, passaggi chiave) ma con quotazione bassa e poca attenzione mediatica. Per ognuno spiegami il motivo statistico e indica la percentuale massima di budget da investirci."</span>
+          <p><strong>2. Il gestore del budget</strong> — da usare <em>prima</em> di aprire un reparto, per non farti prendere dal panico e strapagare un singolo nome:</p>
+          <span class="faq-prompt">"Agisci come FantaClaude. Nella mia lega a 8 partecipanti abbiamo 500 crediti e il modificatore di difesa. Dividi i primi 15 attaccanti del listone in 3 fasce (Top assoluti, Semitop, Ottimi titolari) e per ogni fascia calcola il prezzo massimo in crediti da non superare, sapendo che voglio preservare almeno il 15% del budget per i centrocampisti da bonus."</span>
+          <p><strong>3. L'analizzatore dei rapporti di forza</strong> — per sciogliere i ballottaggi e capire chi calcia i rigori, anche in tempo reale durante l'asta:</p>
+          <span class="faq-prompt">"Agisci come FantaClaude. Analizza la situazione attuale dei ballottaggi e delle gerarchie su rigori, punizioni e calci d'angolo in Serie A. Individua le 3 situazioni più ambigue in questo momento e, per ciascuna, dimmi quale giocatore offre il miglior rapporto qualità/prezzo e quale dei due contendenti è invece da evitare perché sopravvalutato."</span>
+          <p>Altri prompt pronti all'uso — rosa completa, valutazione di una singola offerta, ricerca per ruolo e budget — li trovi nella <a href="guida/" style="color:var(--accent);font-weight:500;">guida all'uso</a>.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I dati sono aggiornati o fermi a fine stagione?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">Aggiornati. Ogni volta che si attiva, la skill controlla sul web a che giornata siamo, recupera le statistiche più recenti e verifica infortuni, squalifiche e titolarità dei giocatori che sta per consigliarti — poi corregge le proprie stime dichiarando cosa ha cambiato rispetto allo storico. Se la ricerca web non è disponibile te lo dice apertamente, invece di spacciare per fresco un dato di fine stagione. Le 3 stagioni incluse restano la base statistica: servono a dare profondità storica, mentre il controllo live serve a fotografare la realtà di oggi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Funziona anche per il Mantra, o solo per il Classic?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">Entrambi. Dentro la skill ci sono i moduli Mantra con i codici ruolo (Por, Dc, Ds/Dd, E, M, C, W, T, A, Pc), quindi può ragionare sugli slot del tuo modulo e non solo sul classico P/D/C/A. Insieme alle formazioni tipo e ai ballottaggi di ogni squadra di Serie A, ti serve per capire se un giocatore copre davvero il ruolo che ti manca.</div>
       </div>
     </div>
   </div>
