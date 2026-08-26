@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- consenso cookie: blocca GA finché non accettato -->
+<script>if(localStorage.getItem('cookie-consent')!=='accepted'){window['ga-disable-G-1Q1LLRPZYP']=true;}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q1LLRPZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1Q1LLRPZYP');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caso studio · Risivi &amp; Co. — Google Ads, funnel e crescita · Giovanni Rasulo</title>
+<meta name="description" content="16 mesi di gestione Google Ads per la gioielleria Risivi &amp; Co.: +246% di copertura e +70% di clic a parità di budget, con CPM ridotto del 71%. Dati reali dall'account.">
+<link rel="canonical" href="https://giovannirasulo.com/caso-studio-risivi-e-co.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#EAF0F7;
+    --cream-2:#DCE9F5;
+    --lavender:#D4DCF5;
+    --lavender-deep:#A8BCE0;
+    --peach:#D7E8F7;
+    --peach-deep:#A5C4E0;
+    --sage:#C8DFF0;
+    --sage-deep:#8FBCD8;
+    --rose:#C8D9EC;
+    --honey:#C2D8F0;
+    --sky-mid:#B8D4EB;
+    --ink:#1A2535;
+    --ink-soft:#2E3F55;
+    --muted:#5C7A99;
+    --line:rgba(26,37,53,.09);
+    --card-bg:rgba(255,255,255,.82);
+    --accent:#3B6EA5;
+    --accent-mid:#6E94C3;
+    --accent-warm:#5B7FA0;
+    --pos:#2F855A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.55;
+  }
+  a{color:inherit;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem 3rem;
+    background:rgba(234,240,247,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-logo{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:1.25rem;font-weight:700;letter-spacing:-.01em;
+    text-decoration:none;color:var(--ink);
+    display:flex;align-items:center;gap:.5rem;
+  }
+  .nav-logo .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:linear-gradient(135deg,var(--peach-deep),var(--lavender-deep));
+  }
+  .nav-links{display:flex;gap:1.8rem;list-style:none;}
+  .nav-links a{
+    font-size:.78rem;font-weight:500;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--muted);
+    text-decoration:none;transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    background:var(--accent);color:#fff;
+    padding:.55rem 1.2rem;border-radius:100px;
+    font-size:.78rem;font-weight:500;letter-spacing:.04em;
+    text-decoration:none;transition:transform .2s,background .2s;
+  }
+  .nav-cta:hover{transform:translateY(-1px);background:var(--ink);}
+
+  /* SHARED */
+  section{padding:6rem 3rem;position:relative;}
+  .container{max-width:1140px;margin:0 auto;}
+  .section-tag{
+    display:inline-flex;align-items:center;gap:.6rem;
+    font-size:.75rem;font-weight:500;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);
+    margin-bottom:1.1rem;
+  }
+  .section-tag::before{content:'';display:inline-block;width:24px;height:1px;background:var(--muted);}
+  h2{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:clamp(2.1rem,3.8vw,3.2rem);
+    letter-spacing:-.022em;line-height:1.08;
+    margin-bottom:1.4rem;font-weight:700;max-width:760px;
+  }
+  h2 em{font-style:italic;color:var(--accent);font-weight:600;}
+  .lede{font-size:1.05rem;line-height:1.78;color:var(--ink-soft);max-width:720px;margin-bottom:3rem;}
+  .lede strong{color:var(--ink);font-weight:600;}
+
+  /* CASE HERO */
+  #cs-hero{padding:9rem 3rem 4rem;background:var(--cream);}
+  .cs-hero-wrap{
+    background:linear-gradient(135deg,#1A2F4A 0%,#1E3D5C 50%,#0F2840 100%);
+    border-radius:32px;padding:3rem 3rem 2.5rem;
+    border:1px solid rgba(110,148,195,.3);
+    position:relative;overflow:hidden;
+  }
+  .cs-hero-wrap::before{
+    content:'';position:absolute;top:-100px;right:-90px;
+    width:380px;height:380px;border-radius:50%;
+    background:radial-gradient(circle,rgba(110,148,195,.28),transparent 70%);pointer-events:none;
+  }
+  .cs-hero-wrap::after{
+    content:'';position:absolute;bottom:-80px;left:-70px;
+    width:280px;height:280px;border-radius:50%;
+    background:radial-gradient(circle,rgba(59,110,165,.22),transparent 70%);pointer-events:none;
+  }
+  .cs-eyebrow{
+    display:inline-flex;align-items:center;gap:.55rem;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    border-radius:100px;padding:.4rem 1rem;
+    font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+    color:rgba(255,255,255,.85);margin-bottom:1.4rem;position:relative;z-index:1;
+  }
+  .cs-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:clamp(2rem,3.6vw,3rem);font-weight:700;
+    color:#fff;line-height:1.08;letter-spacing:-.025em;
+    margin-bottom:1rem;position:relative;z-index:1;max-width:800px;
+  }
+  .cs-title em{font-style:italic;color:var(--peach-deep);}
+  .cs-sub{
+    font-size:1.02rem;line-height:1.7;color:rgba(255,255,255,.7);
+    max-width:660px;margin-bottom:2.4rem;position:relative;z-index:1;
+  }
+  .cs-meta{
+    display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.4rem;position:relative;z-index:1;
+  }
+  .cs-meta span{
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+    border-radius:100px;padding:.35rem .95rem;font-size:.78rem;color:rgba(255,255,255,.75);
+  }
+
+  .kpi-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+    position:relative;z-index:1;
+  }
+  .kpi-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+    border-radius:16px;padding:1.3rem 1.15rem;
+  }
+  .kpi-num{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:2rem;font-weight:700;color:#fff;
+    letter-spacing:-.03em;line-height:1;margin-bottom:.35rem;
+  }
+  .kpi-num span.unit{font-size:1.05rem;opacity:.7;}
+  .kpi-label{
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;
+    color:rgba(255,255,255,.5);font-weight:500;line-height:1.4;
+  }
+  .kpi-delta{
+    display:inline-flex;align-items:center;gap:.25rem;margin-top:.5rem;
+    font-size:.76rem;font-weight:600;color:#4ADE80;
+  }
+  .kpi-delta.flat{color:rgba(255,255,255,.55);}
+
+  /* CHART CARDS */
+  .chart-card{
+    background:#fff;border:1px solid var(--line);border-radius:24px;
+    padding:2rem 2rem 1.5rem;margin-bottom:1.5rem;
+    transition:box-shadow .25s;
+  }
+  .chart-card:hover{box-shadow:0 16px 40px rgba(26,37,53,.07);}
+  .chart-head{margin-bottom:1.5rem;}
+  .chart-title{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:1.2rem;font-weight:700;line-height:1.3;margin-bottom:.35rem;
+  }
+  .chart-sub{font-size:.86rem;color:var(--muted);line-height:1.6;}
+  .chart-holder svg{width:100%;height:auto;display:block;overflow:visible;}
+  .chart-legend{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:1.1rem;}
+  .lg{display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--ink-soft);}
+  .lg i{width:12px;height:12px;border-radius:3px;display:inline-block;flex-shrink:0;}
+  .lg i.line{height:3px;border-radius:2px;}
+  .chart-note{
+    font-size:.8rem;color:var(--muted);line-height:1.6;
+    margin-top:1.1rem;padding-top:1rem;border-top:1px solid var(--line);
+  }
+  .chart-note strong{color:var(--ink-soft);font-weight:600;}
+
+  .chart-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+
+  /* TAKEAWAY */
+  .takeaway{
+    display:flex;gap:1rem;align-items:flex-start;
+    background:linear-gradient(135deg,var(--lavender) 0%,var(--peach) 100%);
+    border:1px solid rgba(59,110,165,.16);
+    border-radius:20px;padding:1.5rem 1.6rem;margin-top:1.5rem;
+  }
+  .takeaway-icon{
+    width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.65);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;
+  }
+  .takeaway-txt{font-size:.94rem;line-height:1.72;color:#16324F;}
+  .takeaway-txt strong{font-weight:700;color:#0F2840;}
+
+  /* FUNNEL */
+  .funnel{display:flex;flex-direction:column;gap:.55rem;}
+  .fn-row{
+    display:grid;grid-template-columns:230px 1fr 130px;gap:1rem;align-items:center;
+  }
+  .fn-label{font-size:.88rem;color:var(--ink-soft);font-weight:500;line-height:1.35;}
+  .fn-track{background:rgba(59,110,165,.07);border-radius:8px;height:38px;position:relative;overflow:hidden;}
+  .fn-bar{
+    height:100%;border-radius:8px;
+    display:flex;align-items:center;padding-left:.85rem;
+    color:#fff;font-size:.85rem;font-weight:600;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    transition:width 1s cubic-bezier(.2,.7,.2,1);width:0;
+  }
+  .fn-side{font-size:.82rem;color:var(--muted);text-align:right;line-height:1.35;}
+  .fn-side b{display:block;color:var(--ink);font-weight:600;font-size:.9rem;}
+
+  /* CONFRONTO BENCHMARK */
+  .bench{display:flex;flex-direction:column;gap:.7rem;}
+  .bench-row{display:grid;grid-template-columns:250px 1fr 120px;gap:1rem;align-items:center;}
+  .bench-label{font-size:.88rem;color:var(--ink-soft);font-weight:500;line-height:1.35;}
+  .bench-label small{display:block;color:var(--muted);font-size:.75rem;font-weight:400;margin-top:.1rem;}
+  .bench-track{background:rgba(59,110,165,.07);border-radius:8px;height:44px;overflow:hidden;}
+  .bench-bar{height:100%;border-radius:8px;width:0;transition:width 1.1s cubic-bezier(.2,.7,.2,1);}
+  .bench-val{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;
+    font-weight:700;color:var(--ink);text-align:right;
+  }
+  .bench-val small{display:block;font-size:.74rem;color:var(--muted);font-weight:500;}
+
+  /* FASCE DI PREZZO CATALOGO */
+  .bands{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem;}
+  .band{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:1.2rem 1rem;text-align:center;
+  }
+  .band-num{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:1.7rem;
+    font-weight:700;color:var(--accent);line-height:1;margin-bottom:.3rem;
+  }
+  .band-lab{font-size:.74rem;color:var(--muted);line-height:1.4;}
+  .band.hi .band-num{color:#2F855A;}
+
+  /* GRIGLIA FONTI */
+  .src-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+  .src{
+    background:#fff;border:1px solid var(--line);border-radius:20px;
+    padding:1.6rem 1.4rem;position:relative;
+  }
+  .src::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px 4px 0 0;}
+  .src:nth-child(1)::before{background:var(--lavender-deep);}
+  .src:nth-child(2)::before{background:var(--peach-deep);}
+  .src:nth-child(3)::before{background:var(--sage-deep);}
+  .src:nth-child(4)::before{background:var(--honey);}
+  .src-name{
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--accent);font-weight:600;margin-bottom:.9rem;
+  }
+  .src-num{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:1.85rem;
+    font-weight:700;letter-spacing:-.03em;line-height:1;margin-bottom:.3rem;
+  }
+  .src-lab{font-size:.8rem;color:var(--ink-soft);line-height:1.5;}
+  .src-delta{
+    display:inline-flex;align-items:center;gap:.25rem;margin-top:.6rem;
+    font-size:.76rem;font-weight:600;color:#2F855A;
+  }
+
+  /* TERMINI OSCURATI */
+  .kw-hidden{
+    filter:blur(3px);
+    -webkit-user-select:none;user-select:none;
+    color:var(--muted);letter-spacing:.02em;
+    pointer-events:none;
+  }
+  .kw-note{
+    font-style:italic;color:var(--muted);
+    font-size:.78rem;font-weight:400;margin-left:.35rem;
+  }
+  .tbl-legend{
+    font-size:.8rem;color:var(--muted);line-height:1.6;
+    margin-top:.9rem;display:flex;align-items:flex-start;gap:.5rem;
+  }
+  .tbl-legend .kw-hidden{filter:blur(2.5px);}
+
+  /* TABLE */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff;}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:.88rem;}
+  thead th{
+    text-align:left;padding:.95rem 1.1rem;
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);
+    background:rgba(59,110,165,.04);white-space:nowrap;
+  }
+  thead th.num,tbody td.num{text-align:right;}
+  tbody td{padding:.85rem 1.1rem;border-bottom:1px solid var(--line);color:var(--ink-soft);}
+  tbody tr:last-child td{border-bottom:0;}
+  tbody tr:hover td{background:rgba(59,110,165,.03);}
+  tbody td.term{color:var(--ink);font-weight:500;}
+  .tag-hot{
+    display:inline-block;background:rgba(47,133,90,.1);color:var(--pos);
+    border-radius:100px;padding:.15rem .6rem;font-size:.72rem;font-weight:600;
+  }
+
+  /* PILLARS / STRATEGY */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .pillar{
+    background:#fff;border:1px solid var(--line);border-radius:22px;
+    padding:2rem 1.8rem;position:relative;transition:transform .25s,box-shadow .25s;
+  }
+  .pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:4px 4px 0 0;}
+  .pillar:nth-child(1)::before{background:var(--lavender-deep);}
+  .pillar:nth-child(2)::before{background:var(--peach-deep);}
+  .pillar:nth-child(3)::before{background:var(--sage-deep);}
+  .pillar:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(26,37,53,.08);}
+  .pillar-num{font-family:'Plus Jakarta Sans',sans-serif;font-style:italic;font-size:.95rem;color:var(--muted);margin-bottom:.9rem;}
+  .pillar-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:.65rem;line-height:1.25;}
+  .pillar-desc{font-size:.91rem;line-height:1.7;color:var(--ink-soft);}
+
+  /* NOTE BOX */
+  .note-box{
+    background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent-mid);
+    border-radius:16px;padding:1.7rem 1.8rem;
+  }
+  .note-box h3{
+    font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;
+    font-weight:700;margin-bottom:.8rem;
+  }
+  .note-box ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+  .note-box li{
+    font-size:.9rem;line-height:1.68;color:var(--ink-soft);
+    padding-left:1.2rem;position:relative;
+  }
+  .note-box li::before{
+    content:'';position:absolute;left:0;top:.62em;
+    width:5px;height:5px;border-radius:50%;background:var(--accent-mid);
+  }
+  .note-box li strong{color:var(--ink);font-weight:600;}
+
+  /* CONTACT */
+  #contact{
+    background:var(--ink);color:#fff;text-align:center;
+    padding:7rem 3rem;position:relative;overflow:hidden;
+  }
+  #contact h2{color:#fff;margin:0 auto 1.1rem;max-width:680px;}
+  #contact h2 em{color:var(--peach-deep);}
+  #contact .sub{color:rgba(255,255,255,.6);font-size:1.1rem;margin:0 auto 3rem;max-width:540px;line-height:1.65;}
+  .contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+  .contact-link{
+    display:inline-flex;align-items:center;gap:.65rem;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    border-radius:100px;padding:.85rem 1.6rem;color:#fff;text-decoration:none;
+    font-size:.92rem;font-weight:500;transition:background .2s,transform .2s,border-color .2s;
+  }
+  .contact-link:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.3);transform:translateY(-2px);}
+  .contact-link-icon{
+    width:30px;height:30px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.1);font-size:.9rem;
+  }
+  .blob-c1{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(90px);opacity:.15;background:var(--lavender-deep);top:-120px;left:-120px;pointer-events:none;}
+  .blob-c2{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(90px);opacity:.15;background:var(--peach-deep);bottom:-100px;right:-100px;pointer-events:none;}
+  footer{
+    background:var(--ink);color:rgba(255,255,255,.4);
+    text-align:center;padding:1.75rem 1rem;font-size:.82rem;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  footer span{color:rgba(255,255,255,.7);}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);}
+  .reveal.visible{opacity:1;transform:none;}
+
+  /* RESPONSIVE */
+  @media(max-width:980px){
+    nav{padding:1rem 1.5rem;}
+    .nav-links{display:none;}
+    section{padding:4.5rem 1.5rem;}
+    #cs-hero{padding:7rem 1.5rem 3rem;}
+    .cs-hero-wrap{padding:2.2rem 1.6rem 2rem;border-radius:24px;}
+    .kpi-grid{grid-template-columns:1fr 1fr;}
+    .chart-duo,.pillars,.src-grid{grid-template-columns:1fr;}
+    .bands{grid-template-columns:1fr 1fr;}
+    .bench-row{grid-template-columns:1fr;gap:.3rem;}
+    .bench-val{text-align:left;}
+    .bench-val small{display:inline;margin-left:.4rem;}
+    .chart-card{padding:1.6rem 1.3rem 1.2rem;}
+    .fn-row{grid-template-columns:1fr;gap:.3rem;}
+    .fn-bar{font-size:0;padding-left:0;}
+    .fn-side{text-align:left;}
+    .fn-side b{display:inline;margin-right:.4rem;}
+  }
+  @media(max-width:560px){
+    .kpi-grid{grid-template-columns:1fr;}
+    .kpi-num{font-size:1.75rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><span class="dot"></span> Giovanni Rasulo</a>
+  <ul class="nav-links">
+    <li><a href="/#services">Servizi</a></li>
+    <li><a href="/#projects">Casi Studio</a></li>
+    <li><a href="/#experience">Esperienza</a></li>
+    <li><a href="/smart-working.html">Smart Working</a></li>
+    <li><a href="/osservatorio-smartworking/">Osservatorio</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Contattami</a>
+</nav>
+
+<!-- HERO CASO STUDIO -->
+<section id="cs-hero">
+  <div class="container">
+    <div class="cs-hero-wrap">
+      <span class="cs-eyebrow">Caso studio &middot; Alta gioielleria &middot; Retail + Ecommerce</span>
+      <h1 class="cs-title">Risivi &amp; Co.: da meno di 10.000 &euro; a <em>oltre 50.000 &euro; di vendite online.</em></h1>
+      <p class="cs-sub">
+        Quindici mesi di gestione dell'intero ecosistema Google per una maison di alta gioielleria
+        con boutique a Roma. Paid, organico, analytics e feed prodotti governati come un unico funnel,
+        su un catalogo dove il prezzo mediano &egrave; di 3.410 &euro;.
+      </p>
+      <div class="cs-meta">
+        <span>Periodo: giu 2025 &rarr; 25 ago 2026</span>
+        <span>Google Ads &middot; Search Console &middot; GA4 &middot; Merchant Center</span>
+        <span>Investimento paid gestito: 24.033 &euro;</span>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-num">4,43<span class="unit">M</span></div>
+          <div class="kpi-label">Impressioni totali &middot; paid + organico</div>
+          <div class="kpi-delta">&#9650; 3,28M Ads &middot; 1,15M organiche</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">7,3</div>
+          <div class="kpi-label">Posizione media su Google</div>
+          <div class="kpi-delta">&#9650; da 14,9 &middot; &minus;51%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">161.092</div>
+          <div class="kpi-label">Sessioni sul sito</div>
+          <div class="kpi-delta">&#9650; +412% giu&rsquo;25 &rarr; lug&rsquo;26</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-num">&gt;2,0<span class="unit">x</span></div>
+          <div class="kpi-label">ROAS complessivo sul solo online</div>
+          <div class="kpi-delta">senza contare la boutique</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LE QUATTRO FONTI -->
+<section id="fonti" style="background:var(--cream);padding-top:0;">
+  <div class="container">
+    <span class="section-tag">Quattro fonti, un solo funnel</span>
+    <h2>Ogni numero di questa pagina viene da <em>un account, non da una slide.</em></h2>
+    <p class="lede">
+      Google Ads racconta quanta domanda compro. Search Console quanta ne guadagno.
+      Analytics cosa succede quando la gente arriva. Merchant Center che cosa sto vendendo davvero.
+      Il fatturato viene dal sito e-commerce, non dai pixel.
+    </p>
+    <div class="src-grid">
+      <div class="src reveal">
+        <div class="src-name">Google Ads</div>
+        <div class="src-num">3,28M</div>
+        <div class="src-lab">impressioni a pagamento, 107.281 clic, 24.033 &euro; investiti in 14 mesi</div>
+        <div class="src-delta">&#9660; CPM &minus;73%</div>
+      </div>
+      <div class="src reveal">
+        <div class="src-name">Search Console</div>
+        <div class="src-num">1,15M</div>
+        <div class="src-lab">impressioni organiche, 33.205 clic, posizione media da 14,9 a 7,3</div>
+        <div class="src-delta">&#9650; clic +215%</div>
+      </div>
+      <div class="src reveal">
+        <div class="src-name">Analytics 4</div>
+        <div class="src-num">128.813</div>
+        <div class="src-lab">utenti, 870.504 pagine viste, 813 aggiunte al carrello</div>
+        <div class="src-delta">&#9650; sessioni +412%</div>
+      </div>
+      <div class="src reveal">
+        <div class="src-name">Merchant Center</div>
+        <div class="src-num">3.410 &euro;</div>
+        <div class="src-lab">prezzo mediano del catalogo, 27 paesi serviti dal feed</div>
+        <div class="src-delta">56% degli SKU sopra 3.000 &euro;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTESTO -->
+<section id="contesto" style="background:#fff;">
+  <div class="container">
+    <span class="section-tag">Il punto di partenza</span>
+    <h2>Un account che <em>spendeva senza sapere</em> cosa stesse comprando.</h2>
+    <p class="lede">
+      A luglio 2025 l'account Risivi &amp; Co. lavorava con <strong>undici campagne Search a tema singolo</strong>
+      (&laquo;anelli personalizzati&raquo;, &laquo;bracciali personalizzati&raquo;, &laquo;gioielli uomo lusso&raquo;&hellip;), ognuna con budget
+      residuale, ognuna in apprendimento perenne. Il costo per clic viaggiava sopra i 0,29 &euro; e a novembre 2025
+      il CPM aveva toccato <strong>29,83 &euro;</strong>: si comprava pochissima visibilit&agrave;, carissima.
+      Sul lato misurazione, l'unico evento d'acquisto era un import GA4 che si interrompeva a intermittenza,
+      mentre gli eventi di carrello inviavano valori corrotti (fino a <strong>23 milioni di euro</strong> di
+      &laquo;valore carrello&raquo; su 7.600 &euro; di spesa).
+    </p>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title">Consolidare il segnale</div>
+        <div class="pillar-desc">
+          Undici campagne frammentate sono state chiuse e riconvertite in un portafoglio a tre livelli:
+          Performance Max sul catalogo, Performance Max Local sul punto vendita di Roma, Search solo
+          sulle testate ad alta intenzione. Meno campagne, pi&ugrave; dati per ciascuna, uscita dall'apprendimento.
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title">Costruire il funnel a monte</div>
+        <div class="pillar-desc">
+          Da gennaio 2026 &egrave; entrata in campo una Demand Gen (senza YouTube) come livello di scoperta:
+          28.915 clic a 0,08 &euro; medi che alimentano il retargeting di PMax e Shopping. Il funnel
+          smette di dipendere solo dalla domanda gi&agrave; esistente.
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title">Riprendere il controllo del feed</div>
+        <div class="pillar-desc">
+          A giugno 2026 il catalogo &egrave; stato riportato su Shopping standard, con visibilit&agrave; piena su query
+          e prodotti: 836.990 impressioni in tre mesi e un CPC medio di 0,25 &euro; su termini
+          commerciali come &laquo;collana d'oro uomo&raquo; e &laquo;anello diamante&raquo;.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRESCITA -->
+<section id="crescita">
+  <div class="container">
+    <span class="section-tag">La crescita</span>
+    <h2>La copertura &egrave; cresciuta di <em>otto volte.</em> Il budget no.</h2>
+    <p class="lede">
+      Il grafico sotto mette a confronto le due met&agrave; del periodo. Nei primi sette mesi (lug&rsquo;25&ndash;gen&rsquo;26)
+      l'account ha investito <strong>11.971 &euro;</strong> generando 735.204 impressioni. Nei sette mesi successivi
+      (feb&ndash;ago&rsquo;26) ha investito <strong>12.063 &euro;</strong>, cio&egrave; lo <strong>0,8% in pi&ugrave;</strong>, generando
+      <strong>2.545.463 impressioni</strong>. Stessa cifra, 3,5 volte la presenza sul mercato.
+    </p>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Impressioni mensili &middot; lug 2025 &ndash; ago 2026</div>
+        <div class="chart-sub">Volume di domanda intercettata su tutta la rete Google (Search, Shopping, PMax, Demand Gen, Video).</div>
+      </div>
+      <div class="chart-holder" id="chart-impr"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#3B6EA5"></i> Impressioni</span>
+        <span class="lg"><i class="line" style="background:#A5C4E0"></i> Media mobile 3 mesi</span>
+      </div>
+      <div class="chart-note">
+        <strong>Il punto di svolta &egrave; febbraio 2026:</strong> con l'ingresso di Demand Gen e il consolidamento
+        di PMax le impressioni passano da 116.495 a 366.783 in un mese, a budget invariato
+        (1.500 &euro; &rarr; 1.460 &euro;). Il picco di luglio 2026 &mdash; 668.223 impressioni &mdash; arriva
+        dopo il rientro su Shopping standard.
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Efficienza del budget &middot; investimento contro costo per mille impressioni</div>
+        <div class="chart-sub">Le colonne sono l'investimento mensile. La linea &egrave; il CPM: quanto costa farsi vedere mille volte.</div>
+      </div>
+      <div class="chart-holder" id="chart-eff"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#C8DFF0"></i> Investimento mensile (&euro;)</span>
+        <span class="lg"><i class="line" style="background:#2F855A"></i> CPM (&euro;)</span>
+      </div>
+      <div class="chart-note">
+        <strong>Il CPM scende da 29,83 &euro; (nov 2025) a 3,02 &euro; (lug 2026): &minus;90% dal picco, &minus;73% sul mese di partenza.</strong>
+        &Egrave; la metrica che dice se una ristrutturazione ha funzionato davvero: a parit&agrave; di euro,
+        quante persone in pi&ugrave; riesci a raggiungere.
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-icon">&#9889;</div>
+        <div class="takeaway-txt">
+          Tradotto in soldi: alle condizioni di novembre 2025, le 2,55 milioni di impressioni degli ultimi
+          sette mesi sarebbero costate circa <strong>76.000 &euro;</strong>. Ne sono costate <strong>12.063</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Clic mensili e costo per clic</div>
+        <div class="chart-sub">Il traffico cresce mentre il prezzo del singolo clic si dimezza.</div>
+      </div>
+      <div class="chart-holder" id="chart-clic"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#6E94C3"></i> Clic</span>
+        <span class="lg"><i class="line" style="background:#1A2535"></i> CPC medio (&euro;)</span>
+      </div>
+      <div class="chart-note">
+        Miglior mese: <strong>giugno 2026, 15.110 clic a 0,14 &euro;</strong> l'uno. A luglio 2025 gli stessi
+        soldi compravano 3.275 clic a 0,29 &euro;. <strong>Il costo del traffico &egrave; sceso del 52%.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIX DI CANALE -->
+<section id="mix" style="background:#fff;">
+  <div class="container">
+    <span class="section-tag">Architettura del funnel</span>
+    <h2>Tre riscritture del portafoglio in <em>sedici mesi</em>.</h2>
+    <p class="lede">
+      Un funnel non &egrave; un insieme di campagne: &egrave; una sequenza. Ogni colonna del grafico mostra come
+      l'investimento del mese si distribuisce fra i livelli &mdash; scoperta, considerazione, acquisto, negozio.
+    </p>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Distribuzione dell'investimento per tipo di campagna</div>
+        <div class="chart-sub">Valori in percentuale sul totale speso nel mese.</div>
+      </div>
+      <div class="chart-holder" id="chart-mix"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#1E3D5C"></i> Performance Max</span>
+        <span class="lg"><i style="background:#3B6EA5"></i> Search</span>
+        <span class="lg"><i style="background:#8FBCD8"></i> Demand Gen</span>
+        <span class="lg"><i style="background:#2F855A"></i> Shopping</span>
+        <span class="lg"><i style="background:#C2D8F0"></i> Video</span>
+      </div>
+      <div class="chart-note">
+        <strong>Lug&rsquo;25 &ndash; dic&rsquo;25:</strong> equilibrio forzato fra PMax e undici Search frammentate.
+        <strong>Gen&rsquo;26:</strong> entra Demand Gen, la Search si comprime sulle sole testate redditizie.
+        <strong>Giu&rsquo;26:</strong> il catalogo torna su Shopping standard, che a luglio assorbe il 61% del budget
+        portando da solo 642.018 impressioni.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRESCITA ORGANICA -->
+<section id="organico">
+  <div class="container">
+    <span class="section-tag">SEO &middot; Search Console</span>
+    <h2>Dalla seconda pagina di Google alla <em>met&agrave; della prima.</em></h2>
+    <p class="lede">
+      Il paid compra visibilit&agrave; finch&eacute; paghi. L'organico te la lasci.
+      In quindici mesi la posizione media &egrave; passata da <strong>14,9 a 7,3</strong> e le impressioni
+      organiche mensili da 33.779 a 138.992: <strong>+312% di presenza nei risultati naturali</strong>,
+      a costo marginale zero.
+    </p>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Impressioni organiche e posizione media</div>
+        <div class="chart-sub">Le colonne sono le impressioni su Google. La linea &egrave; la posizione media &mdash; scende perch&eacute; migliora.</div>
+      </div>
+      <div class="chart-holder" id="chart-gsc"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#8FBCD8"></i> Impressioni organiche</span>
+        <span class="lg"><i class="line" style="background:#B7791F"></i> Posizione media (asse invertito)</span>
+      </div>
+      <div class="chart-note">
+        <strong>Il salto strutturale &egrave; fra settembre e novembre 2025</strong>, quando la posizione media passa
+        da 12,4 a 9,0. Da marzo 2026 il sito stabilizza la met&agrave; della prima pagina e le impressioni
+        raddoppiano: 84.434 &rarr; 138.992 in cinque mesi.
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Clic organici mensili</div>
+        <div class="chart-sub">Traffico guadagnato, non comprato. 33.205 clic nel periodo.</div>
+      </div>
+      <div class="chart-holder" id="chart-gsc-clic"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#2F855A"></i> Clic organici</span>
+      </div>
+      <div class="chart-note">
+        Confrontando i due semestri pieni: <strong>12.386 clic organici</strong> fra giugno e dicembre 2025,
+        <strong>19.009</strong> fra febbraio e agosto 2026. <strong>+53%</strong> di traffico gratuito,
+        mentre le impressioni crescevano del 92%.
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-icon">&#127793;</div>
+        <div class="takeaway-txt">
+          Sommando paid e organico, la maison &egrave; passata sotto gli occhi di Google
+          <strong>4,43 milioni di volte</strong> in quindici mesi. Un quarto di quella visibilit&agrave;
+          non costa nulla e continuer&agrave; a produrre traffico anche a campagne spente.
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Sessioni sul sito &middot; Google Analytics 4</div>
+        <div class="chart-sub">Dove paid e organico si incontrano: 161.092 sessioni, 128.813 utenti, 870.504 pagine viste.</div>
+      </div>
+      <div class="chart-holder" id="chart-ga4"></div>
+      <div class="chart-legend">
+        <span class="lg"><i style="background:#3B6EA5"></i> Sessioni mensili</span>
+      </div>
+      <div class="chart-note">
+        Da <strong>3.137 sessioni</strong> a giugno 2025 a <strong>16.065</strong> a luglio 2026:
+        <strong>+412%</strong>. Il pubblico non &egrave; solo pi&ugrave; ampio, &egrave; anche pi&ugrave; profondo &mdash;
+        le pagine per sessione restano stabili sopra le 5 nonostante il traffico si sia quintuplicato,
+        segno che la crescita non ha diluito la qualit&agrave;.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel">
+  <div class="container">
+    <span class="section-tag">Il funnel, senza abbellimenti</span>
+    <h2>813 carrelli, 16 ordini. Perché va <em>benissimo cos&igrave;.</em></h2>
+    <p class="lede">
+      La sfida qui è portare all'acquisto online di un gioiello senza passare dal negozio fisico. Perch&eacute; quando lo scontrino medio supera i 3.000 &euro; non stai vendendo un prodotto: stai accompagnando una decisione che in Italia, online, quasi nessuno prende.
+    </p>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Dal traffico all'ordine &middot; giu 2025 &ndash; ago 2026</div>
+        <div class="chart-sub">Sessioni, carrelli e checkout da Google Analytics 4. Gli ordini dall'ecommerce, non dai pixel.</div>
+      </div>
+      <div class="funnel" id="funnel-ecom"></div>
+      <div class="chart-note">
+        Chi mette un pezzo nel carrello arriva al checkout <strong>nel 52,9% dei casi</strong>: un dato
+        ottimo, che dice che scheda prodotto e prezzo convincono. Il passaggio che costa &egrave;
+        <strong>checkout &rarr; ordine</strong>, dove passa il 3,7%. &Egrave; il momento in cui una persona deve
+        digitare la carta per un importo a quattro cifre su un sito che non &egrave; Cartier. <strong>&Egrave; un problema di fiducia,
+        non di traffico</strong> &mdash; e si risolve con garanzie, resi, prova in boutique e pagamento rateale,
+        non alzando il budget.
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Lo scontrino medio, nel contesto italiano</div>
+        <div class="chart-sub">Confronto fra il valore medio dell'ordine online di Risivi &amp; Co. e i benchmark di mercato italiani.</div>
+      </div>
+      <div class="bench" id="bench-aov"></div>
+      <div class="chart-note">
+        <strong>Fonti dei benchmark:</strong> osservatorio Mastercard sul lusso in Italia (scontrino medio online
+        282 &euro;, ticket medio in boutique 704 &euro;) e studio Pambianco sul mercato dei gioielli
+        (spesa media omnicanale in Italia 506 &euro;, contro gli 851 &euro; della Germania).
+        La stessa ricerca Mastercard segnala che la categoria &laquo;gioielli e orologi&raquo; registra
+        <strong>la crescita pi&ugrave; alta in assoluto nel ticket medio: +65%</strong> rispetto agli anni precedenti.
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-icon">&#128142;</div>
+        <div class="takeaway-txt">
+          Un ordine di Risivi &amp; Co. vale <strong>pi&ugrave; di dieci scontrini medi del lusso online italiano</strong>
+          e <strong>oltre quattro volte un acquisto di lusso fatto di persona in negozio</strong>.
+          Anche escludendo l'ordine singolo pi&ugrave; grande del periodo, la media resta sopra i 1.800 &euro;:
+          oltre sei volte il benchmark online nazionale. Non &egrave; un ecommerce con un tasso di conversione
+          basso. &Egrave; alta gioielleria che chiude online, che &egrave; una cosa che in Italia quasi non esiste.
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Il catalogo lo conferma dal lato dell'offerta</div>
+        <div class="chart-sub">Distribuzione per fascia di prezzo su un campione di 250 referenze del feed Merchant Center.</div>
+      </div>
+      <div class="bands">
+        <div class="band"><div class="band-num">1</div><div class="band-lab">sotto 500 &euro;</div></div>
+        <div class="band"><div class="band-num">37</div><div class="band-lab">500 &ndash; 1.500 &euro;</div></div>
+        <div class="band"><div class="band-num">115</div><div class="band-lab">1.500 &ndash; 5.000 &euro;</div></div>
+        <div class="band hi"><div class="band-num">49</div><div class="band-lab">5.000 &ndash; 15.000 &euro;</div></div>
+        <div class="band hi"><div class="band-num">48</div><div class="band-lab">oltre 15.000 &euro;</div></div>
+      </div>
+      <div class="chart-note">
+        Prezzo mediano <strong>3.410 &euro;</strong>, pezzo pi&ugrave; alto del campione <strong>89.670 &euro;</strong>.
+        Il <strong>99,6% delle referenze costa pi&ugrave; dello scontrino medio del lusso online italiano</strong>.
+        Un funnel costruito sui tassi di conversione dell'ecommerce generalista, su un catalogo cos&igrave;,
+        misurerebbe la cosa sbagliata.
+      </div>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-head">
+        <div class="chart-title">Domanda generata verso la boutique di Roma</div>
+        <div class="chart-sub">Azioni locali e contatti diretti generati dalle campagne, quindici mesi.</div>
+      </div>
+      <div class="funnel" id="funnel-local"></div>
+      <div class="chart-note">
+        Le campagne hanno generato <strong>4.767 azioni verso il negozio</strong>, di cui <strong>4.132
+        dalla sola Performance Max Local</strong>: 2.581 &euro; di investimento, <strong>0,62 &euro; per azione</strong>.
+        In alta gioielleria l'84% del mercato del lusso si chiude ancora in boutique: queste 942 persone
+        accompagnate davanti alla vetrina e 292 telefonate diritte non compaiono in nessun ROAS,
+        ma sono il canale dove lo scontrino medio &egrave; pi&ugrave; alto.
+      </div>
+      <div class="takeaway">
+        <div class="takeaway-icon">&#128205;</div>
+        <div class="takeaway-txt">
+          Il picco &egrave; <strong>dicembre 2025: 159 richieste di indicazioni e 92 chiamate in un mese</strong>.
+          La stagionalit&agrave; del regalo &egrave; stata anticipata spostando budget su Local da fine ottobre.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTENTO DI RICERCA -->
+<section id="intento" style="background:#fff;">
+  <div class="container">
+    <span class="section-tag">SEO &amp; intento di ricerca</span>
+    <h2>Presidiare le query che <em>valgono davvero</em>.</h2>
+    <p class="lede">
+      I termini di ricerca reali su cui l'account ha comprato traffico nel 2026 raccontano due mercati
+      distinti: le <strong>testate di fiducia</strong> (&laquo;gioielleria online affidabile&raquo;), dove si compete
+      sul brand e si convertono lead, e la <strong>domanda di prodotto</strong> (&laquo;collana d'oro uomo&raquo;,
+      &laquo;anello diamante&raquo;), dove si compete sul catalogo e il clic costa un decimo.
+    </p>
+
+    <div class="tbl-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Termine di ricerca</th>
+            <th class="num">Impressioni</th>
+            <th class="num">Clic</th>
+            <th class="num">CPC medio</th>
+            <th class="num">Conversioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="term">gioielleria online</td><td class="num">937</td><td class="num">239</td><td class="num">2,43 &euro;</td><td class="num"><span class="tag-hot">19,5</span></td></tr>
+          <tr><td class="term">gioielleria online affidabile</td><td class="num">398</td><td class="num">87</td><td class="num">1,99 &euro;</td><td class="num">1</td></tr>
+          <tr><td class="term">collana d&rsquo;oro uomo</td><td class="num">6.495</td><td class="num">81</td><td class="num">0,33 &euro;</td><td class="num">2</td></tr>
+          <tr><td class="term">gioielli su misura</td><td class="num">187</td><td class="num">49</td><td class="num">1,86 &euro;</td><td class="num">&mdash;</td></tr>
+          <tr><td class="term">anello diamante</td><td class="num">4.125</td><td class="num">48</td><td class="num">0,16 &euro;</td><td class="num">&mdash;</td></tr>
+          <tr><td class="term">solitario anello</td><td class="num">4.616</td><td class="num">44</td><td class="num">0,17 &euro;</td><td class="num">&mdash;</td></tr>
+          <tr><td class="term">collane oro uomo</td><td class="num">3.035</td><td class="num">43</td><td class="num">0,29 &euro;</td><td class="num">&mdash;</td></tr>
+          <tr><td class="term">gioielli uomo lusso</td><td class="num">120</td><td class="num">42</td><td class="num">2,13 &euro;</td><td class="num">&mdash;</td></tr>
+          <tr><td class="term">gioiellerie online</td><td class="num">158</td><td class="num">37</td><td class="num">2,39 &euro;</td><td class="num">1</td></tr>
+          <tr><td class="term">oreficeria online</td><td class="num">87</td><td class="num">27</td><td class="num">2,16 &euro;</td><td class="num">1</td></tr>
+          <tr><td class="term">vendita gioielli online</td><td class="num">87</td><td class="num">27</td><td class="num">1,50 &euro;</td><td class="num">1</td></tr>
+          <tr><td class="term">gioiellerie online affidabili</td><td class="num">78</td><td class="num">19</td><td class="num">2,76 &euro;</td><td class="num"><span class="tag-hot">2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;font-weight:700;margin:2.5rem 0 .4rem;">
+      Quelle che ora presidia gratis
+    </h3>
+    <p style="font-size:.92rem;color:var(--ink-soft);line-height:1.7;margin-bottom:1.2rem;max-width:720px;">
+      Le posizioni organiche conquistate fra marzo e agosto 2026. Oltre al brand, dominato in prima
+      posizione, il sito &egrave; entrato in prima pagina sul vocabolario culturale del <i>gioiello urbano</i>,
+      che &egrave; esattamente dove si forma la domanda dei clienti pi&ugrave; giovani.
+    </p>
+    <div class="tbl-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Query organica</th>
+            <th class="num">Impressioni</th>
+            <th class="num">Clic</th>
+            <th class="num">CTR</th>
+            <th class="num">Posizione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="term">risivi <span class="tag-hot">brand</span></td><td class="num">4.135</td><td class="num">2.367</td><td class="num">57,2%</td><td class="num">1,3</td></tr>
+          <tr><td class="term">rodrigo risivi <span class="tag-hot">brand</span><span class="kw-note">pagina creata dopo il mio arrivo</span></td><td class="num">9.633</td><td class="num">1.877</td><td class="num">19,5%</td><td class="num">1,1</td></tr>
+          <tr><td class="term">risivi gioielli <span class="tag-hot">brand</span></td><td class="num">1.963</td><td class="num">1.008</td><td class="num">51,4%</td><td class="num">1,6</td></tr>
+          <tr><td class="term">collana cubana</td><td class="num">4.627</td><td class="num">93</td><td class="num">2,0%</td><td class="num">2,4</td></tr>
+          <tr><td class="term">collana <span class="kw-hidden" aria-hidden="true">anosa</span></td><td class="num">4.304</td><td class="num">73</td><td class="num">1,7%</td><td class="num">1,1</td></tr>
+          <tr><td class="term">collane <span class="kw-hidden" aria-hidden="true">anosa</span></td><td class="num">2.143</td><td class="num">66</td><td class="num">3,1%</td><td class="num">1,2</td></tr>
+          <tr><td class="term">cuban chain</td><td class="num">2.368</td><td class="num">59</td><td class="num">2,5%</td><td class="num">2,1</td></tr>
+          <tr><td class="term">collana <span class="kw-hidden" aria-hidden="true">arene ombrata</span></td><td class="num">2.744</td><td class="num">45</td><td class="num">1,6%</td><td class="num">3,3</td></tr>
+          <tr><td class="term">collana <span class="kw-hidden" aria-hidden="true">aren orbe</span></td><td class="num">1.290</td><td class="num">37</td><td class="num">2,9%</td><td class="num">4,7</td></tr>
+          <tr><td class="term">collana <span class="kw-hidden" aria-hidden="true">aresci onda</span></td><td class="num">6.744</td><td class="num">76</td><td class="num">1,1%</td><td class="num">8,1</td></tr>
+          <tr><td class="term">collane personalizzate</td><td class="num">6.679</td><td class="num">37</td><td class="num">0,6%</td><td class="num">7,6</td></tr>
+          <tr><td class="term">collana personalizzata</td><td class="num">6.827</td><td class="num">23</td><td class="num">0,3%</td><td class="num">8,6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tbl-legend">
+      <span>&#128274;</span>
+      <span>Alcuni termini di prodotto sono oscurati su richiesta del cliente: restano visibili
+      la categoria e tutti i dati di performance. I termini nascosti non sono presenti nel codice
+      della pagina, quindi non sono recuperabili dal sorgente.</span>
+    </p>
+
+    <div class="takeaway" style="margin-top:1.5rem;">
+      <div class="takeaway-icon">&#127919;</div>
+      <div class="takeaway-txt">
+        <strong>Il prossimo cantiere &egrave; scritto qui dentro.</strong> Il cluster &laquo;personalizzate&raquo;
+        vale <strong>13.506 impressioni</strong> ferme in posizione 7,6&ndash;8,6, con CTR sotto lo 0,6%:
+        &egrave; domanda gi&agrave; guadagnata che non si trasforma in clic solo perch&eacute; il sito sta appena
+        sotto la soglia visibile. Portare quelle due query in posizione 3&ndash;4 vale pi&ugrave; di
+        qualsiasi aumento di budget.
+      </div>
+    </div>
+
+    <div class="takeaway" style="margin-top:1rem;">
+      <div class="takeaway-icon">&#128269;</div>
+      <div class="takeaway-txt">
+        <strong>&laquo;gioielleria online&raquo; da sola vale 19,5 conversioni su 239 clic: un tasso dell'8,2%.</strong>
+        &Egrave; la query su cui vale la pena costruire il posizionamento organico, perch&eacute; a 2,43 &euro; di CPC
+        il traffico a pagamento &egrave; sostenibile solo finch&eacute; la marginalit&agrave; regge. La roadmap SEO
+        parte da qui, non dalle keyword pi&ugrave; grosse.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODO / TRASPARENZA -->
+<section id="metodo">
+  <div class="container">
+    <span class="section-tag">Nota metodologica</span>
+    <h2>I dati che ho usato, e quelli che <em>non ho usato.</em></h2>
+    <p class="lede">
+      Un caso studio senza note metodologiche &egrave; marketing. Con le note, &egrave; lavoro.
+      Ecco cosa c'&egrave; dietro ogni numero di questa pagina.
+    </p>
+    <div class="note-box reveal">
+      <h3>Fonti e perimetro</h3>
+      <ul>
+        <li><strong>Periodo:</strong> giugno 2025 &ndash; 25 agosto 2026. Agosto 2026 &egrave; un mese parziale
+        ed &egrave; segnato con asterisco in tutti i grafici. I dati Google Ads partono da luglio 2025,
+        primo mese presente nell'account.</li>
+        <li><strong>Il fatturato viene dal sito ecommerce, non dai pixel.</strong> Ogni cifra di vendita
+        in questa pagina &egrave; il report ordini del negozio. &Egrave; una scelta precisa: le piattaforme
+        pubblicitarie non sono una fonte contabile.</li>
+        <li><strong>GA4 tracciava meno della met&agrave; del fatturato reale</strong> e duplicava gli eventi
+        di acquisto: 60 transazioni registrate contro 16 ordini effettivi, con interi mesi di ricavi
+        mancanti. Anche Google Ads vedeva solo 14 acquisti importati. Ricostruire il tracciamento
+        server-side &egrave; il primo cantiere aperto &mdash; e il motivo per cui in questa pagina
+        <strong>non trovi un ROAS per campagna</strong>: sarebbe stato un numero inventato.</li>
+        <li><strong>Il &laquo;valore conversioni&raquo; di Google Ads &egrave; escluso da ogni metrica.</strong>
+        Gli eventi <em>add_to_cart</em> e <em>begin_checkout</em> hanno inviato per mesi importi corrotti,
+        fino a 23 milioni di euro su 7.600 &euro; di spesa.</li>
+        <li><strong>Il ROAS indicato &egrave; complessivo (blended)</strong>: fatturato online totale diviso
+        investimento pubblicitario totale. Non &egrave; attribuzione last-click e non isola il contributo
+        del singolo canale. &Egrave; il modo pi&ugrave; onesto di leggere un business dove il traffico organico
+        vale un quarto della visibilit&agrave; e la maggior parte delle vendite si chiude in boutique.</li>
+        <li><strong>I benchmark di mercato</strong> (282 &euro; scontrino medio lusso online, 704 &euro; ticket medio
+        in boutique, 506 &euro; spesa media italiana per gioielli) provengono dall'osservatorio Mastercard
+        sul lusso in Italia e dallo studio Pambianco sul mercato dei gioielli. Sono medie di settore,
+        non dati dell'account.</li>
+        <li><strong>I dati Merchant Center</strong> sono calcolati su un campione di 250 referenze del feed,
+        non sull'intero catalogo. Prezzo mediano e distribuzione per fascia si riferiscono a quel campione.</li>
+        <li><strong>Sul feed Merchant Center:</strong> prodotti aggiornati ogni settimana e inventario ogni giorno,
+        con aggiornamenti automatici di prezzo e disponibilit&agrave; attivi, e 92 gruppi di varianti gestiti
+        correttamente via <em>itemGroupId</em>. Il feed serve 27 mercati esteri ma &egrave; interamente in italiano:
+        la localizzazione &egrave; la leva pi&ugrave; grande ancora inutilizzata.</li>
+        <li><strong>Tre correzioni di feed gi&agrave; identificate, tutte a costo zero:</strong> le schede locali
+        gratuite sono escluse dalle destinazioni nonostante la boutique di Roma sia verificata, il tagging
+        automatico delle schede gratuite &egrave; disattivato, e il 17% delle referenze del campione non ha
+        una categoria prodotto Google assegnata &mdash; il che indebolisce il matching sulle query commerciali.</li>
+        <li><strong>Il 97% dei clic a pagamento arriva da mobile</strong> (104.105 su 107.281).
+        Ogni scelta di landing, feed e checkout &egrave; stata presa su questa base.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="blob-c1"></div>
+  <div class="blob-c2"></div>
+  <h2>Hai un account che spende <em>senza dirti perch&eacute;?</em></h2>
+  <p class="sub">
+    Parliamone. Il primo passo &egrave; sempre lo stesso: capire cosa stai davvero comprando
+    con i soldi che stai gi&agrave; spendendo.
+  </p>
+  <div class="contact-links">
+    <a class="contact-link" href="/#contact"><span class="contact-link-icon">&#9993;</span> Scrivimi</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/" target="_blank" rel="noopener"><span class="contact-link-icon">in</span> LinkedIn</a>
+    <a class="contact-link" href="/#projects"><span class="contact-link-icon">&#8592;</span> Tutti i casi studio</a>
+  </div>
+</section>
+
+<footer>&copy; 2026 <span>Giovanni Rasulo</span> &middot; Cagliari, Italia &middot; Costruito con cura, da remoto. &middot; P.IVA 04088780129</footer>
+
+<script>
+/* ============================================================
+   Dati: Google Ads. Estrazione 26/08/2026.
+   Agosto 2026 e' un mese parziale (al giorno 25).
+   ============================================================ */
+const MESI  = ['Lug 25','Ago 25','Set 25','Ott 25','Nov 25','Dic 25','Gen 26','Feb 26','Mar 26','Apr 26','Mag 26','Giu 26','Lug 26','Ago 26*'];
+const IMPR  = [85066,122902,112084,136291,68621,93745,116495,366783,304174,213056,378423,419971,668223,194833];
+const CLIC  = [3275,4980,7938,10531,4359,2836,5795,10015,13763,8523,6561,15110,9124,4471];
+const COSTO = [951.07,1008.93,1803.68,2956.30,2046.71,1703.37,1500.47,1460.08,2005.51,1690.85,1820.98,2110.77,2020.55,953.78];
+const CPM   = COSTO.map((c,i)=>c/IMPR[i]*1000);
+const CPC   = COSTO.map((c,i)=>c/CLIC[i]);
+/* investimento per tipo di campagna: [PMax, Search, Demand Gen, Shopping, Video] */
+const MIX = [
+  [375.77,525.31,0,0,49.99],
+  [414.82,594.10,0,0,0],
+  [868.35,935.33,0,0,0],
+  [1106.72,1849.58,0,0,0],
+  [692.99,1353.72,0,0,0],
+  [744.18,959.19,0,0,0],
+  [618.70,577.41,304.37,0,0],
+  [784.15,273.72,402.21,0,0],
+  [1040.63,392.07,572.82,0,0],
+  [1099.00,298.02,260.00,0,33.83],
+  [1260.12,408.30,152.56,0,0],
+  [1468.09,306.20,239.00,97.48,0],
+  [0,524.93,260.38,1235.24,0],
+  [0,0,254.82,698.96,0]
+];
+const MIX_COLORI = ['#1E3D5C','#3B6EA5','#8FBCD8','#2F855A','#C2D8F0'];
+
+/* Search Console e Google Analytics 4, giu 2025 - 25 ago 2026 */
+const MESI15   = ['Giu 25','Lug 25','Ago 25','Set 25','Ott 25','Nov 25','Dic 25','Gen 26','Feb 26','Mar 26','Apr 26','Mag 26','Giu 26','Lug 26','Ago 26*'];
+const GSC_IMPR = [33779,53529,57666,54435,53179,50099,68688,67204,66567,84434,96728,112765,119789,138992,93428];
+const GSC_CLIC = [1274,1632,1678,1611,1874,2223,2094,1810,1743,1888,2118,2791,4018,3823,2628];
+const GSC_POS  = [14.9,14.1,17.2,12.4,8.9,9.0,9.4,10.3,9.7,7.4,6.7,7.9,7.4,7.3,7.8];
+const GA4_SESS = [3137,9012,8716,11414,14624,9967,7752,7731,10366,15290,11294,11054,15944,16065,8726];
+
+const NS = 'http://www.w3.org/2000/svg';
+const mk = (n,a) => { const e=document.createElementNS(NS,n); for(const k in a) e.setAttribute(k,a[k]); return e; };
+const nf = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const dec = (n,d) => n.toLocaleString('it-IT',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+function nuovoSvg(host,w,h){
+  const s = mk('svg',{viewBox:'0 0 '+w+' '+h,role:'img','aria-hidden':'true'});
+  host.appendChild(s);
+  return s;
+}
+function assiX(s,P,w,h,etichette){
+  etichette.forEach((m,i)=>{
+    const x = P.l + (w-P.l-P.r)*(i+0.5)/etichette.length;
+    const t = mk('text',{x:x,y:h-P.b+20,'text-anchor':'middle','font-size':'10.5',
+      fill:'#5C7A99','font-family':"'DM Sans',sans-serif"});
+    t.textContent = m;
+    s.appendChild(t);
+  });
+}
+function griglia(s,P,w,h,max,tick,fmt){
+  for(let i=0;i<=tick;i++){
+    const v = max*i/tick;
+    const y = (h-P.b) - (h-P.b-P.t)*(i/tick);
+    s.appendChild(mk('line',{x1:P.l,y1:y,x2:w-P.r,y2:y,stroke:'rgba(26,37,53,.08)','stroke-width':1}));
+    const t = mk('text',{x:P.l-10,y:y+3.5,'text-anchor':'end','font-size':'10.5',
+      fill:'#5C7A99','font-family':"'DM Sans',sans-serif"});
+    t.textContent = fmt(v);
+    s.appendChild(t);
+  }
+}
+function assiDx(s,P,w,h,max,tick,fmt,colore){
+  for(let i=0;i<=tick;i++){
+    const v = max*i/tick;
+    const y = (h-P.b) - (h-P.b-P.t)*(i/tick);
+    const t = mk('text',{x:w-P.r+10,y:y+3.5,'text-anchor':'start','font-size':'10.5',
+      fill:colore,'font-family':"'DM Sans',sans-serif"});
+    t.textContent = fmt(v);
+    s.appendChild(t);
+  }
+}
+
+/* ---------- 1. Area impressioni ---------- */
+(function(){
+  const host = document.getElementById('chart-impr');
+  const w=920,h=340,P={t:18,r:26,b:46,l:62};
+  const s = nuovoSvg(host,w,h);
+  const max=700000, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const px = i => P.l + iw*(i+0.5)/IMPR.length;
+  const py = v => (h-P.b) - ih*(v/max);
+
+  const g = mk('linearGradient',{id:'gImpr',x1:'0',y1:'0',x2:'0',y2:'1'});
+  g.appendChild(mk('stop',{offset:'0%','stop-color':'#3B6EA5','stop-opacity':'.30'}));
+  g.appendChild(mk('stop',{offset:'100%','stop-color':'#3B6EA5','stop-opacity':'.02'}));
+  const defs = mk('defs',{}); defs.appendChild(g); s.appendChild(defs);
+
+  griglia(s,P,w,h,max,4,v=>v>=1000?Math.round(v/1000)+'k':'0');
+
+  let d='', a='M '+px(0)+' '+(h-P.b);
+  IMPR.forEach((v,i)=>{ d += (i?' L ':'M ')+px(i)+' '+py(v); a += ' L '+px(i)+' '+py(v); });
+  a += ' L '+px(IMPR.length-1)+' '+(h-P.b)+' Z';
+  s.appendChild(mk('path',{d:a,fill:'url(#gImpr)'}));
+  const linea = mk('path',{d:d,fill:'none',stroke:'#3B6EA5','stroke-width':2.6,
+    'stroke-linejoin':'round','stroke-linecap':'round'});
+  s.appendChild(linea);
+
+  /* media mobile 3 mesi */
+  let mm='';
+  IMPR.forEach((v,i)=>{
+    if(i<2) return;
+    const avg=(IMPR[i]+IMPR[i-1]+IMPR[i-2])/3;
+    mm += (mm?' L ':'M ')+px(i)+' '+py(avg);
+  });
+  s.appendChild(mk('path',{d:mm,fill:'none',stroke:'#A5C4E0','stroke-width':2.2,
+    'stroke-dasharray':'5 4','stroke-linecap':'round'}));
+
+  IMPR.forEach((v,i)=>{
+    s.appendChild(mk('circle',{cx:px(i),cy:py(v),r:3.6,fill:'#fff',stroke:'#3B6EA5','stroke-width':2.2}));
+  });
+  /* etichette agli estremi e al picco */
+  [[0,'85.066'],[7,'366.783'],[12,'668.223']].forEach(([i,lab])=>{
+    const t=mk('text',{x:px(i),y:py(IMPR[i])-13,'text-anchor':'middle','font-size':'11.5',
+      'font-weight':'700',fill:'#1A2535','font-family':"'Plus Jakarta Sans',sans-serif"});
+    t.textContent=lab; s.appendChild(t);
+  });
+  assiX(s,P,w,h,MESI);
+
+  const L = linea.getTotalLength();
+  linea.setAttribute('stroke-dasharray',L);
+  linea.setAttribute('stroke-dashoffset',L);
+  linea.style.transition='stroke-dashoffset 1.8s cubic-bezier(.2,.7,.2,1)';
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ linea.setAttribute('stroke-dashoffset',0); o.disconnect(); } },
+    {threshold:.2}).observe(host);
+})();
+
+/* ---------- 2. Investimento (barre) + CPM (linea) ---------- */
+(function(){
+  const host=document.getElementById('chart-eff');
+  const w=920,h=340,P={t:18,r:52,b:46,l:56};
+  const s=nuovoSvg(host,w,h);
+  const maxC=3000, maxCpm=30, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const step=iw/COSTO.length, bw=step*0.56;
+  const px=i=>P.l+step*(i+0.5);
+  const pyC=v=>(h-P.b)-ih*(v/maxC);
+  const pyM=v=>(h-P.b)-ih*(v/maxCpm);
+
+  griglia(s,P,w,h,maxC,4,v=>v?dec(v/1000,1)+'k€':'0');
+  assiDx(s,P,w,h,maxCpm,4,v=>dec(v,0)+'€','#2F855A');
+
+  COSTO.forEach((v,i)=>{
+    const y=pyC(v), bh=(h-P.b)-y;
+    const r=mk('rect',{x:px(i)-bw/2,y:h-P.b,width:bw,height:0,rx:5,fill:'#C8DFF0'});
+    s.appendChild(r);
+    setTimeout(()=>{ r.style.transition='y .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s, height .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s';
+      r.setAttribute('y',y); r.setAttribute('height',bh); },60);
+  });
+
+  let d='';
+  CPM.forEach((v,i)=>{ d+=(i?' L ':'M ')+px(i)+' '+pyM(v); });
+  s.appendChild(mk('path',{d:d,fill:'none',stroke:'#2F855A','stroke-width':2.6,
+    'stroke-linejoin':'round','stroke-linecap':'round'}));
+  CPM.forEach((v,i)=>{
+    s.appendChild(mk('circle',{cx:px(i),cy:pyM(v),r:3.4,fill:'#fff',stroke:'#2F855A','stroke-width':2.2}));
+  });
+  [[4,'29,83 €'],[12,'3,02 €']].forEach(([i,lab])=>{
+    const t=mk('text',{x:px(i),y:pyM(CPM[i])-12,'text-anchor':'middle','font-size':'11.5',
+      'font-weight':'700',fill:'#2F855A','font-family':"'Plus Jakarta Sans',sans-serif"});
+    t.textContent=lab; s.appendChild(t);
+  });
+  assiX(s,P,w,h,MESI);
+})();
+
+/* ---------- 3. Clic (barre) + CPC (linea) ---------- */
+(function(){
+  const host=document.getElementById('chart-clic');
+  const w=920,h=320,P={t:18,r:52,b:46,l:56};
+  const s=nuovoSvg(host,w,h);
+  const maxK=16000, maxCpc=0.8, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const step=iw/CLIC.length, bw=step*0.56;
+  const px=i=>P.l+step*(i+0.5);
+  const pyK=v=>(h-P.b)-ih*(v/maxK);
+  const pyC=v=>(h-P.b)-ih*(v/maxCpc);
+
+  griglia(s,P,w,h,maxK,4,v=>v>=1000?Math.round(v/1000)+'k':'0');
+  assiDx(s,P,w,h,maxCpc,4,v=>dec(v,1)+'€','#1A2535');
+
+  CLIC.forEach((v,i)=>{
+    const y=pyK(v), bh=(h-P.b)-y;
+    const r=mk('rect',{x:px(i)-bw/2,y:h-P.b,width:bw,height:0,rx:5,fill:'#6E94C3'});
+    s.appendChild(r);
+    setTimeout(()=>{ r.style.transition='y .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s, height .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s';
+      r.setAttribute('y',y); r.setAttribute('height',bh); },60);
+  });
+
+  let d='';
+  CPC.forEach((v,i)=>{ d+=(i?' L ':'M ')+px(i)+' '+pyC(v); });
+  s.appendChild(mk('path',{d:d,fill:'none',stroke:'#1A2535','stroke-width':2.4,
+    'stroke-dasharray':'6 4','stroke-linejoin':'round','stroke-linecap':'round'}));
+  CPC.forEach((v,i)=>{
+    s.appendChild(mk('circle',{cx:px(i),cy:pyC(v),r:3.2,fill:'#fff',stroke:'#1A2535','stroke-width':2}));
+  });
+  const t=mk('text',{x:px(11),y:pyK(CLIC[11])-12,'text-anchor':'middle','font-size':'11.5',
+    'font-weight':'700',fill:'#1A2535','font-family':"'Plus Jakarta Sans',sans-serif"});
+  t.textContent='15.110 clic'; s.appendChild(t);
+  assiX(s,P,w,h,MESI);
+})();
+
+/* ---------- 4. Mix di canale (colonne 100%) ---------- */
+(function(){
+  const host=document.getElementById('chart-mix');
+  const w=920,h=330,P={t:18,r:26,b:46,l:46};
+  const s=nuovoSvg(host,w,h);
+  const iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const step=iw/MIX.length, bw=step*0.62;
+
+  for(let i=0;i<=4;i++){
+    const y=(h-P.b)-ih*(i/4);
+    s.appendChild(mk('line',{x1:P.l,y1:y,x2:w-P.r,y2:y,stroke:'rgba(26,37,53,.08)','stroke-width':1}));
+    const t=mk('text',{x:P.l-10,y:y+3.5,'text-anchor':'end','font-size':'10.5',
+      fill:'#5C7A99','font-family':"'DM Sans',sans-serif"});
+    t.textContent=(i*25)+'%'; s.appendChild(t);
+  }
+
+  MIX.forEach((riga,i)=>{
+    const tot=riga.reduce((a,b)=>a+b,0);
+    if(!tot) return;
+    let acc=0;
+    riga.forEach((v,j)=>{
+      if(v<=0) return;
+      const q=v/tot, y=(h-P.b)-ih*(acc+q), bh=ih*q;
+      const r=mk('rect',{x:P.l+step*(i+0.5)-bw/2,y:y,width:bw,height:bh,fill:MIX_COLORI[j],opacity:0});
+      s.appendChild(r);
+      setTimeout(()=>{ r.style.transition='opacity .6s ease '+(i*0.05)+'s'; r.setAttribute('opacity',1); },60);
+      acc+=q;
+    });
+  });
+  assiX(s,P,w,h,MESI);
+})();
+
+/* ---------- 5. Funnel ecommerce (GA4 + sito ecommerce, scala logaritmica) ---------- */
+(function(){
+  const passi=[
+    {l:'Sessioni sul sito',     v:161092, c:'#1E3D5C', d:'100% del traffico'},
+    {l:'Aggiunte al carrello',  v:813,   c:'#3B6EA5', d:'0,5% delle sessioni'},
+    {l:'Checkout avviati',      v:430,    c:'#8FBCD8', d:'52,9% dei carrelli'},
+    {l:'Ordini completati',     v:16,     c:'#2F855A', d:'3,7% dei checkout'}
+  ];
+  const host=document.getElementById('funnel-ecom');
+  const lg=v=>Math.log10(v);
+  const hi=lg(passi[0].v), lo=lg(passi[passi.length-1].v);
+  passi.forEach(p=>{
+    const perc = 8 + 92*(lg(p.v)-lo)/(hi-lo);
+    const row=document.createElement('div');
+    row.className='fn-row reveal';
+    row.innerHTML =
+      '<div class="fn-label">'+p.l+'</div>'+
+      '<div class="fn-track"><div class="fn-bar" data-w="'+perc+'" style="background:'+p.c+'">'+
+        (perc>16?nf(p.v):'')+'</div></div>'+
+      '<div class="fn-side"><b>'+nf(p.v)+'</b>'+p.d+'</div>';
+    host.appendChild(row);
+  });
+})();
+
+/* ---------- 5b. Scontrino medio contro i benchmark italiani ---------- */
+(function(){
+  const host=document.getElementById('bench-aov');
+  if(!host) return;
+  const voci=[
+    {l:'Lusso online in Italia', s:'scontrino medio &middot; osservatorio Mastercard', v:282,  et:'282 €',        c:'#C8DFF0', n:''},
+    {l:'Gioielli, spesa media italiana', s:'omnicanale &middot; studio Pambianco',     v:506,  et:'506 €',        c:'#A5C4E0', n:'&times;1,8'},
+    {l:'Lusso acquistato in boutique', s:'ticket medio in negozio &middot; Mastercard', v:704, et:'704 €',        c:'#8FBCD8', n:'&times;2,5'},
+    {l:'Risivi &amp; Co. &middot; online', s:'valore medio dell\'ordine, quindici mesi', v:3000, et:'oltre 3.000 €', c:'#2F855A', n:'&times;10,6'}
+  ];
+  const max=3000;
+  voci.forEach(o=>{
+    const row=document.createElement('div');
+    row.className='bench-row reveal';
+    row.innerHTML =
+      '<div class="bench-label">'+o.l+'<small>'+o.s+'</small></div>'+
+      '<div class="bench-track"><div class="bench-bar" data-w="'+(o.v/max*100)+'" style="background:'+o.c+'"></div></div>'+
+      '<div class="bench-val">'+o.et+'<small>'+(o.n||'benchmark')+'</small></div>';
+    host.appendChild(row);
+  });
+})();
+
+/* ---------- 6. Funnel locale ---------- */
+(function(){
+  const passi=[
+    {l:'Interazioni con la scheda negozio', v:3319, c:'#3B6EA5'},
+    {l:'Richieste di indicazioni stradali', v:942,  c:'#5B87BC'},
+    {l:'Chiamate dirette dall’annuncio', v:292, c:'#8FBCD8'},
+    {l:'Visite al sito dalla scheda',        v:197,  c:'#A5C4E0'},
+    {l:'Contatti WhatsApp',                  v:17,   c:'#2F855A'}
+  ];
+  const host=document.getElementById('funnel-local');
+  const base=passi[0].v;
+  const TOT_LOCALI=passi.reduce((a,p)=>a+p.v,0);
+  passi.forEach(p=>{
+    const perc=Math.max(p.v/base*100, 1.4);
+    const row=document.createElement('div');
+    row.className='fn-row reveal';
+    row.innerHTML =
+      '<div class="fn-label">'+p.l+'</div>'+
+      '<div class="fn-track"><div class="fn-bar" data-w="'+perc+'" style="background:'+p.c+'">'+
+        (perc>16?nf(p.v):'')+'</div></div>'+
+      '<div class="fn-side"><b>'+nf(p.v)+'</b>'+dec(p.v/TOT_LOCALI*100,1)+'% delle azioni</div>';
+    host.appendChild(row);
+  });
+})();
+
+/* ---------- 7. Search Console: impressioni + posizione media (asse invertito) ---------- */
+(function(){
+  const host=document.getElementById('chart-gsc');
+  if(!host) return;
+  const w=920,h=340,P={t:22,r:52,b:46,l:56};
+  const s=nuovoSvg(host,w,h);
+  const maxI=150000, maxPos=20, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const step=iw/GSC_IMPR.length, bw=step*0.56;
+  const px=i=>P.l+step*(i+0.5);
+  const pyI=v=>(h-P.b)-ih*(v/maxI);
+  const pyP=v=>P.t+ih*(v/maxPos);           /* invertito: posizione 1 in alto */
+
+  griglia(s,P,w,h,maxI,5,v=>v>=1000?Math.round(v/1000)+'k':'0');
+  for(let i=0;i<=4;i++){
+    const v=maxPos*i/4;
+    const t=mk('text',{x:w-P.r+10,y:pyP(v)+3.5,'text-anchor':'start','font-size':'10.5',
+      fill:'#B7791F','font-family':"'DM Sans',sans-serif"});
+    t.textContent = v===0 ? '1°' : Math.round(v)+'°';
+    s.appendChild(t);
+  }
+
+  GSC_IMPR.forEach((v,i)=>{
+    const y=pyI(v), bh=(h-P.b)-y;
+    const r=mk('rect',{x:px(i)-bw/2,y:h-P.b,width:bw,height:0,rx:5,fill:'#8FBCD8'});
+    s.appendChild(r);
+    setTimeout(()=>{ r.style.transition='y .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s, height .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s';
+      r.setAttribute('y',y); r.setAttribute('height',bh); },60);
+  });
+
+  let d='';
+  GSC_POS.forEach((v,i)=>{ d+=(i?' L ':'M ')+px(i)+' '+pyP(v); });
+  s.appendChild(mk('path',{d:d,fill:'none',stroke:'#B7791F','stroke-width':2.6,
+    'stroke-linejoin':'round','stroke-linecap':'round'}));
+  GSC_POS.forEach((v,i)=>{
+    s.appendChild(mk('circle',{cx:px(i),cy:pyP(v),r:3.4,fill:'#fff',stroke:'#B7791F','stroke-width':2.2}));
+  });
+  [[2,'pos. 17,2',16],[13,'pos. 7,3',-14]].forEach(([i,lab,dy])=>{
+    const t=mk('text',{x:px(i),y:pyP(GSC_POS[i])+dy,'text-anchor':'middle','font-size':'11.5',
+      'font-weight':'700',fill:'#B7791F','font-family':"'Plus Jakarta Sans',sans-serif"});
+    t.textContent=lab; s.appendChild(t);
+  });
+  assiX(s,P,w,h,MESI15);
+})();
+
+/* ---------- 8. Search Console: clic organici ---------- */
+(function(){
+  const host=document.getElementById('chart-gsc-clic');
+  if(!host) return;
+  const w=920,h=300,P={t:22,r:26,b:46,l:56};
+  const s=nuovoSvg(host,w,h);
+  const max=4500, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const step=iw/GSC_CLIC.length, bw=step*0.56;
+  const px=i=>P.l+step*(i+0.5);
+  const py=v=>(h-P.b)-ih*(v/max);
+
+  griglia(s,P,w,h,max,3,v=>v>=1000?dec(v/1000,1)+'k':'0');
+  GSC_CLIC.forEach((v,i)=>{
+    const y=py(v), bh=(h-P.b)-y;
+    const r=mk('rect',{x:px(i)-bw/2,y:h-P.b,width:bw,height:0,rx:5,fill:'#2F855A',opacity:.85});
+    s.appendChild(r);
+    setTimeout(()=>{ r.style.transition='y .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s, height .9s cubic-bezier(.2,.7,.2,1) '+(i*0.05)+'s';
+      r.setAttribute('y',y); r.setAttribute('height',bh); },60);
+  });
+  [[0,'1.274'],[12,'4.018']].forEach(([i,lab])=>{
+    const t=mk('text',{x:px(i),y:py(GSC_CLIC[i])-10,'text-anchor':'middle','font-size':'11.5',
+      'font-weight':'700',fill:'#1A2535','font-family':"'Plus Jakarta Sans',sans-serif"});
+    t.textContent=lab; s.appendChild(t);
+  });
+  assiX(s,P,w,h,MESI15);
+})();
+
+/* ---------- 9. GA4: sessioni mensili ---------- */
+(function(){
+  const host=document.getElementById('chart-ga4');
+  if(!host) return;
+  const w=920,h=300,P={t:22,r:26,b:46,l:56};
+  const s=nuovoSvg(host,w,h);
+  const max=18000, iw=w-P.l-P.r, ih=h-P.t-P.b;
+  const px=i=>P.l+iw*(i+0.5)/GA4_SESS.length;
+  const py=v=>(h-P.b)-ih*(v/max);
+
+  const g=mk('linearGradient',{id:'gGa4',x1:'0',y1:'0',x2:'0',y2:'1'});
+  g.appendChild(mk('stop',{offset:'0%','stop-color':'#3B6EA5','stop-opacity':'.28'}));
+  g.appendChild(mk('stop',{offset:'100%','stop-color':'#3B6EA5','stop-opacity':'.02'}));
+  const defs=mk('defs',{}); defs.appendChild(g); s.appendChild(defs);
+
+  griglia(s,P,w,h,max,3,v=>v>=1000?Math.round(v/1000)+'k':'0');
+
+  let d='', a='M '+px(0)+' '+(h-P.b);
+  GA4_SESS.forEach((v,i)=>{ d+=(i?' L ':'M ')+px(i)+' '+py(v); a+=' L '+px(i)+' '+py(v); });
+  a+=' L '+px(GA4_SESS.length-1)+' '+(h-P.b)+' Z';
+  s.appendChild(mk('path',{d:a,fill:'url(#gGa4)'}));
+  const linea=mk('path',{d:d,fill:'none',stroke:'#3B6EA5','stroke-width':2.6,
+    'stroke-linejoin':'round','stroke-linecap':'round'});
+  s.appendChild(linea);
+  GA4_SESS.forEach((v,i)=>{
+    s.appendChild(mk('circle',{cx:px(i),cy:py(v),r:3.4,fill:'#fff',stroke:'#3B6EA5','stroke-width':2.2}));
+  });
+  [[0,'3.137'],[13,'16.065']].forEach(([i,lab])=>{
+    const t=mk('text',{x:px(i),y:py(GA4_SESS[i])-12,'text-anchor':'middle','font-size':'11.5',
+      'font-weight':'700',fill:'#1A2535','font-family':"'Plus Jakarta Sans',sans-serif"});
+    t.textContent=lab; s.appendChild(t);
+  });
+  assiX(s,P,w,h,MESI15);
+
+  const L=linea.getTotalLength();
+  linea.setAttribute('stroke-dasharray',L);
+  linea.setAttribute('stroke-dashoffset',L);
+  linea.style.transition='stroke-dashoffset 1.8s cubic-bezier(.2,.7,.2,1)';
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ linea.setAttribute('stroke-dashoffset',0); o.disconnect(); } },
+    {threshold:.2}).observe(host);
+})();
+
+/* ---------- Reveal + animazione barre funnel ---------- */
+(function(){
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const idx=Array.from(e.target.parentElement.children).indexOf(e.target);
+      e.target.style.transitionDelay=Math.min(idx*0.08,0.4)+'s';
+      e.target.classList.add('visible');
+      const bar=e.target.querySelector('.fn-bar,.bench-bar');
+      if(bar) setTimeout(()=>{ bar.style.width=bar.dataset.w+'%'; }, 120+idx*90);
+      io.unobserve(e.target);
+    });
+  },{threshold:.10,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
+
+  const navEl=document.querySelector('nav');
+  window.addEventListener('scroll',()=>{
+    navEl.style.boxShadow = window.scrollY>40 ? '0 4px 24px rgba(26,37,53,.07)' : 'none';
+  });
+})();
+</script>
+
+<!-- Cookie consent bar -->
+<div id="cookie-bar" role="dialog" aria-label="Consenso ai cookie" style="display:none">
+  <div class="cc-inner">
+    <p>I cookie esistono per migliorare l'esperienza di navigazione, proporre contenuti personalizzati e per scopo di analisi. Facendo clic su &quot;Accetta&quot;, si acconsente al loro utilizzo da parte mia. <a href="/privacy-cookie-policy.html">Cookie &amp; Privacy Policy</a></p>
+    <div class="cc-btns">
+      <a id="cc-reject" href="/" class="cc-btn cc-ghost">Rifiuta</a>
+      <button id="cc-accept" class="cc-btn cc-primary" type="button">Accetta</button>
+    </div>
+  </div>
+</div>
+<style>
+#cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(15,40,64,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:'DM Sans',system-ui,sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+#cookie-bar .cc-inner{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#cookie-bar p{margin:0;font-size:.9rem;line-height:1.45;flex:1;min-width:230px}
+#cookie-bar a{color:#fff;text-decoration:underline}
+#cookie-bar .cc-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#cookie-bar .cc-btn{border:0;border-radius:999px;padding:9px 22px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;line-height:1}
+#cookie-bar .cc-primary{background:#fff;color:#0F2840}
+#cookie-bar .cc-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+</style>
+<script>
+(function(){
+  var KEY='cookie-consent', bar=document.getElementById('cookie-bar');
+  if(!bar) return;
+  if(!localStorage.getItem(KEY)){bar.style.display='block';}
+  document.getElementById('cc-accept').addEventListener('click',function(){localStorage.setItem(KEY,'accepted');bar.style.display='none';location.reload();});
+})();
+</script>
+
+</body>
+</html>
