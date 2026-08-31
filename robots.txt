@@ -7,4 +7,9 @@ Disallow: /thank-you-percorso-jkdshbfiuvarothbioqvueybofkd.html
 Disallow: /thank-you-percorso-diretto-jkdshbfiuvarothbioqvueybofkd.html
 Disallow: /fantacalcio-skill-claude/grazie/
 
+# Lead magnet: la pagina /proposta/ e indicizzabile, il PDF grezzo no
+Disallow: /proposta-collaborazione-giovanni-rasulo.pdf
+Disallow: /proposta/sorgente-pdf.html
+Disallow: /assets/pdf-lib.min.js
+
 Sitemap: https://www.giovannirasulo.com/sitemap.xml
