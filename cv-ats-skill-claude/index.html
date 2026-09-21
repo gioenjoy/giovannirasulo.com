@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- consenso cookie: blocca GA finché non accettato -->
+<script>if(localStorage.getItem('cookie-consent')!=='accepted'){window['ga-disable-G-1Q1LLRPZYP']=true;}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q1LLRPZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1Q1LLRPZYP');
+</script>
+
+<!-- ============================================================
+     CONFIGURAZIONE ACQUISTO — unico punto da modificare
+     1. Crea il Payment Link su Stripe Dashboard > Payment Links
+        (prodotto "ATS CV Optimize — Skill per Claude", 7 EUR)
+     2. Nel Payment Link, imposta la pagina di conferma ("after payment")
+        su un URL personalizzato:
+        https://www.giovannirasulo.com/cv-ats-skill-claude/grazie/?session_id={CHECKOUT_SESSION_ID}
+     3. Incolla l'URL del Payment Link qui sotto al posto del placeholder
+     ============================================================ -->
+<script>
+  const STRIPE_PAYMENT_LINK_URL = "https://buy.stripe.com/cNi28s88AcsK3GF0mc2wU06";
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATS CV Optimize — Skill per Claude che scrive CV italiani anti-ATS</title>
+<meta name="description" content="La skill per Claude che scrive e ottimizza il curriculum in italiano per superare gli ATS: converte l'Europass, blocca le frasi fatte e i pattern di scrittura IA, non inventa numeri e genera un DOCX ATS-safe.">
+<link rel="canonical" href="https://www.giovannirasulo.com/cv-ats-skill-claude/">
+<meta property="og:type" content="product">
+<meta property="og:title" content="ATS CV Optimize — Skill per Claude">
+<meta property="og:description" content="Il CV in italiano scritto per essere letto dai parser ATS, non dai template grafici. DOCX ATS-safe, zero frasi fatte, zero numeri inventati.">
+<meta property="og:url" content="https://www.giovannirasulo.com/cv-ats-skill-claude/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A2535;
+  --ink-soft:#2E3F55;
+  --muted:#5C7A99;
+  --faint:#8FAAC0;
+  --cream:#EAF0F7;
+  --cream-2:#DCE9F5;
+  --white:#FFFFFF;
+  --line:rgba(26,37,53,.09);
+  --accent:#3B6EA5;
+  --accent-mid:#6E94C3;
+  --accent-light:#A8BCE0;
+  --dark:#0F2840;
+  --dark-2:#1A3A5C;
+  --green:#1A7A5A;
+  --head:'Plus Jakarta Sans',system-ui,sans-serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 2rem;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-logo{
+  font-family:var(--head);font-weight:700;font-size:1rem;
+  color:var(--ink);display:flex;align-items:center;gap:.5rem;
+}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
+.nav-chisono{font-size:.88rem;font-weight:500;color:var(--ink-soft);text-decoration:none;margin-left:auto;margin-right:1.5rem;}
+.nav-link{font-size:.88rem;font-weight:500;color:var(--ink-soft);text-decoration:none;margin-right:1.5rem;}
+.nav-cta{
+  background:var(--accent);color:#fff;
+  padding:.5rem 1.2rem;border-radius:100px;
+  font-size:.8rem;font-weight:600;
+  transition:background .2s,transform .2s;
+}
+.nav-cta:hover{background:var(--dark);transform:translateY(-1px);}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 100%);
+  padding:8rem 2rem 5rem;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(110,148,195,.2),transparent 70%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-80px;left:-60px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(59,110,165,.18),transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:780px;margin:0 auto;position:relative;z-index:1;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:100px;padding:.35rem 1rem;
+  font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);margin-bottom:1.5rem;
+}
+.hero h1{
+  font-family:var(--head);font-weight:700;
+  font-size:clamp(2.2rem,6.2vw,4rem);
+  line-height:1.05;letter-spacing:-.03em;
+  color:#fff;margin-bottom:.6rem;
+}
+.hero h1 em{font-style:italic;color:#E96944;}
+.hero-subtitle{
+  font-family:var(--head);font-weight:600;
+  font-size:clamp(1.1rem,2.6vw,1.5rem);
+  line-height:1.3;letter-spacing:-.01em;
+  color:rgba(255,255,255,.85);
+  margin-bottom:1.25rem;
+}
+.hero-subtitle em{font-style:italic;color:#E96944;}
+.hero-sub{
+  font-size:1.1rem;line-height:1.75;
+  color:rgba(255,255,255,.65);
+  max-width:600px;margin:0 auto 2.5rem;
+}
+.hero-ctas{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{
+  background:#E96944;color:#fff;
+  padding:.9rem 2rem;border-radius:100px;
+  font-family:var(--head);font-size:.95rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:.5rem;
+  transition:transform .2s,box-shadow .2s,background .2s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{background:#D65A37;transform:translateY(-2px);box-shadow:0 10px 28px rgba(233,105,68,.3);}
+.btn-ghost{
+  background:transparent;color:#fff;
+  border:1.5px solid rgba(255,255,255,.3);
+  padding:.9rem 2rem;border-radius:100px;
+  font-size:.95rem;font-weight:500;
+  transition:border-color .2s,transform .2s;
+  display:inline-flex;align-items:center;gap:.5rem;
+}
+.btn-ghost:hover{border-color:#fff;transform:translateY(-2px);}
+.hero-stats{
+  display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;
+  margin-top:3rem;padding-top:2.5rem;
+  border-top:1px solid rgba(255,255,255,.1);
+}
+.hero-stat-num{
+  font-family:var(--head);font-weight:700;font-size:1.8rem;
+  color:#fff;letter-spacing:-.02em;line-height:1;
+}
+.hero-stat-label{font-size:.75rem;color:rgba(255,255,255,.5);margin-top:.3rem;text-transform:uppercase;letter-spacing:.06em;}
+
+/* SECTION SHARED */
+.section-tag{
+  font-size:.75rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:.8rem;
+  display:flex;align-items:center;gap:.5rem;
+}
+.section-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--muted);}
+.section-h2{
+  font-family:var(--head);font-weight:700;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  letter-spacing:-.022em;line-height:1.1;
+  color:var(--ink);margin-bottom:2.5rem;max-width:680px;
+}
+.section-h2 em{font-style:italic;color:#E96944;}
+
+/* PROBLEMA */
+.problem{background:#fff;padding:5rem 2rem 1rem;}
+.problem-inner{max-width:960px;margin:0 auto;}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:-1rem;}
+.problem-card{
+  background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.75rem 1.5rem;
+}
+.problem-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
+.problem-title{font-family:var(--head);font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:.5rem;line-height:1.3;}
+.problem-desc{font-size:.87rem;line-height:1.65;color:var(--muted);}
+
+/* COME FUNZIONA */
+.how{background:var(--cream);padding:5rem 2rem;}
+.how-inner{max-width:960px;margin:0 auto;}
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;}
+.how-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.75rem 1.5rem;
+  position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.how-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-mid));
+}
+.how-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(26,37,53,.07);}
+.how-n{
+  font-family:var(--head);font-weight:700;font-size:.8rem;color:#fff;
+  background:var(--accent);width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+}
+.how-title{font-family:var(--head);font-weight:700;font-size:1.02rem;color:var(--ink);margin-bottom:.5rem;line-height:1.3;}
+.how-desc{font-size:.87rem;line-height:1.6;color:var(--muted);}
+
+/* FEATURES */
+.features{background:#fff;padding:5rem 2rem;}
+.features-inner{max-width:960px;margin:0 auto;}
+.feat-list{display:flex;flex-direction:column;gap:1.25rem;}
+.feat-row{
+  display:grid;grid-template-columns:64px 1fr;gap:1.5rem;align-items:flex-start;
+  background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.75rem;
+}
+.feat-num{
+  font-family:var(--head);font-weight:700;font-size:1.4rem;color:var(--accent-light);
+  line-height:1;
+}
+.feat-title{font-family:var(--head);font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:.4rem;}
+.feat-desc{font-size:.92rem;line-height:1.65;color:var(--ink-soft);}
+
+/* DEMO */
+.demo{background:var(--cream);padding:5rem 2rem;}
+.demo-inner{max-width:760px;margin:0 auto;}
+.demo-header{text-align:center;margin-bottom:2.5rem;}
+.demo-header .section-h2{margin:0 auto 1rem;text-align:center;max-width:none;}
+.demo-sub{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto;}
+.chat-window{
+  background:#262624;border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(15,40,64,.25);border:1px solid rgba(255,255,255,.08);
+}
+.chat-topbar{
+  background:#262624;padding:.85rem 1.25rem;
+  display:flex;align-items:center;gap:.6rem;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.chat-logo{width:18px;height:18px;flex-shrink:0;}
+.chat-title{
+  font-size:.8rem;color:rgba(245,244,239,.55);font-family:var(--head);font-weight:500;
+}
+.chat-body{padding:1.75rem;display:flex;flex-direction:column;gap:1.4rem;background:#262624;}
+.chat-msg{display:flex;gap:.85rem;max-width:92%;}
+.chat-msg.user{align-self:flex-end;flex-direction:row-reverse;}
+.chat-avatar{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--head);font-weight:700;font-size:.65rem;color:#fff;
+  margin-top:.15rem;
+}
+.chat-avatar.claude{background:transparent;}
+.chat-avatar.claude svg{width:20px;height:20px;}
+.chat-avatar.user{background:#40403C;color:#F5F4EF;}
+.chat-bubble{
+  border-radius:16px;padding:.9rem 1.15rem;font-size:.92rem;line-height:1.65;
+}
+.chat-msg.user .chat-bubble{background:#3A3A37;color:#F5F4EF;border-top-right-radius:4px;}
+.chat-msg.claude .chat-bubble{background:transparent;color:#EDEBE4;padding:.1rem 0 0;}
+.chat-bubble strong{color:#fff;}
+.chat-ko{color:#F2946E;}
+.chat-ok{color:#7DD3A8;}
+.chat-highlight{
+  display:inline-block;margin-top:.7rem;padding:.35rem .8rem;
+  background:rgba(233,105,68,.16);color:#F2946E;
+  border-radius:100px;font-size:.78rem;font-weight:700;
+}
+
+/* PRICING */
+.pricing{background:#fff;padding:5rem 2rem;}
+.pricing-inner{max-width:480px;margin:0 auto;}
+.pricing-header{text-align:center;margin-bottom:2.5rem;}
+.pricing-header .section-h2{margin:0 auto 1rem;text-align:center;max-width:none;}
+.pricing-sub{color:var(--muted);font-size:1rem;max-width:420px;margin:0 auto;}
+.plan{
+  background:var(--cream);border:1.5px solid var(--accent);border-radius:22px;
+  padding:2.25rem 2rem;position:relative;overflow:hidden;
+  box-shadow:0 0 0 1px var(--accent-light);
+}
+.plan::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--dark),var(--accent));
+}
+.plan-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--dark);color:#fff;
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .7rem;border-radius:100px;margin-bottom:1.25rem;
+}
+.plan-name{font-family:var(--head);font-weight:700;font-size:1.25rem;color:var(--ink);margin-bottom:.4rem;}
+.plan-tagline{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.5;}
+.plan-price{font-family:var(--head);font-weight:700;font-size:2.8rem;color:var(--ink);letter-spacing:-.03em;line-height:1;margin-bottom:.3rem;}
+.plan-once{font-size:.8rem;color:var(--faint);margin-bottom:1rem;}
+.plan-split-note{
+  font-size:.82rem;line-height:1.55;color:var(--ink-soft);
+  background:rgba(233,105,68,.08);border:1px solid rgba(233,105,68,.2);
+  border-radius:12px;padding:.75rem 1rem;margin-bottom:.75rem;
+}
+.plan-split-note a{color:var(--accent);font-weight:600;}
+.plan-divider{height:1px;background:var(--line);margin:1.25rem 0;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem;}
+.plan-features li{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--ink-soft);line-height:1.5;}
+.feat-check{
+  width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:.1rem;
+  background:rgba(26,122,90,.1);display:flex;align-items:center;justify-content:center;
+}
+.feat-check svg{width:9px;height:9px;stroke:var(--green);stroke-width:2.5;fill:none;}
+.plan-cta{
+  display:block;width:100%;text-align:center;
+  background:var(--dark);color:#fff;
+  padding:.9rem 1rem;border-radius:100px;
+  font-family:var(--head);font-size:.95rem;font-weight:700;
+  transition:background .2s,transform .2s;cursor:pointer;border:none;
+}
+.plan-cta:hover{background:var(--accent);transform:translateY(-1px);}
+.pricing-note{text-align:center;margin-top:1.5rem;font-size:.85rem;color:var(--muted);}
+.pricing-note a{color:var(--accent);font-weight:500;}
+
+/* LINK BOX */
+.guide-link-section{background:var(--cream);padding:0 2rem 5rem;}
+.guide-link-inner{
+  max-width:760px;margin:0 auto;
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 100%);
+  border-radius:22px;padding:2.5rem;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.guide-link-inner::before{
+  content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;
+  border-radius:50%;background:radial-gradient(circle,rgba(110,148,195,.2),transparent 70%);
+}
+.guide-link-text{position:relative;z-index:1;}
+.guide-link-title{font-family:var(--head);font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:.4rem;}
+.guide-link-desc{font-size:.9rem;color:rgba(255,255,255,.6);max-width:420px;}
+.guide-link-cta{
+  position:relative;z-index:1;flex-shrink:0;
+  background:#fff;color:var(--dark);padding:.85rem 1.6rem;border-radius:100px;
+  font-family:var(--head);font-size:.9rem;font-weight:700;
+  display:inline-flex;align-items:center;gap:.5rem;
+  transition:transform .2s;
+}
+.guide-link-cta:hover{transform:translateY(-2px);}
+
+/* FAQ */
+.faq{background:#fff;padding:5rem 2rem;}
+.faq-inner{max-width:720px;margin:0 auto;}
+.faq-header{margin-bottom:2.5rem;}
+.faq-list{display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{
+  background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:1.25rem 1.5rem;
+  font-family:var(--head);font-weight:600;font-size:.97rem;color:var(--ink);
+  background:none;border:none;cursor:pointer;text-align:left;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--accent);}
+.faq-icon{
+  width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform .25s,border-color .2s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--accent);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;
+  padding:0 1.5rem;font-size:.92rem;line-height:1.72;color:var(--muted);
+}
+.faq-item.open .faq-a{max-height:2600px;padding-bottom:1.25rem;}
+.faq-a p{margin-bottom:.8rem;}
+.faq-a p:last-child{margin-bottom:0;}
+.faq-a a{color:var(--accent);font-weight:500;}
+.faq-prompt{
+  display:block;background:var(--dark);color:#EDEBE4;
+  border-radius:10px;padding:.8rem 1rem;margin:.45rem 0 .9rem;
+  font-size:.87rem;line-height:1.55;font-style:italic;
+  border-left:3px solid #E96944;
+}
+
+/* FOOTER CTA */
+.footer-cta{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--dark-2) 100%);
+  padding:5rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.footer-cta::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(110,148,195,.15),transparent 70%);
+}
+.footer-cta-inner{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+.footer-cta h2{
+  font-family:var(--head);font-weight:700;
+  font-size:clamp(1.8rem,4vw,2.8rem);
+  color:#fff;letter-spacing:-.022em;margin-bottom:1rem;line-height:1.1;
+}
+.footer-cta h2 em{font-style:italic;color:#E96944;}
+.footer-cta p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:2rem;line-height:1.65;}
+
+/* FOOTER */
+footer{
+  background:var(--dark);color:rgba(255,255,255,.4);
+  text-align:center;padding:1.5rem;font-size:.8rem;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+footer a{color:rgba(255,255,255,.7);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .how-grid{grid-template-columns:1fr 1fr;}
+  .problem-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .feat-row{grid-template-columns:44px 1fr;gap:1rem;padding:1.5rem;}
+}
+@media(max-width:640px){
+  .nav{padding:.9rem 1.1rem;}
+  .nav-chisono{display:none;}
+  .nav-logo{font-size:.85rem;white-space:nowrap;flex-shrink:0;}
+  .nav-link{font-size:.8rem;margin-right:.9rem;}
+  .nav-cta{padding:.45rem 1rem;font-size:.75rem;white-space:nowrap;}
+  .hero{padding:7rem 1.25rem 4rem;}
+  .how,.features,.demo,.pricing,.faq,.footer-cta{padding:4rem 1.25rem;}
+  .problem{padding:4rem 1.25rem 1rem;}
+  .guide-link-section{padding:0 1.25rem 4rem;}
+  .hero-ctas{flex-direction:column;align-items:center;}
+  .how-grid{grid-template-columns:1fr;}
+  .guide-link-inner{flex-direction:column;text-align:center;padding:2rem 1.5rem;}
+  .chat-body{padding:1.25rem;}
+  .chat-msg{max-width:100%;}
+}
+</style>
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.giovannirasulo.com/" },
+        { "@type": "ListItem", "position": 2, "name": "ATS CV Optimize — Skill per Claude", "item": "https://www.giovannirasulo.com/cv-ats-skill-claude/" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "ATS CV Optimize — Skill per Claude",
+      "description": "Skill per Claude che scrive e ottimizza curriculum in italiano per superare gli ATS usati dalle aziende e dalle agenzie per il lavoro in Italia: converte i CV Europass in una versione ATS-safe, estrae le keyword dall'annuncio, blocca le frasi fatte del CV italiano e i pattern di scrittura IA, non inventa mai un numero e genera un DOCX senza tabelle, colonne o immagini tramite uno script deterministico.",
+      "brand": { "@id": "https://www.giovannirasulo.com/#giovanni" },
+      "offers": {
+        "@type": "Offer",
+        "price": "7",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.giovannirasulo.com/cv-ats-skill-claude/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Cosa mi serve per usare la skill?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Un account Claude (claude.ai, Claude Code o Claude Cowork). Per generare il file DOCX serve un ambiente con Python e la libreria python-docx: senza, la skill produce comunque il CV in Markdown e in JSON." }
+        },
+        {
+          "@type": "Question",
+          "name": "Se la skill è su GitHub, perché costa 7 euro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Il codice è pubblico su GitHub con licenza MIT e resta gratuito. I 7 euro sono per il pacchetto .zip già pronto da caricare su Claude senza passare da git, con la guida all'uso inclusa, e per sostenere il lavoro di manutenzione. Chi preferisce clonare il repository può farlo liberamente." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ho un CV in formato Europass: devo buttarlo?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. L'Europass è spesso richiesto espressamente nei concorsi pubblici e in alcuni bandi europei: in quel caso va tenuto. Il problema riguarda le candidature alle aziende private, dove le tabelle annidate e le barre grafiche dell'Europass mandano in errore i parser. La skill produce una versione ATS-safe da usare per le aziende e ti dice quando conviene tenere l'originale." }
+        },
+        {
+          "@type": "Question",
+          "name": "La skill inventa risultati o numeri che non ho?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No, mai. Nessun numero, strumento, ruolo, data o certificazione che tu non abbia dichiarato o confermato. Se un risultato non è quantificato la skill te lo segnala e ti chiede il dato; se non ce l'hai, scrive il bullet con una dimensione concreta al posto della metrica invece di inventarla." }
+        },
+        {
+          "@type": "Question",
+          "name": "Si capisce che il CV è stato scritto con l'intelligenza artificiale?",
+          "acceptedAnswer": { "@type": "Answer", "text": "È esattamente il problema che la skill affronta. Dentro c'è un file di riferimento sui pattern di scrittura IA in italiano — le strutture, i connettivi e i tic lessicali che rendono un testo riconoscibile — e un controllo dedicato che li segnala prima della consegna, proponendo la riscrittura e spiegando il perché." }
+        },
+        {
+          "@type": "Question",
+          "name": "Perché il DOCX è così spoglio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "È voluto. Il file generato non ha tabelle, colonne, caselle di testo o immagini, e tiene i contatti nel corpo del documento e non nell'intestazione. Ogni elemento grafico in più è un punto di rottura per il parser: un CV che il selezionatore riceve con i campi vuoti o mescolati non arriva alla lettura umana, per quanto sia bello da vedere." }
+        },
+        {
+          "@type": "Question",
+          "name": "Fa anche la lettera di presentazione o il CV in inglese?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La lettera di presentazione sì, se la chiedi insieme al CV. Il CV in inglese no, non come traduzione automatica: la skill ti propone di farlo a parte, perché un CV inglese non è la versione parola per parola di quello italiano — cambiano struttura, titoli di studio e convenzioni." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="https://www.giovannirasulo.com" class="nav-logo"><span class="nav-dot"></span>Giovanni Rasulo</a>
+  <a href="https://www.giovannirasulo.com" class="nav-chisono">Chi sono</a>
+  <a href="guida/" class="nav-link">Guida all'uso</a>
+  <a href="#prezzo" class="nav-cta">Acquista</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Skill per Claude · CV e ATS italiani</div>
+    <h1>ATS CV Optimize</h1>
+    <h2 class="hero-subtitle">Il tuo CV non viene scartato da una persona. Viene scartato da un <em>parser.</em></h2>
+    <p class="hero-sub">La skill che trasforma Claude in un consulente di carriera per il mercato del lavoro italiano: legge il tuo CV, lo riscrive sulle keyword dell'annuncio, blocca le frasi fatte e i pattern di scrittura IA e genera un DOCX che gli ATS leggono davvero. Senza inventare un solo numero.</p>
+    <div class="hero-ctas">
+      <a href="#prezzo" class="btn-primary" data-buy-btn>Acquista la skill — 7€ &rarr;</a>
+      <a href="#demo" class="btn-ghost">Vedi un esempio reale</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Fasi con cancelli di controllo</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">9</div>
+        <div class="hero-stat-label">File di riferimento sul mercato italiano</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">0</div>
+        <div class="hero-stat-label">Tabelle, colonne e immagini nel DOCX</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">MIT</div>
+        <div class="hero-stat-label">Codice aperto, anche su GitHub</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem">
+  <div class="problem-inner">
+    <div class="section-tag">Il problema</div>
+    <h2 class="section-h2">In Italia il CV si perde <em>prima di essere letto.</em></h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <span class="problem-icon">📐</span>
+        <div class="problem-title">L'Europass è costruito su tabelle annidate</div>
+        <div class="problem-desc">È il formato più diffuso nel Paese ed è il peggiore possibile per un ATS: il parser spezza le tabelle e restituisce campi vuoti o mescolati. Va benissimo per i concorsi pubblici, molto male per le aziende private.</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">💬</span>
+        <div class="problem-title">Le frasi fatte occupano il posto delle keyword</div>
+        <div class="problem-desc">«Ottime capacità relazionali», «problem solving», «orientato al risultato»: righe che il selezionatore salta a vista e che rubano lo spazio alle parole che l'annuncio cerca davvero.</div>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">🤖</span>
+        <div class="problem-title">Un CV scritto dall'IA si riconosce</div>
+        <div class="problem-desc">E un CV riconosciuto come tale perde credibilità prima ancora del colloquio. Il problema non è usare l'IA: è consegnare un testo che ha la forma di un output di modello linguistico.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section class="how">
+  <div class="how-inner">
+    <div class="section-tag">Come funziona</div>
+    <h2 class="section-h2">Dal CV che hai al file <em>da mandare.</em></h2>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-n">1</div>
+        <div class="how-title">Installi la skill su Claude</div>
+        <div class="how-desc">Scompatti lo .zip e carichi la cartella su claude.ai, Claude Code o Claude Cowork. Due minuti, nessuna configurazione tecnica.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-n">2</div>
+        <div class="how-title">Alleghi il CV e incolli l'annuncio</div>
+        <div class="how-desc">PDF, DOCX, Europass, foto o testo incollato. Se l'annuncio non ce l'hai, la skill cerca sul web le keyword tipiche del ruolo. Se non hai né l'uno né l'altro, ti fa le domande giuste — massimo tre per volta.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-n">3</div>
+        <div class="how-title">Riscrive e ti mostra cosa cambia</div>
+        <div class="how-desc">Ogni frase fatta, ogni pattern IA e ogni risultato senza numero vengono segnalati con la riscrittura proposta e il motivo. Decidi tu: puoi sempre imporre la tua versione.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-n">4</div>
+        <div class="how-title">Ricevi Markdown + DOCX</div>
+        <div class="how-desc">Un file modificabile e un DOCX ATS-safe generato da uno script che valida prima di scrivere. In chiusura, la lista dei requisiti dell'annuncio che il tuo profilo non copre.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNZIONALITÀ -->
+<section class="features">
+  <div class="features-inner">
+    <div class="section-tag">Cosa fa per te</div>
+    <h2 class="section-h2">Sette cose che un template grafico <em>non fa.</em></h2>
+    <div class="feat-list">
+      <div class="feat-row">
+        <div class="feat-num">01</div>
+        <div>
+          <div class="feat-title">Converte l'Europass senza farti perdere il bando</div>
+          <div class="feat-desc">Riconosce il formato, ricostruisce tutti i dati e ti prepara la versione ATS-safe per le candidature aziendali — dicendoti esplicitamente quando l'Europass va <strong>tenuto</strong>, perché nei concorsi pubblici e in molti bandi europei è richiesto espressamente.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">02</div>
+        <div>
+          <div class="feat-title">Estrae le keyword dall'annuncio (o le cerca lei)</div>
+          <div class="feat-desc">Analizza il testo dell'annuncio e tira fuori le parole che il parser cerca, distinguendo requisiti obbligatori e preferenziali. Se l'annuncio non ce l'hai, cerca sul web il lessico corrente di quel ruolo in Italia. Nessun keyword stuffing: le parole entrano dove hanno un senso nel tuo percorso.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">03</div>
+        <div>
+          <div class="feat-title">Blocca le frasi fatte del CV italiano</div>
+          <div class="feat-desc">Una blacklist scritta sul nostro mercato — non tradotta dall'inglese — con la riscrittura concreta per ciascuna voce. «Ottime doti organizzative» diventa quello che hai organizzato davvero, con il contesto e la dimensione. E la skill ti <strong>spiega il perché</strong>, invece di correggere in silenzio.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">04</div>
+        <div>
+          <div class="feat-title">Riconosce i pattern di scrittura IA in italiano</div>
+          <div class="feat-desc">Un controllo dedicato sulle strutture, i connettivi e i tic lessicali che fanno sembrare un testo generato: la forma tricolon, gli aggettivi accoppiati, il «non solo… ma anche». Passa in rassegna il CV prima della consegna e ti propone la versione che suona scritta da te.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">05</div>
+        <div>
+          <div class="feat-title">Non inventa un numero. Mai.</div>
+          <div class="feat-desc">È la regola non negoziabile della skill: nessuna metrica, nessuno strumento, nessuna certificazione che tu non abbia dichiarato. Se un risultato non è quantificato te lo segnala e ti chiede il dato. Se il dato non ce l'hai, scrive il bullet con una dimensione concreta al posto della percentuale inventata.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">06</div>
+        <div>
+          <div class="feat-title">Italiano corretto, secondo le convenzioni del CV</div>
+          <div class="feat-desc">Bullet al participio passato invariabile (<em>Progettato</em>, non <em>Ho progettato</em> né <em>Mi sono occupato di</em>), profilo in terza persona implicita, date nel formato italiano, livelli di lingua in QCER, formula privacy aggiornata e l'elenco dei dati che in Italia conviene <strong>non</strong> mettere sul CV.</div>
+        </div>
+      </div>
+      <div class="feat-row">
+        <div class="feat-num">07</div>
+        <div>
+          <div class="feat-title">Un DOCX generato da uno script, non dal modello</div>
+          <div class="feat-desc">Il file finale lo scrive <code>render_docx.py</code>, che prima <strong>valida e blocca</strong>: bullet in prima persona o passivi, participi accordati, emoji, barre di valutazione, quello che sembra un codice fiscale. Poi genera un documento con zero tabelle, zero colonne, zero caselle di testo, zero immagini e i contatti nel corpo. Sobrio di proposito.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESEMPIO PRATICO -->
+<section class="demo" id="demo">
+  <div class="demo-inner">
+    <div class="demo-header">
+      <div class="section-tag" style="justify-content:center;">Esempio reale</div>
+      <h2 class="section-h2">«Ottime capacità organizzative». <em>Ecco cosa risponde.</em></h2>
+      <p class="demo-sub">Questo è il tipo di segnalazione che ricevi durante la riscrittura, riga per riga, prima che il file venga generato.</p>
+    </div>
+    <div class="chat-window">
+      <div class="chat-topbar">
+        <svg class="chat-logo" viewBox="0 0 24 24" fill="#E96944"><path d="M12 0c0 5-2 9-5 12 3 3 5 7 5 12 0-5 2-9 5-12-3-3-5-7-5-12z"/></svg>
+        <span class="chat-title">Claude · ATS CV Optimize</span>
+      </div>
+      <div class="chat-body">
+        <div class="chat-msg user">
+          <div class="chat-avatar user">TU</div>
+          <div class="chat-bubble">Nel CV ho scritto: «Ottime capacità organizzative e di problem solving, orientato al risultato». Va bene?</div>
+        </div>
+        <div class="chat-msg claude">
+          <div class="chat-avatar claude"><svg viewBox="0 0 24 24" fill="#E96944"><path d="M12 0c0 5-2 9-5 12 3 3 5 7 5 12 0-5 2-9 5-12-3-3-5-7-5-12z"/></svg></div>
+          <div class="chat-bubble">
+            Quella riga contiene tre voci in blacklist e zero keyword dell'annuncio. Il problema non è che sia falsa: è che non è <strong>verificabile</strong>, quindi il selezionatore la salta e il parser non ci trova niente da indicizzare.<br><br>
+            <span class="chat-ko">✗ Ottime capacità organizzative e di problem solving, orientato al risultato</span><br>
+            <span class="chat-ok">✓ Coordinato l'agenda di 4 tecnici su un bacino di 60 cantieri, riducendo le trasferte a vuoto</span><br><br>
+            Mi manca un dato per chiudere il bullet: <strong>di quanto</strong> sono calate le trasferte a vuoto, anche a spanne? Se il numero non ce l'hai lo lasciamo così — è già concreto e non invento una percentuale.
+            <div class="chat-highlight">3 frasi fatte rimosse · 2 keyword dell'annuncio recuperate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINK GUIDA + GITHUB -->
+<section class="guide-link-section">
+  <div class="guide-link-inner" style="margin-bottom:1rem;">
+    <div class="guide-link-text">
+      <div class="guide-link-title">C'è una guida completa all'uso</div>
+      <div class="guide-link-desc">Installazione passo passo, prompt pronti da copiare e incollare e i limiti onesti da conoscere prima di acquistare.</div>
+    </div>
+    <a href="guida/" class="guide-link-cta">Leggi la guida &rarr;</a>
+  </div>
+  <div class="guide-link-inner">
+    <div class="guide-link-text">
+      <div class="guide-link-title">Il codice è aperto, e resta aperto</div>
+      <div class="guide-link-desc">Licenza MIT. Se preferisci clonare il repository e installartela da solo, è lì e non costa niente. Lo .zip a 7€ è la scorciatoia — e un modo per sostenere il lavoro.</div>
+    </div>
+    <a href="https://github.com/gioenjoy/ats-cv-optimize/" class="guide-link-cta" target="_blank" rel="noopener">Vedi su GitHub &rarr;</a>
+  </div>
+</section>
+
+<!-- PREZZO -->
+<section class="pricing" id="prezzo">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="section-tag" style="justify-content:center;">Prezzo</div>
+      <h2 class="section-h2">Sette euro. <em>Una volta sola.</em></h2>
+      <p class="pricing-sub">Meno del parcheggio sotto l'ufficio dove vai a fare il colloquio.</p>
+    </div>
+    <div class="plan">
+      <div class="plan-badge">ATS CV Optimize</div>
+      <div class="plan-name">ATS CV Optimize — Skill per Claude</div>
+      <div class="plan-tagline">Il pacchetto .zip completo: la skill, i 9 file di riferimento sul mercato italiano, il renderer DOCX e gli esempi. Pronto da caricare su Claude.</div>
+      <div class="plan-price">€7</div>
+      <div class="plan-once">pagamento unico · accesso immediato</div>
+      <div class="plan-split-note">🔓 Prezzo simbolico, in chiaro: la skill è pubblica su <a href="https://github.com/gioenjoy/ats-cv-optimize/" target="_blank" rel="noopener">GitHub</a> con licenza MIT e chi vuole clonarla può farlo gratis. Qui paghi lo .zip già pronto, la guida e il fatto che il progetto continui.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Ricostruzione del CV da PDF, DOCX, immagine o testo incollato</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Conversione <strong>Europass → ATS-safe</strong>, con l'avviso su quando tenere l'originale</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Estrazione keyword dall'annuncio, o ricerca sul web se l'annuncio manca</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Blacklist delle frasi fatte italiane e controllo dei pattern di scrittura IA</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Titoli di studio dell'ordinamento italiano, livelli QCER, formula privacy GDPR</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Renderer <strong>DOCX ATS-safe</strong> con validatore che blocca prima di generare</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Analisi delle lacune: i requisiti dell'annuncio che il tuo profilo non copre</span></li>
+        <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Guida all'uso con prompt pronti, inclusa nel download</span></li>
+      </ul>
+      <!-- ===================================================
+           PAGAMENTO — Stripe Payment Link
+           L'href viene impostato da STRIPE_PAYMENT_LINK_URL
+           (vedi costante in cima al file, dentro <head>)
+           =================================================== -->
+      <a href="#" class="plan-cta" data-buy-btn>Acquista ora &rarr;</a>
+    </div>
+    <p class="pricing-note">Hai domande prima di acquistare? Scrivimi su <a href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/">LinkedIn</a> o a <a href="mailto:marketing@giovannirasulo.com">marketing@giovannirasulo.com</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="section-tag">Hai domande?</div>
+      <h2 class="section-h2">Quello che chiedono <em>di solito.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Cosa mi serve per usare la skill?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">Un account Claude (claude.ai, Claude Code o Claude Cowork). Per generare il file DOCX serve un ambiente con Python e la libreria <code>python-docx</code>: senza, la skill produce comunque il CV in Markdown e in JSON, che puoi impaginare da solo seguendo le regole della guida.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Se la skill è su GitHub, perché costa 7 euro?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>Perché sono due cose diverse, e preferisco dirlo prima che dopo.</p>
+          <p>Il codice è pubblico su <a href="https://github.com/gioenjoy/ats-cv-optimize/" target="_blank" rel="noopener">GitHub</a> con licenza MIT: se sai usare <code>git clone</code> e non ti spaventa copiare una cartella in <code>~/.claude/skills/</code>, prendila da lì e non pagare niente. È pensata per restare aperta.</p>
+          <p>I 7 euro sono per lo .zip già pronto da caricare, la guida all'uso in italiano e la manutenzione — i riferimenti su privacy, titoli di studio e parser di mercato vanno aggiornati nel tempo. È un prezzo simbolico: serve a far vivere il progetto, non a monetizzarlo.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Ho un CV in formato Europass: devo buttarlo?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">No, e la skill te lo dice da sola. L'Europass è spesso <strong>richiesto espressamente</strong> nei concorsi pubblici e in diversi bandi europei: in quei casi va tenuto così com'è. Il problema riguarda le candidature alle aziende private, dove le tabelle annidate e le barre grafiche mandano in errore i parser. La skill ti prepara la versione ATS-safe per le aziende e ti lascia l'Europass per i bandi che lo richiedono.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          La skill inventa risultati o numeri che non ho?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">Mai. È la regola non negoziabile su cui è costruita: nessun numero, strumento, ruolo, data o certificazione che tu non abbia dichiarato o confermato. Se un risultato non è quantificato te lo segnala e ti chiede il dato; se il dato non esiste, scrive il bullet con una dimensione concreta (quante persone, quanti clienti, quale ambito) al posto della percentuale inventata. Un numero falso sul CV è un problema al colloquio, non un vantaggio allo screening.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Si capisce che il CV è stato scritto con l'IA?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">È il problema che la skill affronta di petto. Dentro c'è un file di riferimento dedicato ai pattern di scrittura IA <em>in italiano</em> — le strutture ricorrenti, i connettivi, i tic lessicali — e una fase di controllo che li passa in rassegna prima della consegna, segnalando ogni occorrenza con la riscrittura proposta. Il risultato non è un testo «anti-rilevatore»: è un testo che suona come il tuo, perché i contenuti sono tuoi e la forma torna a essere neutra.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quali sono i prompt migliori da usare?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">
+          <p>Non serve una formula: la skill si attiva da sola quando parli di curriculum. Ma questi tre coprono quasi tutti i casi.</p>
+          <p><strong>1. L'adattamento all'annuncio</strong> — il caso più frequente, e quello in cui la differenza si vede di più:</p>
+          <span class="faq-prompt">"Sistemami il curriculum per questo annuncio: &lt;incolla il testo dell'annuncio&gt;" — con il CV allegato in PDF o DOCX.</span>
+          <p><strong>2. La conversione dell'Europass</strong> — se ti sei candidato per anni con quel formato senza mai sapere perché non ti richiamavano:</p>
+          <span class="faq-prompt">"Ho un CV in Europass, me lo converti in una versione che gli ATS leggono? Dimmi anche quando mi conviene tenere l'originale."</span>
+          <p><strong>3. La diagnosi</strong> — quando il CV c'è ma qualcosa non funziona e non sai cosa:</p>
+          <span class="faq-prompt">"Il mio CV non passa mai gli screening, dammi un'occhiata: dimmi cosa non va e cosa manca rispetto ai ruoli che sto cercando."</span>
+          <p>Altri prompt pronti — CV da zero, analisi delle lacune, lettera di presentazione insieme al CV — li trovi nella <a href="guida/">guida all'uso</a>.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Perché il DOCX è così spoglio?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">È voluto, ed è la parte che sorprende di più. Il file non ha tabelle, colonne, caselle di testo o immagini, e tiene i contatti nel corpo del documento invece che nell'intestazione — dove molti parser semplicemente non guardano. Ogni elemento grafico in più è un punto di rottura: un CV bellissimo che arriva al selezionatore con i campi vuoti o mescolati non arriva alla lettura umana. La grafica la puoi aggiungere dopo, per le candidature che passano da una persona.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Fa anche la lettera di presentazione o il CV in inglese?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">La lettera di presentazione sì, se la chiedi insieme al CV. Il CV in inglese no, non come traduzione automatica: la skill ti propone di farlo a parte, perché un CV inglese non è la versione parola per parola di quello italiano — cambiano la struttura, la resa dei titoli di studio e le convenzioni su cosa si scrive e cosa si omette.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I miei dati dove finiscono?
+          <span class="faq-icon"><svg viewBox="0 0 16 16" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><line x1="8" y1="2" x2="8" y2="14"/><line x1="2" y1="8" x2="14" y2="8"/></svg></span>
+        </button>
+        <div class="faq-a">Nessun dato inserito nel CV lascia la tua macchina attraverso questa skill: i file vengono scritti in locale e non c'è nessun server mio nel mezzo. Valgono naturalmente le condizioni di trattamento dati di Claude per i contenuti della conversazione. Il materiale su privacy, titoli di studio e prassi di selezione descrive gli usi correnti del mercato del lavoro italiano e non costituisce consulenza legale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="footer-cta-inner">
+    <h2>Il prossimo CV lo legge <em>una persona, non un errore di parsing.</em></h2>
+    <p>7€ una tantum per lo .zip pronto all'uso e la guida. Oppure clonalo da GitHub: il codice è aperto, la scelta è tua.</p>
+    <a href="#prezzo" class="btn-primary">Acquista la skill &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 <a href="https://www.giovannirasulo.com">Giovanni Rasulo</a> &middot;
+  <a href="../">Portfolio</a> &middot;
+  <a href="https://www.linkedin.com/in/giovannirasulodigitalmarketing/">LinkedIn</a> &middot;
+  P.IVA 04088780129 &middot; Per info: marketing@giovannirasulo.com
+</footer>
+
+<script>
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+document.querySelectorAll('[data-buy-btn]').forEach(function(a){ a.href = STRIPE_PAYMENT_LINK_URL; });
+</script>
+
+<!-- Cookie consent bar -->
+<div id="cookie-bar" role="dialog" aria-label="Consenso ai cookie" style="display:none">
+  <div class="cc-inner">
+    <p>I cookie esistono per migliorare l'esperienza di navigazione, proporre contenuti personalizzati e per scopo di analisi. Facendo clic su &quot;Accetta&quot;, si acconsente al loro utilizzo da parte mia. <a href="/privacy-cookie-policy.html">Cookie &amp; Privacy Policy</a></p>
+    <div class="cc-btns">
+      <a id="cc-reject" href="/" class="cc-btn cc-ghost">Rifiuta</a>
+      <button id="cc-accept" class="cc-btn cc-primary" type="button">Accetta</button>
+    </div>
+  </div>
+</div>
+<style>
+#cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(15,40,64,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:'DM Sans',system-ui,sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+#cookie-bar .cc-inner{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#cookie-bar p{margin:0;font-size:.9rem;line-height:1.45;flex:1;min-width:230px}
+#cookie-bar a{color:#fff;text-decoration:underline}
+#cookie-bar .cc-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#cookie-bar .cc-btn{border:0;border-radius:999px;padding:9px 22px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;line-height:1}
+#cookie-bar .cc-primary{background:#fff;color:#0F2840}
+#cookie-bar .cc-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+</style>
+<script>
+(function(){
+  var KEY='cookie-consent', bar=document.getElementById('cookie-bar');
+  if(!bar) return;
+  if(!localStorage.getItem(KEY)){bar.style.display='block';}
+  document.getElementById('cc-accept').addEventListener('click',function(){localStorage.setItem(KEY,'accepted');bar.style.display='none';location.reload();});
+})();
+</script>
+
+</body>
+</html>
