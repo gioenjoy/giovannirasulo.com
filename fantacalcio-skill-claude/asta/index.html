@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- consenso cookie: blocca GA finché non accettato -->
+<script>if(localStorage.getItem('cookie-consent')!=='accepted'){window['ga-disable-G-1Q1LLRPZYP']=true;}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q1LLRPZYP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1Q1LLRPZYP');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assistente Asta — FantaClaude</title>
@@ -24,7 +34,8 @@ a{color:inherit;}
 
 /* TOPBAR */
 .topbar{background:linear-gradient(135deg,var(--dark),var(--dark-2));color:#fff;padding:.85rem 1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;position:sticky;top:0;z-index:50;}
-.brand{font-family:var(--head);font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.5rem;}
+.brand{font-family:var(--head);font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.5rem;color:#fff;text-decoration:none;}
+.brand:hover span{text-decoration:underline;}
 .brand svg{width:18px;height:18px;}
 .brand span{color:var(--orange);}
 .season{font-size:.72rem;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.2rem .6rem;}
@@ -170,6 +181,13 @@ td{padding:.5rem .6rem;vertical-align:middle;}
 .upload-msg{border-radius:10px;padding:.7rem .85rem;font-size:.85rem;line-height:1.5;margin-bottom:.9rem;background:var(--cream);color:var(--ink-soft);}
 .upload-msg.ok{background:rgba(26,122,90,.1);color:var(--green);font-weight:600;}
 .upload-msg.err{background:rgba(178,59,59,.08);color:var(--red);}
+.site-foot{background:var(--dark);color:rgba(255,255,255,.62);text-align:center;padding:2.2rem 1rem 1.9rem;font-size:.82rem;border-top:1px solid rgba(255,255,255,.08);}
+.site-foot span{color:rgba(255,255,255,.7);}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.2rem 1.7rem;justify-content:center;margin-bottom:1.15rem;padding-bottom:1.15rem;border-bottom:1px solid rgba(255,255,255,.08);}
+.footer-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:.82rem;letter-spacing:.04em;transition:color .2s;}
+.footer-links a:hover{color:#fff;}
+.footer-links-label{color:rgba(255,255,255,.42);font-size:.82rem;letter-spacing:.04em;}
+.footer-legal{color:rgba(255,255,255,.4);}
 .toast{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:.7rem 1.2rem;border-radius:100px;font-size:.85rem;font-weight:600;z-index:200;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);}
 
@@ -180,10 +198,10 @@ td{padding:.5rem .6rem;vertical-align:middle;}
 <body>
 
 <div class="topbar">
-  <div class="brand">
+  <a class="brand" href="/fantacalcio-skill-claude/" title="Scopri FantaClaude">
     <svg viewBox="0 0 24 24" fill="#E96944"><path d="M12 0c0 5-2 9-5 12 3 3 5 7 5 12 0-5 2-9 5-12-3-3-5-7-5-12z"/></svg>
     Fanta<span>Claude</span> · Assistente Asta
-  </div>
+  </a>
   <span class="season" id="seasonBadge">—</span>
   <div class="topbar-actions">
     <button class="tbtn" id="btnData">📂 Aggiorna dati</button>
@@ -257,10 +275,21 @@ td{padding:.5rem .6rem;vertical-align:middle;}
     <div class="cta">
       <div class="cta-t">Questo tool ti dà i prezzi. FantaClaude ti dà il ragionamento.</div>
       <div class="cta-p">La skill per Claude analizza 3 stagioni di Serie A, verifica infortuni e titolarità aggiornati e ti costruisce la rosa completa rispondendo in italiano. Questo assistente è il suo fratello minore, gratuito.</div>
-      <a class="cta-b" href="../">Scopri FantaClaude &rarr;</a>
+      <a class="cta-b" href="/fantacalcio-skill-claude/">Scopri FantaClaude &rarr;</a>
     </div>
   </div>
 </div>
+
+<footer class="site-foot">
+  <div class="footer-links">
+    <span class="footer-links-label">Progetti personali:</span>
+    <a href="/fantacalcio-skill-claude/">FantaClaude</a>
+    <a href="/cv-ats-skill-claude/">ATS CV Optimize</a>
+    <a href="/smart-working.html">Smart Working</a>
+    <a href="/osservatorio-smartworking/">Osservatorio</a>
+  </div>
+  <div class="footer-legal">&copy; 2026 <span>Giovanni Rasulo</span> &middot; Costruito con cura, da remoto. &middot; Tutti i diritti sono riservati</div>
+</footer>
 
 <!-- SETUP MODAL -->
 <div class="ov" id="ovSetup" hidden>
@@ -951,6 +980,34 @@ loadPatches();
 rebuildData();
 renderAll();
 if(!had) openSetup();
+</script>
+<!-- Cookie consent bar -->
+<div id="cookie-bar" role="dialog" aria-label="Consenso ai cookie" style="display:none">
+  <div class="cc-inner">
+    <p>I cookie esistono per migliorare l'esperienza di navigazione, proporre contenuti personalizzati e per scopo di analisi. Facendo clic su &quot;Accetta&quot;, si acconsente al loro utilizzo da parte mia. <a href="/privacy-cookie-policy.html">Cookie &amp; Privacy Policy</a></p>
+    <div class="cc-btns">
+      <a id="cc-reject" href="/" class="cc-btn cc-ghost">Rifiuta</a>
+      <button id="cc-accept" class="cc-btn cc-primary" type="button">Accetta</button>
+    </div>
+  </div>
+</div>
+<style>
+#cookie-bar{position:fixed;left:0;right:0;bottom:0;z-index:99999;background:rgba(15,40,64,0.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font-family:'DM Sans',system-ui,sans-serif;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+#cookie-bar .cc-inner{max-width:1000px;margin:0 auto;padding:14px 20px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#cookie-bar p{margin:0;font-size:.9rem;line-height:1.45;flex:1;min-width:230px}
+#cookie-bar a{color:#fff;text-decoration:underline}
+#cookie-bar .cc-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#cookie-bar .cc-btn{border:0;border-radius:999px;padding:9px 22px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;line-height:1}
+#cookie-bar .cc-primary{background:#fff;color:#0F2840}
+#cookie-bar .cc-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+</style>
+<script>
+(function(){
+  var KEY='cookie-consent', bar=document.getElementById('cookie-bar');
+  if(!bar) return;
+  if(!localStorage.getItem(KEY)){bar.style.display='block';}
+  document.getElementById('cc-accept').addEventListener('click',function(){localStorage.setItem(KEY,'accepted');bar.style.display='none';location.reload();});
+})();
 </script>
 </body>
 </html>
