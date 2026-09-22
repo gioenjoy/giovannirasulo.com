@@ -155,6 +155,42 @@ pre code{background:none;color:inherit;padding:0;font-size:.86rem;line-height:1.
 }
 .btn-primary:hover{background:#D65A37;transform:translateY(-2px);}
 
+/* GATE GITHUB — sblocco con email (Netlify Forms "ats-cv-github") */
+.gh-gate{position:relative;}
+.gh-gate-content{transition:filter .45s ease,opacity .45s ease;}
+.gh-gate.is-locked .gh-gate-content{filter:blur(7px);opacity:.7;pointer-events:none;user-select:none;-webkit-user-select:none;}
+.gh-lock-chip{display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  background:#fff;color:#0F2840;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.78rem;
+  padding:.45rem .95rem;border-radius:100px;box-shadow:0 6px 22px rgba(15,40,64,.28);white-space:nowrap;}
+.gh-gate.is-locked .gh-lock-chip{display:inline-flex;align-items:center;gap:.4rem;}
+.gh-form{width:100%;}
+.gh-form[hidden],.gh-done[hidden]{display:none;}
+.gh-form-title{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.95rem;color:#1A2535;margin-bottom:.7rem;}
+.gh-form-row{display:flex;gap:.6rem;flex-wrap:wrap;}
+.gh-form input[type=email]{flex:1 1 220px;min-width:0;padding:.8rem 1.1rem;border-radius:100px;
+  border:1.5px solid rgba(26,37,53,.15);background:#fff;color:#1A2535;font:inherit;font-size:.92rem;outline:none;transition:border-color .2s;}
+.gh-form input[type=email]:focus{border-color:#E96944;}
+.gh-form button{background:#E96944;color:#fff;border:none;cursor:pointer;padding:.8rem 1.4rem;border-radius:100px;
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.9rem;white-space:nowrap;transition:background .2s,transform .2s;}
+.gh-form button:hover:not(:disabled){background:#D65A37;transform:translateY(-1px);}
+.gh-form button:disabled{opacity:.6;cursor:default;}
+.gh-consent{display:flex;gap:.6rem;align-items:flex-start;margin-top:.85rem;font-size:.8rem;line-height:1.5;color:#5C7A99;}
+.gh-consent input{flex-shrink:0;width:16px;height:16px;margin-top:.15rem;accent-color:#E96944;}
+.gh-consent a{color:#3B6EA5;text-decoration:underline;}
+.gh-msg{font-size:.82rem;line-height:1.45;margin-top:.55rem;}
+.gh-msg:empty{display:none;}
+.gh-msg.err{color:#B23B3B;}
+.gh-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.gh-done{font-size:.85rem;color:#1A7A5A;font-weight:600;margin-top:.75rem;}
+.gh-form.on-dark .gh-form-title{color:#fff;}
+.gh-form.on-dark input[type=email]{border-color:rgba(255,255,255,.25);}
+.gh-form.on-dark .gh-consent{color:rgba(255,255,255,.62);}
+.gh-form.on-dark .gh-consent a{color:#fff;}
+.gh-form.on-dark .gh-msg.err{color:#F2946E;}
+.gh-done.on-dark{color:#7DD3A8;}
+.gh-form.card{background:#EAF0F7;border:1px solid rgba(26,37,53,.09);border-radius:16px;padding:1.25rem 1.4rem;margin-top:1rem;}
+@media(max-width:640px){.gh-form button{width:100%;}}
+
 /* FOOTER */
 footer{background:var(--dark);color:rgba(255,255,255,.4);text-align:center;padding:1.5rem;font-size:.8rem;border-top:1px solid rgba(255,255,255,.07);}
 footer a{color:rgba(255,255,255,.7);}
@@ -191,7 +227,7 @@ footer a{color:rgba(255,255,255,.7);}
   <div class="section">
     <div class="section-tag">01 · Installazione</div>
     <h2 class="section-h2">Tre passaggi, <em>due minuti.</em></h2>
-    <p class="section-lead">La skill funziona su claude.ai, Claude Code e Claude Cowork. Il percorso più semplice è lo .zip acquistato; se preferisci, il repository pubblico su <a href="https://github.com/gioenjoy/ats-cv-optimize/" target="_blank" rel="noopener">GitHub</a> contiene esattamente lo stesso codice.</p>
+    <p class="section-lead">La skill funziona su claude.ai, Claude Code e Claude Cowork. Il percorso più semplice è lo .zip acquistato; se preferisci, il repository pubblico su <a href="#da-github">GitHub</a> contiene esattamente lo stesso codice.</p>
     <div class="steps">
       <div class="step">
         <div class="step-n">1</div>
@@ -222,11 +258,35 @@ footer a{color:rgba(255,255,255,.7);}
         </div>
       </div>
     </div>
+    <div id="da-github">
     <h3 class="sub-h3">In alternativa, da GitHub</h3>
+    <p class="prompt-note">Il codice è pubblico con licenza MIT e installarlo da GitHub è gratis. Lascia l'email e ti mostro i comandi e il link al repository.</p>
+    <div class="gh-gate is-locked" data-gh-gate>
+      <span class="gh-lock-chip" aria-hidden="true">🔒 Lascia l'email per vedere i comandi</span>
+      <div class="gh-gate-content">
 <pre><code>git clone https://github.com/gioenjoy/ats-cv-optimize.git
 cp -r ats-cv-optimize/skills/ats-cv-optimize ~/.claude/skills/
 pip3 install python-docx</code></pre>
-    <p class="prompt-note">Oppure, come plugin: <code>/plugin marketplace add gioenjoy/ats-cv-optimize</code> e poi <code>/plugin install ats-cv-optimize</code>.</p>
+    <p class="prompt-note">Oppure, come plugin: <code>/plugin marketplace add gioenjoy/ats-cv-optimize</code> e poi <code>/plugin install ats-cv-optimize</code>. Repository: <a href="#da-github" data-gh-href style="color:var(--accent);font-weight:500;">github.com/gioenjoy/ats-cv-optimize</a></p>
+      </div>
+    </div>
+    <form class="gh-form card" data-gh-form name="ats-cv-github" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/cv-ats-skill-claude/" novalidate>
+        <input type="hidden" name="form-name" value="ats-cv-github">
+        <input type="hidden" name="pagina" value="guida">
+        <p class="gh-hp"><label>Non compilare: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="gh-form-title">Sblocca i comandi di installazione</div>
+        <div class="gh-form-row">
+          <input type="email" name="email" placeholder="La tua email" autocomplete="email" aria-label="Email" required>
+          <button type="submit">Sblocca &rarr;</button>
+        </div>
+        <label class="gh-consent">
+          <input type="checkbox" name="consenso" value="si" required>
+          <span>Ho letto la <a href="/privacy-cookie-policy.html" target="_blank" rel="noopener">privacy policy</a> e acconsento al trattamento dei dati per essere ricontattato in merito a questa richiesta.</span>
+        </label>
+        <div class="gh-msg" role="status" aria-live="polite"></div>
+      </form>
+    <p class="gh-done" data-gh-done hidden>✓ Sbloccato. Buona installazione.</p>
+    </div>
   </div>
 
   <!-- 2. PROMPT -->
@@ -370,9 +430,49 @@ python3 scripts/render_docx.py --input cv.json --output Nome_Cognome_CV.docx</co
 <footer>
   &copy; 2026 <a href="https://www.giovannirasulo.com">Giovanni Rasulo</a> &middot;
   <a href="../">Torna alla pagina della skill</a> &middot;
-  <a href="https://github.com/gioenjoy/ats-cv-optimize/">GitHub</a> &middot;
+  <a href="#da-github">GitHub</a> &middot;
   P.IVA 04088780129 &middot; Per info: marketing@giovannirasulo.com
 </footer>
+
+
+<!-- Gate GitHub: sblocca comandi e link al repo dopo l'invio dell'email (Netlify Forms) -->
+<script>
+(function(){
+  var KEY='atscv-github-unlocked', REPO='https://github.com/gioenjoy/ats-cv-optimize/';
+  function isUnlocked(){ try{ return localStorage.getItem(KEY)==='1'; }catch(e){ return false; } }
+  function remember(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function unlock(){
+    document.querySelectorAll('[data-gh-gate]').forEach(function(g){ g.classList.remove('is-locked'); });
+    document.querySelectorAll('[data-gh-href]').forEach(function(a){ a.href=REPO; a.target='_blank'; a.rel='noopener'; });
+    document.querySelectorAll('[data-gh-form]').forEach(function(f){ f.hidden=true; });
+    document.querySelectorAll('[data-gh-done]').forEach(function(d){ d.hidden=false; });
+  }
+  if(isUnlocked()) unlock();
+  document.querySelectorAll('[data-gh-form]').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=form.querySelector('input[name=email]'), cons=form.querySelector('input[name=consenso]');
+      var msg=form.querySelector('.gh-msg'), btn=form.querySelector('button[type=submit]');
+      var v=(email.value||'').trim();
+      msg.className='gh-msg'; msg.textContent='';
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ msg.className='gh-msg err'; msg.textContent="Controlla l'indirizzo email."; email.focus(); return; }
+      if(!cons.checked){ msg.className='gh-msg err'; msg.textContent='Serve il consenso al trattamento dei dati per procedere.'; return; }
+      var body=new URLSearchParams(new FormData(form)); body.set('email',v);
+      var label=btn.innerHTML; btn.disabled=true; btn.textContent='Un attimo…';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
+        .then(function(r){
+          if(!r.ok) throw new Error('HTTP '+r.status);
+          remember(); unlock();
+          if(typeof gtag==='function') gtag('event','generate_lead',{form_name:'ats-cv-github'});
+        })
+        .catch(function(){
+          btn.disabled=false; btn.innerHTML=label;
+          msg.className='gh-msg err'; msg.textContent='Invio non riuscito. Riprova tra poco o scrivimi a marketing@giovannirasulo.com.';
+        });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -350,6 +350,42 @@ img{max-width:100%;display:block;}
 }
 .guide-link-cta:hover{transform:translateY(-2px);}
 
+/* GATE GITHUB — sblocco con email (Netlify Forms "ats-cv-github") */
+.gh-gate{position:relative;}
+.gh-gate-content{transition:filter .45s ease,opacity .45s ease;}
+.gh-gate.is-locked .gh-gate-content{filter:blur(7px);opacity:.7;pointer-events:none;user-select:none;-webkit-user-select:none;}
+.gh-lock-chip{display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  background:#fff;color:#0F2840;font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.78rem;
+  padding:.45rem .95rem;border-radius:100px;box-shadow:0 6px 22px rgba(15,40,64,.28);white-space:nowrap;}
+.gh-gate.is-locked .gh-lock-chip{display:inline-flex;align-items:center;gap:.4rem;}
+.gh-form{width:100%;}
+.gh-form[hidden],.gh-done[hidden]{display:none;}
+.gh-form-title{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.95rem;color:#1A2535;margin-bottom:.7rem;}
+.gh-form-row{display:flex;gap:.6rem;flex-wrap:wrap;}
+.gh-form input[type=email]{flex:1 1 220px;min-width:0;padding:.8rem 1.1rem;border-radius:100px;
+  border:1.5px solid rgba(26,37,53,.15);background:#fff;color:#1A2535;font:inherit;font-size:.92rem;outline:none;transition:border-color .2s;}
+.gh-form input[type=email]:focus{border-color:#E96944;}
+.gh-form button{background:#E96944;color:#fff;border:none;cursor:pointer;padding:.8rem 1.4rem;border-radius:100px;
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;font-size:.9rem;white-space:nowrap;transition:background .2s,transform .2s;}
+.gh-form button:hover:not(:disabled){background:#D65A37;transform:translateY(-1px);}
+.gh-form button:disabled{opacity:.6;cursor:default;}
+.gh-consent{display:flex;gap:.6rem;align-items:flex-start;margin-top:.85rem;font-size:.8rem;line-height:1.5;color:#5C7A99;}
+.gh-consent input{flex-shrink:0;width:16px;height:16px;margin-top:.15rem;accent-color:#E96944;}
+.gh-consent a{color:#3B6EA5;text-decoration:underline;}
+.gh-msg{font-size:.82rem;line-height:1.45;margin-top:.55rem;}
+.gh-msg:empty{display:none;}
+.gh-msg.err{color:#B23B3B;}
+.gh-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.gh-done{font-size:.85rem;color:#1A7A5A;font-weight:600;margin-top:.75rem;}
+.gh-form.on-dark .gh-form-title{color:#fff;}
+.gh-form.on-dark input[type=email]{border-color:rgba(255,255,255,.25);}
+.gh-form.on-dark .gh-consent{color:rgba(255,255,255,.62);}
+.gh-form.on-dark .gh-consent a{color:#fff;}
+.gh-form.on-dark .gh-msg.err{color:#F2946E;}
+.gh-done.on-dark{color:#7DD3A8;}
+.gh-form.card{background:#EAF0F7;border:1px solid rgba(26,37,53,.09);border-radius:16px;padding:1.25rem 1.4rem;margin-top:1rem;}
+@media(max-width:640px){.gh-form button{width:100%;}}
+
 /* FAQ */
 .faq{background:#fff;padding:5rem 2rem;}
 .faq-inner{max-width:720px;margin:0 auto;}
@@ -706,12 +742,35 @@ footer a{color:rgba(255,255,255,.7);}
     </div>
     <a href="guida/" class="guide-link-cta">Leggi la guida &rarr;</a>
   </div>
-  <div class="guide-link-inner">
+  <div class="guide-link-inner" id="codice-aperto">
     <div class="guide-link-text">
       <div class="guide-link-title">Il codice è aperto, e resta aperto</div>
-      <div class="guide-link-desc">Licenza MIT. Se preferisci clonare il repository e installartela da solo, è lì e non costa niente. Lo .zip a 7€ è la scorciatoia — e un modo per sostenere il lavoro.</div>
+      <div class="guide-link-desc">Licenza MIT. Se preferisci clonare il repository e installartela da solo, non costa niente: lascia l'email e ti mostro il link. Lo .zip a 7€ è la scorciatoia, oltre ad essere un modo per sostenere questo progetto.</div>
     </div>
-    <a href="https://github.com/gioenjoy/ats-cv-optimize/" class="guide-link-cta" target="_blank" rel="noopener">Vedi su GitHub &rarr;</a>
+    <div class="gh-gate is-locked" data-gh-gate>
+      <span class="gh-lock-chip" aria-hidden="true">🔒 Sblocca con l'email</span>
+      <div class="gh-gate-content">
+        <a href="#codice-aperto" data-gh-href class="guide-link-cta">Vedi su GitHub &rarr;</a>
+      </div>
+    </div>
+    <div style="flex-basis:100%;position:relative;z-index:1;">
+      <form class="gh-form on-dark" data-gh-form name="ats-cv-github" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/cv-ats-skill-claude/" novalidate>
+        <input type="hidden" name="form-name" value="ats-cv-github">
+        <input type="hidden" name="pagina" value="landing">
+        <p class="gh-hp"><label>Non compilare: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="gh-form-title">Lascia l'email per vedere il link al repository</div>
+        <div class="gh-form-row">
+          <input type="email" name="email" placeholder="La tua email" autocomplete="email" aria-label="Email" required>
+          <button type="submit">Sblocca &rarr;</button>
+        </div>
+        <label class="gh-consent">
+          <input type="checkbox" name="consenso" value="si" required>
+          <span>Ho letto la <a href="/privacy-cookie-policy.html" target="_blank" rel="noopener">privacy policy</a> e acconsento al trattamento dei dati per essere ricontattato in merito a questa richiesta.</span>
+        </label>
+        <div class="gh-msg" role="status" aria-live="polite"></div>
+      </form>
+      <p class="gh-done on-dark" data-gh-done hidden>✓ Sbloccato. Il repository è a un clic, qui sopra.</p>
+    </div>
   </div>
 </section>
 
@@ -729,7 +788,7 @@ footer a{color:rgba(255,255,255,.7);}
       <div class="plan-tagline">Il pacchetto .zip completo: la skill, i 9 file di riferimento sul mercato italiano, il renderer DOCX e gli esempi. Pronto da caricare su Claude.</div>
       <div class="plan-price">€7</div>
       <div class="plan-once">pagamento unico · accesso immediato</div>
-      <div class="plan-split-note">🔓 Prezzo simbolico, in chiaro: la skill è pubblica su <a href="https://github.com/gioenjoy/ats-cv-optimize/" target="_blank" rel="noopener">GitHub</a> con licenza MIT e chi vuole clonarla può farlo gratis. Qui paghi lo .zip già pronto, la guida e il fatto che il progetto continui.</div>
+      <div class="plan-split-note">🔓 Prezzo simbolico, in chiaro: la skill è pubblica su <a href="#codice-aperto">GitHub</a> con licenza MIT e chi vuole clonarla può farlo gratis. Qui paghi lo .zip già pronto, la guida e il fatto che il progetto continui.</div>
       <div class="plan-divider"></div>
       <ul class="plan-features">
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span><span>Ricostruzione del CV da PDF, DOCX, immagine o testo incollato</span></li>
@@ -774,7 +833,7 @@ footer a{color:rgba(255,255,255,.7);}
         </button>
         <div class="faq-a">
           <p>Perché sono due cose diverse, e preferisco dirlo prima che dopo.</p>
-          <p>Il codice è pubblico su <a href="https://github.com/gioenjoy/ats-cv-optimize/" target="_blank" rel="noopener">GitHub</a> con licenza MIT: se sai usare <code>git clone</code> e non ti spaventa copiare una cartella in <code>~/.claude/skills/</code>, prendila da lì e non pagare niente. È pensata per restare aperta.</p>
+          <p>Il codice è pubblico su <a href="#codice-aperto">GitHub</a> con licenza MIT: se sai usare <code>git clone</code> e non ti spaventa copiare una cartella in <code>~/.claude/skills/</code>, prendila da lì e non pagare niente. È pensata per restare aperta.</p>
           <p>I 7 euro sono per lo .zip già pronto da caricare, la guida all'uso in italiano e la manutenzione — i riferimenti su privacy, titoli di studio e parser di mercato vanno aggiornati nel tempo. È un prezzo simbolico: serve a far vivere il progetto, non a monetizzarlo.</p>
         </div>
       </div>
@@ -844,7 +903,7 @@ footer a{color:rgba(255,255,255,.7);}
 <section class="footer-cta">
   <div class="footer-cta-inner">
     <h2>Il prossimo CV lo legge <em>una persona, non un errore di parsing.</em></h2>
-    <p>7€ una tantum per lo .zip pronto all'uso e la guida. Oppure clonalo da GitHub: il codice è aperto, la scelta è tua.</p>
+    <p>7€ una tantum per lo .zip pronto all'uso e la guida. Oppure <a href="#codice-aperto" style="color:#fff;text-decoration:underline;">prendilo da GitHub</a>: il codice è aperto, la scelta è tua.</p>
     <a href="#prezzo" class="btn-primary">Acquista la skill &rarr;</a>
   </div>
 </section>
@@ -864,6 +923,46 @@ function toggleFaq(btn){
   if(!isOpen) item.classList.add('open');
 }
 document.querySelectorAll('[data-buy-btn]').forEach(function(a){ a.href = STRIPE_PAYMENT_LINK_URL; });
+</script>
+
+
+<!-- Gate GitHub: sblocca comandi e link al repo dopo l'invio dell'email (Netlify Forms) -->
+<script>
+(function(){
+  var KEY='atscv-github-unlocked', REPO='https://github.com/gioenjoy/ats-cv-optimize/';
+  function isUnlocked(){ try{ return localStorage.getItem(KEY)==='1'; }catch(e){ return false; } }
+  function remember(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function unlock(){
+    document.querySelectorAll('[data-gh-gate]').forEach(function(g){ g.classList.remove('is-locked'); });
+    document.querySelectorAll('[data-gh-href]').forEach(function(a){ a.href=REPO; a.target='_blank'; a.rel='noopener'; });
+    document.querySelectorAll('[data-gh-form]').forEach(function(f){ f.hidden=true; });
+    document.querySelectorAll('[data-gh-done]').forEach(function(d){ d.hidden=false; });
+  }
+  if(isUnlocked()) unlock();
+  document.querySelectorAll('[data-gh-form]').forEach(function(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=form.querySelector('input[name=email]'), cons=form.querySelector('input[name=consenso]');
+      var msg=form.querySelector('.gh-msg'), btn=form.querySelector('button[type=submit]');
+      var v=(email.value||'').trim();
+      msg.className='gh-msg'; msg.textContent='';
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ msg.className='gh-msg err'; msg.textContent="Controlla l'indirizzo email."; email.focus(); return; }
+      if(!cons.checked){ msg.className='gh-msg err'; msg.textContent='Serve il consenso al trattamento dei dati per procedere.'; return; }
+      var body=new URLSearchParams(new FormData(form)); body.set('email',v);
+      var label=btn.innerHTML; btn.disabled=true; btn.textContent='Un attimo…';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body.toString()})
+        .then(function(r){
+          if(!r.ok) throw new Error('HTTP '+r.status);
+          remember(); unlock();
+          if(typeof gtag==='function') gtag('event','generate_lead',{form_name:'ats-cv-github'});
+        })
+        .catch(function(){
+          btn.disabled=false; btn.innerHTML=label;
+          msg.className='gh-msg err'; msg.textContent='Invio non riuscito. Riprova tra poco o scrivimi a marketing@giovannirasulo.com.';
+        });
+    });
+  });
+})();
 </script>
 
 <!-- Cookie consent bar -->
